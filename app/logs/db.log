@@ -1,0 +1,2256 @@
+[Fri, 06 Feb 15 23:17:55 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime ORDER BY ntime
+[Fri, 06 Feb 15 23:18:33 +0200][INFO] SELECT offer , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer
+[Sat, 07 Feb 15 00:03:38 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 1
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 2
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='landpages'
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] DESCRIBE `landpages`
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] SELECT `landpages`.`id`, `landpages`.`name`, `landpages`.`url`, `landpages`.`good`, `landpages`.`total` FROM `landpages`
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='offers'
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] DESCRIBE `offers`
+[Sat, 07 Feb 15 00:03:39 +0200][INFO] SELECT `offers`.`id`, `offers`.`name`, `offers`.`url`, `offers`.`good`, `offers`.`total` FROM `offers`
+[Sat, 07 Feb 15 00:03:49 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='landpages'
+[Sat, 07 Feb 15 00:03:49 +0200][INFO] DESCRIBE `landpages`
+[Sat, 07 Feb 15 00:03:49 +0200][INFO] SELECT `landpages`.`id`, `landpages`.`name`, `landpages`.`url`, `landpages`.`good`, `landpages`.`total` FROM `landpages`
+[Sat, 07 Feb 15 00:03:49 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='offers'
+[Sat, 07 Feb 15 00:03:49 +0200][INFO] DESCRIBE `offers`
+[Sat, 07 Feb 15 00:03:49 +0200][INFO] SELECT `offers`.`id`, `offers`.`name`, `offers`.`url`, `offers`.`good`, `offers`.`total` FROM `offers`
+[Sat, 07 Feb 15 00:03:55 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:03:55 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:03:55 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains`
+[Sat, 07 Feb 15 00:03:55 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 00:03:55 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 00:03:55 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 00:03:55 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 1
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 2
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='landpages'
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] DESCRIBE `landpages`
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] SELECT `landpages`.`id`, `landpages`.`name`, `landpages`.`url`, `landpages`.`good`, `landpages`.`total` FROM `landpages`
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='offers'
+[Sat, 07 Feb 15 00:03:57 +0200][INFO] DESCRIBE `offers`
+[Sat, 07 Feb 15 00:03:58 +0200][INFO] SELECT `offers`.`id`, `offers`.`name`, `offers`.`url`, `offers`.`good`, `offers`.`total` FROM `offers`
+[Sat, 07 Feb 15 00:04:03 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:04:03 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:04:03 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 00:04:03 +0200][INFO] UPDATE `campains` SET `name` = ?, `traff_prs` = ?, `rotate` = ?, `rotate_vec` = ?, `landpages_arr` = ?, `offers_arr` = ?, `group_id` = ?, `source_id` = ?, `clicks` = ?, `ctr` = ?, `leads` = ?, `cvr` = ?, `epc` = ?, `cpc` = ?, `spent` = ?, `earned` = ? WHERE `id` = ?
+[Sat, 07 Feb 15 00:04:03 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:04:03 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:04:03 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 1
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 2
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='landpages'
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] DESCRIBE `landpages`
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] SELECT `landpages`.`id`, `landpages`.`name`, `landpages`.`url`, `landpages`.`good`, `landpages`.`total` FROM `landpages`
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='offers'
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] DESCRIBE `offers`
+[Sat, 07 Feb 15 00:04:04 +0200][INFO] SELECT `offers`.`id`, `offers`.`name`, `offers`.`url`, `offers`.`good`, `offers`.`total` FROM `offers`
+[Sat, 07 Feb 15 00:05:11 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:05:11 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:05:11 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains`
+[Sat, 07 Feb 15 00:05:11 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 00:05:12 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 00:05:12 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 00:05:12 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 00:05:37 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime ORDER BY ntime
+[Sat, 07 Feb 15 00:05:43 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:05:43 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:05:43 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains`
+[Sat, 07 Feb 15 00:05:43 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 00:05:43 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 00:05:43 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 00:05:43 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 1
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 2
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='landpages'
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] DESCRIBE `landpages`
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] SELECT `landpages`.`id`, `landpages`.`name`, `landpages`.`url`, `landpages`.`good`, `landpages`.`total` FROM `landpages`
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='offers'
+[Sat, 07 Feb 15 00:05:45 +0200][INFO] DESCRIBE `offers`
+[Sat, 07 Feb 15 00:05:46 +0200][INFO] SELECT `offers`.`id`, `offers`.`name`, `offers`.`url`, `offers`.`good`, `offers`.`total` FROM `offers`
+[Sat, 07 Feb 15 00:06:59 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime ORDER BY ntime
+[Sat, 07 Feb 15 00:07:02 +0200][INFO] SELECT offer , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer
+[Sat, 07 Feb 15 00:09:56 +0200][INFO] SELECT offer,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land,c3
+[Sat, 07 Feb 15 00:11:53 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:11:53 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:11:53 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains`
+[Sat, 07 Feb 15 00:11:53 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 00:11:53 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 00:11:54 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 00:11:54 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 00:11:58 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime ORDER BY ntime
+[Sat, 07 Feb 15 00:12:16 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 00:12:16 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 00:12:16 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 00:12:16 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 00:12:16 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 00:12:16 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 1
+[Sat, 07 Feb 15 00:12:17 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 2
+[Sat, 07 Feb 15 00:12:17 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='landpages'
+[Sat, 07 Feb 15 00:12:17 +0200][INFO] DESCRIBE `landpages`
+[Sat, 07 Feb 15 00:12:17 +0200][INFO] SELECT `landpages`.`id`, `landpages`.`name`, `landpages`.`url`, `landpages`.`good`, `landpages`.`total` FROM `landpages`
+[Sat, 07 Feb 15 00:12:17 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='offers'
+[Sat, 07 Feb 15 00:12:17 +0200][INFO] DESCRIBE `offers`
+[Sat, 07 Feb 15 00:12:17 +0200][INFO] SELECT `offers`.`id`, `offers`.`name`, `offers`.`url`, `offers`.`good`, `offers`.`total` FROM `offers`
+[Sat, 07 Feb 15 00:32:31 +0200][INFO] SELECT offer , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer
+[Sat, 07 Feb 15 00:33:33 +0200][INFO] SELECT offer , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer
+[Sat, 07 Feb 15 00:33:41 +0200][INFO] SELECT offer,land , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land
+[Sat, 07 Feb 15 00:34:39 +0200][INFO] SELECT offer,land , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land
+[Sat, 07 Feb 15 00:35:02 +0200][INFO] SELECT offer,land , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land
+[Sat, 07 Feb 15 00:35:55 +0200][INFO] SELECT offer,land , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land
+[Sat, 07 Feb 15 00:36:30 +0200][INFO] SELECT offer,land , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land
+[Sat, 07 Feb 15 00:36:56 +0200][INFO] SELECT offer,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land,c3
+[Sat, 07 Feb 15 00:39:43 +0200][INFO] SELECT c4,offer,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,offer,land,c3
+[Sat, 07 Feb 15 00:40:27 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:06:13 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted) as leads 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:12:01 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit,
+				SUM(converted) as leads 
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:12:35 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:16:17 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:16:48 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:17:41 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:17:57 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:18:27 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:18:41 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:19:04 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:19:28 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:21:25 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:23:09 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:23:09 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:23:09 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:23:09 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				FULL JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				FULL JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:23:19 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:23:19 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:23:19 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:23:19 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT FULL JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT FULL JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:23:36 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:23:36 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:23:36 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:23:36 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				FULL OUTER JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				FULL OUTER JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:24:28 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:24:28 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:24:28 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:24:28 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				FULL JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				FULL JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:27:14 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:27:14 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:27:14 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:27:14 +0200][INFO] SELECT c4,land,c3 , od.of_name , ld.lp_name ,
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:28:53 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:28:53 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:28:53 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:28:53 +0200][INFO] SELECT c4,land,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,land,c3
+[Sat, 07 Feb 15 01:29:04 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:29:04 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:29:04 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:29:04 +0200][INFO] SELECT c4,od.of_name,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,od.of_name,c3
+[Sat, 07 Feb 15 01:30:15 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:30:16 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:30:16 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains`
+[Sat, 07 Feb 15 01:30:16 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 01:30:16 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 01:30:16 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 01:30:16 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 01:30:17 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:30:17 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:30:17 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:30:17 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime ORDER BY ntime
+[Sat, 07 Feb 15 01:30:21 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:30:21 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:30:21 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:30:21 +0200][INFO] SELECT od.of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY od.of_name
+[Sat, 07 Feb 15 01:30:37 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:30:37 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:30:37 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:30:37 +0200][INFO] SELECT od.of_name,ld.lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY od.of_name,ld.lp_name
+[Sat, 07 Feb 15 01:32:23 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:32:23 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:32:23 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:32:23 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime ORDER BY ntime
+[Sat, 07 Feb 15 01:32:26 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:32:26 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:32:26 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:32:26 +0200][INFO] SELECT of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name
+[Sat, 07 Feb 15 01:32:42 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:32:42 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:32:42 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:32:42 +0200][INFO] SELECT of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,lp_name
+[Sat, 07 Feb 15 01:33:12 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:33:12 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:33:12 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:33:12 +0200][INFO] SELECT of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,lp_name
+[Sat, 07 Feb 15 01:33:18 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:33:18 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:33:18 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:33:18 +0200][INFO] SELECT land,of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY land,of_name,lp_name
+[Sat, 07 Feb 15 01:33:29 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:33:29 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:33:29 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:33:29 +0200][INFO] SELECT offer,of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,of_name,lp_name
+[Sat, 07 Feb 15 01:33:35 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:33:35 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:33:35 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:33:35 +0200][INFO] SELECT land,of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY land,of_name,lp_name
+[Sat, 07 Feb 15 01:33:41 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:33:41 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:33:41 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:33:41 +0200][INFO] SELECT offer,of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,of_name,lp_name
+[Sat, 07 Feb 15 01:34:31 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:34:31 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:34:31 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:34:31 +0200][INFO] SELECT offer,of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,of_name,lp_name ORDER BY created
+[Sat, 07 Feb 15 01:34:37 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:34:37 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:34:37 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:34:37 +0200][INFO] SELECT land,of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY land,of_name,lp_name ORDER BY created
+[Sat, 07 Feb 15 01:43:46 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:43:46 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:43:46 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:43:46 +0200][INFO] SELECT land,of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY land,of_name,lp_name ORDER BY created
+[Sat, 07 Feb 15 01:44:25 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:44:25 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:44:25 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:44:25 +0200][INFO] SELECT land,of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY land,of_name,lp_name ORDER BY created
+[Sat, 07 Feb 15 01:44:45 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:44:45 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:44:45 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:44:45 +0200][INFO] SELECT of_name,lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,lp_name ORDER BY created
+[Sat, 07 Feb 15 01:45:14 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:45:14 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:45:14 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:45:14 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as redir, 
+				SUM(view) as views , 
+				SUM(converted*0.65) as earn,
+				SUM(0.1) as spent,
+				SUM(converted) as conv 
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime 
+				ORDER BY ntime
+[Sat, 07 Feb 15 01:46:24 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:46:24 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:46:24 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:46:24 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime 
+				ORDER BY ntime
+[Sat, 07 Feb 15 01:48:30 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:48:30 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:48:30 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:48:30 +0200][INFO] SELECT lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name ORDER BY created
+[Sat, 07 Feb 15 01:48:40 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:48:40 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:48:41 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:48:41 +0200][INFO] SELECT of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name ORDER BY created
+[Sat, 07 Feb 15 01:48:45 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:48:45 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:48:45 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:48:45 +0200][INFO] SELECT lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name ORDER BY created
+[Sat, 07 Feb 15 01:48:59 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:48:59 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:48:59 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:48:59 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:49:17 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:49:17 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:49:17 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:49:17 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:50:20 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:50:20 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:50:20 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:50:20 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:50:30 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:50:30 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:50:30 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:50:30 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:51:05 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:51:05 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:51:05 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:51:05 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:51:18 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:51:18 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:51:18 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:51:18 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:54:38 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:54:38 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:54:38 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:54:38 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:54:42 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:54:42 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:54:42 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:54:42 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:55:37 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:55:37 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:55:37 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:55:37 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:56:23 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:56:23 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:56:23 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:56:23 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:56:39 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:56:39 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:56:40 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:56:40 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:57:12 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:57:13 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:57:13 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:57:13 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 01:58:20 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 01:58:20 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 01:58:20 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 01:58:20 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:24:06 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:24:07 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:24:07 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:24:07 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:24:19 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:24:19 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:24:19 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:24:19 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:24:50 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:24:50 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:24:50 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:24:50 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:36:15 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:36:15 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:36:15 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:36:15 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:40:00 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:40:00 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:40:00 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:40:00 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:40:33 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:40:33 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:40:33 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:40:33 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:43:05 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:43:05 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:43:05 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:43:05 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:43:47 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:43:47 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:43:47 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:43:47 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:44:21 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:44:21 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:44:21 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:44:21 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:45:33 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:45:33 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:45:33 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:45:33 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:46:04 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:46:04 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:46:04 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:46:04 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:46:30 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:46:30 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:46:30 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:46:30 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:47:15 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:47:15 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:47:15 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:47:15 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:47:42 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:47:42 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:47:42 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:47:42 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:47:57 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:47:57 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:47:57 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:47:57 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:49:16 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:49:16 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:49:16 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:49:16 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:55:18 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:55:18 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:55:18 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:55:18 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:58:19 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:58:19 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:58:19 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:58:19 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 02:58:54 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 02:58:54 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 02:58:54 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 02:58:54 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 03:00:04 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:00:04 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:00:04 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:00:05 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 03:00:25 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:00:25 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:00:25 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:00:25 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 03:00:34 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:00:34 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:00:34 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:00:34 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 03:01:58 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:01:58 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:01:58 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:01:58 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 03:02:09 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:02:09 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:02:09 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:02:09 +0200][INFO] SELECT land,offer,lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY land,offer,lp_name,of_name ORDER BY created
+[Sat, 07 Feb 15 03:02:34 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:02:34 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:02:34 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:02:34 +0200][INFO] SELECT land,offer , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY land,offer ORDER BY created
+[Sat, 07 Feb 15 03:02:59 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:02:59 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:02:59 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:03:00 +0200][INFO] SELECT land,offer , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY land,offer ORDER BY created
+[Sat, 07 Feb 15 03:03:05 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:03:05 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:03:05 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:03:05 +0200][INFO] SELECT land,offer , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY land,offer ORDER BY created
+[Sat, 07 Feb 15 03:03:13 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:03:13 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:03:13 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:03:13 +0200][INFO] SELECT offer,land , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land ORDER BY created
+[Sat, 07 Feb 15 03:03:20 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:03:20 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:03:20 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:03:20 +0200][INFO] SELECT offer,land , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land ORDER BY created
+[Sat, 07 Feb 15 03:10:12 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:10:12 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:10:12 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:10:12 +0200][INFO] SELECT offer,land , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land ORDER BY created
+[Sat, 07 Feb 15 03:10:24 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:10:24 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:10:24 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:10:24 +0200][INFO] SELECT offer,land , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,land ORDER BY created
+[Sat, 07 Feb 15 03:10:32 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:10:32 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:10:32 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:10:32 +0200][INFO] SELECT offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:10:57 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:10:57 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:10:57 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:10:57 +0200][INFO] SELECT offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:12:37 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:12:37 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:12:37 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:12:37 +0200][INFO] SELECT offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:17:17 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:17:17 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:17:17 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:17:17 +0200][INFO] SELECT offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:18:49 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:18:49 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:18:49 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:18:49 +0200][INFO] SELECT offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:22:09 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:22:09 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:22:09 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:22:09 +0200][INFO] SELECT offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:22:40 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:22:40 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:22:40 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:22:40 +0200][INFO] SELECT offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:23:00 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:23:00 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:23:00 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:23:00 +0200][INFO] SELECT offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:23:15 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:23:15 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:23:15 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:23:15 +0200][INFO] SELECT c4,offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:31:58 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:31:59 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:31:59 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:31:59 +0200][INFO] SELECT c4,offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:32:59 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:32:59 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:33:00 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:33:00 +0200][INFO] SELECT c4,offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:33:41 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:33:41 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:33:41 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:33:41 +0200][INFO] SELECT c4,offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:34:44 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:34:44 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:34:44 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:34:44 +0200][INFO] SELECT c4,offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:36:26 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:36:26 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:36:26 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:36:26 +0200][INFO] SELECT c4,offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:36:31 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:36:31 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:36:31 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:36:31 +0200][INFO] SELECT c4,offer,c3 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c4,offer,c3 ORDER BY created
+[Sat, 07 Feb 15 03:36:37 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:36:37 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:36:37 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:36:37 +0200][INFO] SELECT c3,c4,offer , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY c3,c4,offer ORDER BY created
+[Sat, 07 Feb 15 03:36:52 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:36:52 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:36:52 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:36:52 +0200][INFO] SELECT of_name,c3,c4,offer , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,c3,c4,offer ORDER BY created
+[Sat, 07 Feb 15 03:37:21 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:37:22 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:37:22 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:37:22 +0200][INFO] SELECT of_name,c3,c4 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,c3,c4 ORDER BY created
+[Sat, 07 Feb 15 03:37:27 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:37:27 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:37:27 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:37:27 +0200][INFO] SELECT of_name,c3,c4 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,c3,c4 ORDER BY created
+[Sat, 07 Feb 15 03:39:50 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 03:39:50 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 03:39:50 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 03:39:50 +0200][INFO] SELECT of_name,c3,c4 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,c3,c4 ORDER BY created
+[Sat, 07 Feb 15 15:08:29 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 15:08:29 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 15:08:29 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 15:08:29 +0200][INFO] SELECT of_name,c3,c4 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,c3,c4 ORDER BY created
+[Sat, 07 Feb 15 15:08:43 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 15:08:43 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 15:08:43 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 15:08:44 +0200][INFO] SELECT of_name,c3,c4 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,c3,c4 ORDER BY created
+[Sat, 07 Feb 15 19:53:51 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 19:53:51 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 19:53:51 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 1 LIMIT 1
+[Sat, 07 Feb 15 19:53:51 +0200][INFO] SELECT of_name,c3,c4 , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY of_name,c3,c4 ORDER BY created
+[Sat, 07 Feb 15 19:53:55 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sat, 07 Feb 15 19:53:56 +0200][INFO] DESCRIBE `campains`
+[Sat, 07 Feb 15 19:53:56 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains`
+[Sat, 07 Feb 15 19:53:56 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sat, 07 Feb 15 19:53:56 +0200][INFO] DESCRIBE `camp_props`
+[Sat, 07 Feb 15 19:53:56 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sat, 07 Feb 15 19:53:56 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 18:16:04 +0200][INFO] SELECT match_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 18:16:23 +0200][INFO] SELECT map_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 18:16:23 +0200][INFO] SELECT id,url FROM landpages WHERE id = ?
+[Sun, 08 Feb 15 18:16:23 +0200][INFO] SELECT id,url FROM landpages ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:16:23 +0200][INFO] SELECT id,url FROM offers WHERE id = ?
+[Sun, 08 Feb 15 18:16:23 +0200][INFO] SELECT id,url FROM offers ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:16:23 +0200][INFO] INSERT INTO svm_collect(ip,offer,land,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,created) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
+[Sun, 08 Feb 15 18:18:15 +0200][INFO] SELECT map_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 18:18:15 +0200][INFO] SELECT id,url FROM landpages WHERE id = ?
+[Sun, 08 Feb 15 18:18:15 +0200][INFO] SELECT id,url FROM landpages ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:18:15 +0200][INFO] SELECT id,url FROM offers WHERE id = ?
+[Sun, 08 Feb 15 18:18:15 +0200][INFO] SELECT id,url FROM offers ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:18:15 +0200][INFO] INSERT INTO svm_collect(ip,offer,land,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,created) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
+[Sun, 08 Feb 15 18:19:54 +0200][INFO] SELECT map_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 18:19:54 +0200][INFO] SELECT id,url FROM landpages WHERE id = ?
+[Sun, 08 Feb 15 18:19:54 +0200][INFO] SELECT id,url FROM landpages ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:19:54 +0200][INFO] SELECT id,url FROM offers WHERE id = ?
+[Sun, 08 Feb 15 18:19:54 +0200][INFO] SELECT id,url FROM offers ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:19:54 +0200][INFO] INSERT INTO svm_collect(ip,offer,land,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,created) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
+[Sun, 08 Feb 15 18:20:16 +0200][INFO] SELECT map_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 18:20:16 +0200][INFO] SELECT id,url FROM landpages WHERE id = ?
+[Sun, 08 Feb 15 18:20:16 +0200][INFO] SELECT id,url FROM landpages ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:20:16 +0200][INFO] SELECT id,url FROM offers WHERE id = ?
+[Sun, 08 Feb 15 18:20:16 +0200][INFO] SELECT id,url FROM offers ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:20:17 +0200][INFO] INSERT INTO svm_collect(ip,offer,land,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,created) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
+[Sun, 08 Feb 15 18:26:00 +0200][INFO] SELECT map_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 18:26:00 +0200][INFO] SELECT id,url FROM landpages WHERE id = ?
+[Sun, 08 Feb 15 18:26:00 +0200][INFO] SELECT id,url FROM landpages ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:26:00 +0200][INFO] SELECT id,url FROM offers WHERE id = ?
+[Sun, 08 Feb 15 18:26:00 +0200][INFO] SELECT id,url FROM offers ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:26:00 +0200][INFO] INSERT INTO svm_collect(ip,offer,land,view,cpc,payout,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,created) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
+[Sun, 08 Feb 15 18:26:26 +0200][INFO] SELECT map_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 18:26:26 +0200][INFO] SELECT id,url FROM landpages WHERE id = ?
+[Sun, 08 Feb 15 18:26:26 +0200][INFO] SELECT id,url FROM landpages ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:26:26 +0200][INFO] SELECT id,url FROM offers WHERE id = ?
+[Sun, 08 Feb 15 18:26:26 +0200][INFO] SELECT id,url FROM offers ORDER BY total LIMIT 1
+[Sun, 08 Feb 15 18:26:26 +0200][INFO] INSERT INTO svm_collect(camp_id,ip,offer,land,view,cpc,payout,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,created) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
+[Sun, 08 Feb 15 19:45:12 +0200][INFO] SELECT map_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 19:45:12 +0200][INFO] SELECT id,url FROM landpages WHERE id = ?
+[Sun, 08 Feb 15 19:45:12 +0200][INFO] SELECT id,url FROM offers WHERE id = ?
+[Sun, 08 Feb 15 19:45:12 +0200][INFO] INSERT INTO svm_collect(camp_id,ip,offer,land,view,cpc,payout,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,created) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
+[Sun, 08 Feb 15 19:46:10 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 19:46:10 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 19:46:10 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains`
+[Sun, 08 Feb 15 19:46:10 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sun, 08 Feb 15 19:46:10 +0200][INFO] DESCRIBE `camp_props`
+[Sun, 08 Feb 15 19:46:10 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 19:46:10 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 19:46:10 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 19:46:10 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] DESCRIBE `camp_props`
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 1
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`type` = 2
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='landpages'
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] DESCRIBE `landpages`
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] SELECT `landpages`.`id`, `landpages`.`name`, `landpages`.`url`, `landpages`.`good`, `landpages`.`total` FROM `landpages`
+[Sun, 08 Feb 15 19:46:18 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='offers'
+[Sun, 08 Feb 15 19:46:19 +0200][INFO] DESCRIBE `offers`
+[Sun, 08 Feb 15 19:46:19 +0200][INFO] SELECT `offers`.`id`, `offers`.`name`, `offers`.`url`, `offers`.`good`, `offers`.`total` FROM `offers`
+[Sun, 08 Feb 15 19:49:24 +0200][INFO] SELECT map_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 19:49:24 +0200][INFO] SELECT id,url FROM landpages WHERE id = ?
+[Sun, 08 Feb 15 19:49:24 +0200][INFO] SELECT id,url FROM offers WHERE id = ?
+[Sun, 08 Feb 15 19:49:24 +0200][INFO] INSERT INTO svm_collect(camp_id,ip,offer,land,view,cpc,payout,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,created) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
+[Sun, 08 Feb 15 19:58:48 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 19:58:48 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 19:58:48 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains`
+[Sun, 08 Feb 15 19:58:48 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sun, 08 Feb 15 19:58:48 +0200][INFO] DESCRIBE `camp_props`
+[Sun, 08 Feb 15 19:58:48 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 19:58:48 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 19:58:48 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 19:58:48 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 19:58:51 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 19:58:51 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 19:58:51 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 19:58:51 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime 
+				ORDER BY ntime
+[Sun, 08 Feb 15 19:59:26 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 19:59:26 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 19:59:26 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 19:59:26 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sun, 08 Feb 15 19:59:36 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 19:59:36 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 19:59:36 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 19:59:36 +0200][INFO] SELECT lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name ORDER BY created
+[Sun, 08 Feb 15 19:59:53 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 19:59:53 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 19:59:53 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 19:59:53 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sun, 08 Feb 15 20:01:02 +0200][INFO] SELECT map_id FROM svm_remap WHERE name = ? AND c_n = ? AND camp_id = ?
+[Sun, 08 Feb 15 20:01:02 +0200][INFO] SELECT id,url FROM landpages WHERE id = ?
+[Sun, 08 Feb 15 20:01:02 +0200][INFO] SELECT id,url FROM offers WHERE id = ?
+[Sun, 08 Feb 15 20:01:02 +0200][INFO] INSERT INTO svm_collect(camp_id,ip,offer,land,view,cpc,payout,c1,c2,c3,c4,c5,c6,c7,c8,c9,c10,created) VALUES (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)
+[Sun, 08 Feb 15 20:08:36 +0200][INFO] UPDATE svm_collect SET view = 1 WHERE id = ? AND view<>1
+[Sun, 08 Feb 15 20:08:44 +0200][INFO] UPDATE svm_collect SET view = 1 WHERE id = ? AND view<>1
+[Sun, 08 Feb 15 20:09:11 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 20:09:11 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 20:09:11 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 20:09:11 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sun, 08 Feb 15 20:14:27 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='landpages'
+[Sun, 08 Feb 15 20:14:27 +0200][INFO] DESCRIBE `landpages`
+[Sun, 08 Feb 15 20:14:27 +0200][INFO] SELECT `landpages`.`id`, `landpages`.`name`, `landpages`.`url`, `landpages`.`good`, `landpages`.`total` FROM `landpages`
+[Sun, 08 Feb 15 20:14:27 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='offers'
+[Sun, 08 Feb 15 20:14:27 +0200][INFO] DESCRIBE `offers`
+[Sun, 08 Feb 15 20:14:27 +0200][INFO] SELECT `offers`.`id`, `offers`.`name`, `offers`.`url`, `offers`.`good`, `offers`.`total` FROM `offers`
+[Sun, 08 Feb 15 20:24:15 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 20:24:15 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 20:24:15 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 20:24:15 +0200][INFO] SELECT lp_name,of_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name,of_name ORDER BY created
+[Sun, 08 Feb 15 20:30:27 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 20:30:28 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 20:30:28 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 20:30:28 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime 
+				ORDER BY ntime
+[Sun, 08 Feb 15 20:32:11 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 20:32:11 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 20:32:11 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 20:32:11 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime 
+				ORDER BY ntime
+[Sun, 08 Feb 15 20:39:29 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 20:39:29 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 20:39:29 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains`
+[Sun, 08 Feb 15 20:39:29 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='camp_props'
+[Sun, 08 Feb 15 20:39:29 +0200][INFO] DESCRIBE `camp_props`
+[Sun, 08 Feb 15 20:39:29 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 20:39:29 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 20:39:29 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 20:39:29 +0200][INFO] SELECT `camp_props`.`id`, `camp_props`.`type`, `camp_props`.`name` FROM `camp_props` WHERE `camp_props`.`id` = :1 LIMIT 1
+[Sun, 08 Feb 15 20:39:32 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 20:39:32 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 20:39:32 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 20:39:32 +0200][INFO] SELECT 
+				DATE_FORMAT( FROM_UNIXTIME(  `created` ) , 
+				GET_FORMAT( DATE,  'ISO' ) ) AS ntime , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect 
+				WHERE camp_id=?
+				
+				GROUP BY ntime 
+				ORDER BY ntime
+[Sun, 08 Feb 15 20:39:38 +0200][INFO] SELECT IF(COUNT(*)>0, 1 , 0) FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_NAME`='campains'
+[Sun, 08 Feb 15 20:39:38 +0200][INFO] DESCRIBE `campains`
+[Sun, 08 Feb 15 20:39:38 +0200][INFO] SELECT `campains`.`id`, `campains`.`name`, `campains`.`traff_prs`, `campains`.`rotate`, `campains`.`rotate_vec`, `campains`.`landpages_arr`, `campains`.`offers_arr`, `campains`.`group_id`, `campains`.`source_id`, `campains`.`clicks`, `campains`.`ctr`, `campains`.`leads`, `campains`.`cvr`, `campains`.`epc`, `campains`.`cpc`, `campains`.`payout`, `campains`.`spent`, `campains`.`earned` FROM `campains` WHERE `campains`.`id` = 2 LIMIT 1
+[Sun, 08 Feb 15 20:39:38 +0200][INFO] SELECT lp_name , 
+				COUNT(*) as clicks, 
+				SUM(view) as views , 
+				SUM(converted) as leads, 
+				SUM(converted*payout) as rev,
+				SUM(cpc) as cost,
+				SUM(converted*payout - cpc) as profit
+				FROM svm_collect as t 
+				LEFT JOIN (select id,name AS of_name from offers) AS od ON od.id = t.offer
+				LEFT JOIN (select id,name AS lp_name from landpages) AS ld ON ld.id = t.land
+				WHERE camp_id=? 
+				
+				GROUP BY lp_name ORDER BY created

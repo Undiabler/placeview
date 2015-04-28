@@ -1,0 +1,65 @@
+<?php 
+
+
+function treeput($rows,$count,$level=0){
+    // echo('<pre>');
+    // var_dump($rows);
+    // exit();
+    $tds_str=str_repeat('<td></td>',$count-$level-1);
+    $lvl_str=str_repeat('<td class="white_bg"></td>',$level);
+
+    if (array_key_exists('sub_data', $rows[array_keys($rows)[0]])) {
+
+            foreach ($rows as $key => $value) {
+            
+                $tdd_g='';
+                foreach ($value['group_data'] as $sw => $td) {
+                    $cl=Tools::parse_col($td,$sw);
+                    $tdd_g.="<td class='lgreen $cl'>$td</td>";
+                    
+                }
+                
+                $tds_str=str_repeat('<td></td>',$count-$level-1-count($value['group_data']));
+                echo("<tr class=\"grouped\">$lvl_str<td>$key</td>$tds_str$tdd_g</tr>");
+                treeput($value['sub_data'],$count,$level+1);
+            }
+
+    } else {
+
+            foreach ($rows as $one) {
+                # code...
+                echo '<tr>'.$lvl_str;
+              
+                  foreach ($one as $sw=>$td) { 
+                    $cl=Tools::parse_col($td,$sw);
+                    echo "<td class='$cl'>$td</td>";
+                } 
+                echo '</tr>';
+            }
+    }
+
+
+}
+
+if ($grouped) {
+
+    // foreach ($rows as $key => $value) {
+        treeput($rows,$count);
+    // }
+    
+
+    } else { 
+
+        foreach ($rows as $key=>$one1) {
+
+    ?>
+
+            <tr>
+            <?php foreach ($one1 as $td) { ?>
+                <td><?php echo $td; ?></td>
+            <?php } ?>
+            </tr>
+
+    <?php } 
+
+    } ?>
