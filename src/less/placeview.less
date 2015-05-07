@@ -5,7 +5,7 @@
 @light_grey : #e0e0e0;
 @pictogramm_size : 14pt;
 @social_size : 15pt;
-@indent_widget_screen : 20px;
+@indent_widget_screen : 40px;
 @indent_widget_screen_h : 80px;
 @g-plus-color : #d34836;
 @facebook-color : #3b5998;
@@ -15,15 +15,27 @@
 @vine-color : #00bf8f;
 @vk-color : #45668e;
 @share-color : #6AA84F;
+@fixed_menu_height : 70px;
+@me_border_width : 2px;
+@me_border_color : yellowgreen;
+@me_base_size : 38px;
 
-.invert {
-	background: @dark_background;
-	color: @light_grey;
+body {
+	margin-bottom: 0;
+}
+
+.box_style {
 	border-color: @navbar-inverse-toggle-border-color;
 	-webkit-box-shadow: @carousel-text-shadow;
 	box-shadow: @carousel-text-shadow;
 	margin-bottom: 2px;
 	border-radius: @border-radius-small;
+}
+
+.invert {
+	.box_style;
+	background: @dark_background;
+	color: @light_grey;
 	a {
 		color: @light_grey;
 	}
@@ -31,11 +43,14 @@
 		color: @accent-base;
 	}
 }
+#menu-spacer{
+	height: @fixed_menu_height;
+}
 .small_padding{
 	padding: @padding-xs-horizontal;
 }
 .spacer {
-	height:70px;
+	height:@fixed_menu_height;
 }
 .navbar-brand img {
 	width: 130px
@@ -130,33 +145,56 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 }
 //new valid code
 .map_container {
-	position: absolute;
+	position: fixed;
 	height: 100%;
 	width: 100%;
 }
 
 .me_container {
-	position: absolute;
-	right: 20px;
+	position: fixed;
+	right: @indent_widget_screen;
 	top:@indent_widget_screen_h;
 }
 .me {
 	.invert;
 	font-size: @pictogramm_size;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
+	width: @me_base_size + @me_border_width;
+	height: @me_base_size + @me_border_width;
+	line-height: @me_border_width + @me_base_size;
 	border-radius: @indent_widget_screen;
 	text-align: center;
 	cursor: pointer;
 }
+.me.active{
+	border: @me_border_width solid @me_border_color;
+	color:  @me_border_color;
+	line-height: @me_base_size;
+}
 .socials_container {
+	.box_style ;
+	overflow:hidden;
+	position: fixed;
+	bottom: 40px;
+	left: @indent_widget_screen;
+	a{
+		color:@light_grey;
+	}
+	.social{
+		opacity: 0.5;
+	}
+	.social:hover{
+		opacity: 1;
+	}
+}
+.advert_container {
 	.invert;
-	position: absolute;
-	bottom: 20px;
+	position:fixed;
+	padding: @padding-xs-horizontal;
+	bottom: 5px;
 	left: @indent_widget_screen;
 }
 .socials_container {
+	line-height: 30px;
 	.g-plus {
 		background: @g-plus-color;
 	}
@@ -181,24 +219,21 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	.share {
 		background: @share-color
 	}
-
-}
-.socials_container{
-	line-height: 30px;
-}
-.social {
-	float: left;
-	color: @light_grey;
-	font-size: @social_size;
-	
-	width: 30px;
-	height: 30px;
-	line-height: 30px;
-
-	text-align: center;
-	a:hover {
+	.social {
+		float: left;
 		color: @light_grey;
+		font-size: @social_size;
+		
+		width: 30px;
+		height: 30px;
+		line-height: 30px;
+
+		text-align: center;
+		a:hover {
+			color: @light_grey;
+		}
 	}
+
 }
 .filters {
 	.invert;
@@ -216,5 +251,67 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	}
 	a.active {
 		background: rgba(255,255,255,0.2);
+	}
+}
+.pano_feed {
+	margin: @indent_widget_screen_h - 20;
+	min-width: 700px;
+	.pano_container {
+		float:left;
+		width: 33%;
+	}
+	.pano_item {
+		.box_style;
+		float: left;
+		overflow: hidden;
+		padding-bottom: 5px;
+		margin: 10px;
+		margin-bottom: 20px;
+	}
+	.pano_previe {
+		height: 180px;
+		overflow: hidden;
+	}
+	.pano_item{
+		margin: 10px;
+		.description {
+			padding: @padding-xs-horizontal;
+			float: left;
+			width: 85%;
+		}
+		.social {
+			float: left;
+			width: 15%;
+			a{
+				display: block;
+				padding: @padding-xs-horizontal;
+			}
+		}
+		.author{
+			padding: @padding-xs-horizontal;
+			.avatar {
+				float: left;
+				width: 40px;
+				height: 40px;
+				border-radius: 20px;
+				overflow: hidden;
+				border: 2px solid @light_grey;
+			}
+			.name {
+				float: left;
+			}
+			.tags {
+				float: right;
+				width: 50%;
+				a:before{
+					content: "#";
+				}
+			}
+		}
+	}
+	.spacer {
+		width: 100%;
+		height: 70px;
+		overflow: hidden;
 	}
 }
