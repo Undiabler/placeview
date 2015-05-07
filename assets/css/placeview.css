@@ -1,0 +1,352 @@
+/*
+// Blue Grey color scheme
+// ----------------
+
+@primary-light:    #CFD8DC;
+@primary-base:     #607D8B;
+@primary-dark:     #37474F; // Navbar and footer background
+
+@accent-light: 	   #FF8A80;
+@accent-base:      #FF5252; // Brand primary color
+@accent-dark:      #FF1744;
+
+@navbar-link-custom:     @primary-light;
+@navbar-text-custom:     @primary-light;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     @primary-light;
+
+
+// Blue color scheme
+// -----------------
+
+@primary-light:    #4FC3F7;
+@primary-base:     #03A9F4;
+@primary-dark:     #0288D1; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     white;
+
+
+// Cyan color scheme
+// ------------------
+
+@primary-light:    #4DD0E1;
+@primary-base:     #00BCD4;
+@primary-dark:     #00838F; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-light;
+@topbar-link-custom:     white;
+
+
+// Teal color scheme
+// ------------------
+
+@primary-light:    #4DB6AC;
+@primary-base:     #009688;
+@primary-dark:     #00695C; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     white;
+
+
+// Green color scheme
+// ------------------
+
+@primary-light:    #81C784;
+@primary-base:     #4CAF50;
+@primary-dark:     #2E7D32; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     white;
+
+
+// Light Green color scheme
+// ------------------
+
+@primary-light:    #AED581;
+@primary-base:     #8BC34A;
+@primary-dark:     #558B2F; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     white;
+*/
+.invert {
+  background: rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  border-color: #333333;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  margin-bottom: 2px;
+  border-radius: 3px;
+}
+.invert a {
+  color: #e0e0e0;
+}
+.invert a:hover {
+  color: #ff5722;
+}
+.small_padding {
+  padding: 5px;
+}
+.spacer {
+  height: 70px;
+}
+.navbar-brand img {
+  width: 130px;
+}
+#map-canvas {
+  overflow: hidden;
+}
+#map-canvas img {
+  height: 100%;
+}
+.find-form {
+  overflow: hidden;
+}
+.find-form i {
+  color: black;
+}
+form.find-form {
+  background: white;
+  border-radius: 20px;
+}
+form.find-form button {
+  margin-left: -18px;
+}
+form.find-form input {
+  border: none;
+}
+form.find-form button,
+form.find-form button:hover,
+form.find-form button:focus {
+  border: none;
+  background: none;
+}
+.menu_container {
+  position: fixed;
+  left: 20px;
+  top: 80px;
+}
+.hover_menu {
+  width: 350px;
+}
+.hover_menu button {
+  background: rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  border-color: #333333;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  margin-bottom: 2px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  float: left;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  position: relative;
+  padding: 10px 10px;
+}
+.hover_menu button a {
+  color: #e0e0e0;
+}
+.hover_menu button a:hover {
+  color: #ff5722;
+}
+.hover_menu .icon-bar {
+  margin-top: 4px;
+  background-color: #e0e0e0;
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+}
+.hover_menu .menu_body {
+  background: rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  border-color: #333333;
+  margin-bottom: 2px;
+  border-radius: 3px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  display: none;
+}
+.hover_menu .menu_body a {
+  color: #e0e0e0;
+}
+.hover_menu .menu_body a:hover {
+  color: #ff5722;
+}
+.hover_menu .menu_body table {
+  color: #e0e0e0;
+}
+.hover_menu .menu_body table tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+.hover_menu .menu_body table tr:last-child {
+  border-bottom: none;
+}
+.hover_menu .menu_body table td {
+  padding: 4px;
+}
+.hover_menu .menu_body table td.pictogramm {
+  background-color: #ff5722;
+  font-size: 14pt;
+  text-align: center;
+  width: 45px;
+  cursor: pointer;
+}
+.hover_menu .menu_body table td.group_name {
+  width: 88px;
+  padding: 8px;
+}
+.map_container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.me_container {
+  position: absolute;
+  right: 20px;
+  top: 80px;
+}
+.me {
+  background: rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  border-color: #333333;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  margin-bottom: 2px;
+  border-radius: 3px;
+  font-size: 14pt;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.me a {
+  color: #e0e0e0;
+}
+.me a:hover {
+  color: #ff5722;
+}
+.socials_container {
+  background: rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  border-color: #333333;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  margin-bottom: 2px;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+.socials_container a {
+  color: #e0e0e0;
+}
+.socials_container a:hover {
+  color: #ff5722;
+}
+.socials_container .g-plus {
+  background: #d34836;
+}
+.socials_container .facebook {
+  background: #3b5998;
+}
+.socials_container .pinterest {
+  background: #cb2027;
+}
+.socials_container .twitter {
+  background: #4099ff;
+}
+.socials_container .youtube {
+  background: #bb0000;
+}
+.socials_container .vine {
+  background: #00bf8f;
+}
+.socials_container .vk {
+  background: #45668e;
+}
+.socials_container .share {
+  background: #6aa84f;
+}
+.socials_container {
+  line-height: 30px;
+}
+.social {
+  float: left;
+  color: #e0e0e0;
+  font-size: 15pt;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+}
+.social a:hover {
+  color: #e0e0e0;
+}
+.filters {
+  background: rgba(0, 0, 0, 0.6);
+  color: #e0e0e0;
+  border-color: #333333;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  margin-bottom: 2px;
+  margin-left: 2px;
+  float: left;
+  border-radius: 3px;
+  height: 40px;
+  line-height: 40px;
+  width: 303px;
+}
+.filters a {
+  color: #e0e0e0;
+}
+.filters a:hover {
+  color: #ff5722;
+}
+.filters a {
+  float: left;
+  padding-left: 7px;
+  padding-right: 7px;
+  text-align: center;
+}
+.filters a.active {
+  background: rgba(255, 255, 255, 0.2);
+}

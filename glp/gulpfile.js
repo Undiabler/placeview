@@ -1,5 +1,6 @@
 var fs = require('fs'),
 	path = require('path'),
+  less = require('gulp-less'),
 	// cache = require('gulp-cached'),
   filesize = require('gulp-size'),
   minifyCSS = require('gulp-minify-css'),
@@ -26,6 +27,9 @@ function getFolders(dir){
 
 var scriptsPath = './../src/js/';
 var scriptsDest = './../assets/js/';
+
+
+
 
     // gulp.src(['./../js/**/*.js'],{base: './'})
     //     .pipe(concat('engine.js'))
@@ -84,6 +88,22 @@ gulp.task('css', function () {
 
 });
 
+// Compile Our Bootstrap Less
+gulp.task('bootstrap', function() {
+    return gulp.src('src/less/bootstrap/bootstrap.less')
+        .pipe(less())
+        .pipe(gulp.dest(cssDest));
+});
+
+// Compile My Less
+
+gulp.task('MyLESS', function() {
+    return gulp.src('src/less/placeview.less')
+        .pipe(less())
+        .pipe(gulp.dest(cssDest));
+});
+
 gulp.task('watch', function(){
   gulp.watch(['./../src/js/**/*.js'], ['build']);
 });
+gulp.task('default', ['build', 'bootstrap', 'MyLESS']);

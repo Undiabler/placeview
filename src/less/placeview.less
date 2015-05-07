@@ -1,0 +1,220 @@
+@import "bootstrap/variables.less";
+@import "colors.less";
+
+@dark_background : rgba(0, 0, 0, 0.6);
+@light_grey : #e0e0e0;
+@pictogramm_size : 14pt;
+@social_size : 15pt;
+@indent_widget_screen : 20px;
+@indent_widget_screen_h : 80px;
+@g-plus-color : #d34836;
+@facebook-color : #3b5998;
+@pinterest-color : #cb2027;
+@twitter-color : #4099FF;
+@youtube-color : #bb0000;
+@vine-color : #00bf8f;
+@vk-color : #45668e;
+@share-color : #6AA84F;
+
+.invert {
+	background: @dark_background;
+	color: @light_grey;
+	border-color: @navbar-inverse-toggle-border-color;
+	-webkit-box-shadow: @carousel-text-shadow;
+	box-shadow: @carousel-text-shadow;
+	margin-bottom: 2px;
+	border-radius: @border-radius-small;
+	a {
+		color: @light_grey;
+	}
+	a:hover {
+		color: @accent-base;
+	}
+}
+.small_padding{
+	padding: @padding-xs-horizontal;
+}
+.spacer {
+	height:70px;
+}
+.navbar-brand img {
+	width: 130px
+}
+#map-canvas {
+	overflow: hidden;
+}
+#map-canvas img {
+	height: 100%;
+}
+.find-form {
+	overflow: hidden;
+}
+.find-form i {
+	color: black;
+}
+form.find-form {
+	background: white;
+	border-radius: 20px;
+}
+form.find-form button {
+	margin-left: -18px;
+} 
+form.find-form input {
+	border: none;
+}
+form.find-form button, form.find-form button:hover, form.find-form button:focus {
+	border: none;
+	background: none;
+}
+.menu_container {
+	position: fixed;
+	left: @indent_widget_screen;
+	top: @indent_widget_screen_h;
+}
+.hover_menu {
+	width: 350px;
+}
+.hover_menu button {
+	.invert;
+	border: 1px solid transparent;
+	float:left;
+	-webkit-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+	position: relative;
+	padding: @padding-small-horizontal @padding-large-vertical;
+}
+.hover_menu .icon-bar {
+	margin-top: 4px;
+	background-color: #e0e0e0;
+	display: block;
+	width: 22px;
+	height: 2px;
+	border-radius: 1px;
+}
+.hover_menu .menu_body {
+	.invert;
+	width: 100%;
+	overflow: hidden;
+	border-radius: @border-radius-base;
+
+	
+	-webkit-box-shadow: @carousel-text-shadow;
+	box-shadow: @carousel-text-shadow;
+
+	display: none;
+
+}
+.hover_menu .menu_body table {
+	color: @light_grey;
+}
+.hover_menu .menu_body table tr{
+	border-bottom: 1px solid @light_grey;
+}
+.hover_menu .menu_body table tr:last-child{
+	border-bottom: none;
+}
+.hover_menu .menu_body table td {
+	padding: 4px;
+}
+.hover_menu .menu_body table td.pictogramm {
+	background-color: @accent-base;
+	font-size: @pictogramm_size;
+	text-align: center;
+	width: 45px;
+	cursor: pointer;
+}
+.hover_menu .menu_body table td.group_name {
+	width: 88px;
+	padding: 8px;
+}
+//new valid code
+.map_container {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+
+.me_container {
+	position: absolute;
+	right: 20px;
+	top:@indent_widget_screen_h;
+}
+.me {
+	.invert;
+	font-size: @pictogramm_size;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: @indent_widget_screen;
+	text-align: center;
+	cursor: pointer;
+}
+.socials_container {
+	.invert;
+	position: absolute;
+	bottom: 20px;
+	left: @indent_widget_screen;
+}
+.socials_container {
+	.g-plus {
+		background: @g-plus-color;
+	}
+	.facebook {
+		background: @facebook-color;
+	}
+	.pinterest {
+		background: @pinterest-color; 
+	}
+	.twitter {
+		background: @twitter-color; 
+	}
+	.youtube {
+		background: @youtube-color;
+	}
+	.vine {
+		background: @vine-color;
+	}
+	.vk {
+		background: @vk-color;
+	}
+	.share {
+		background: @share-color
+	}
+
+}
+.socials_container{
+	line-height: 30px;
+}
+.social {
+	float: left;
+	color: @light_grey;
+	font-size: @social_size;
+	
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+
+	text-align: center;
+	a:hover {
+		color: @light_grey;
+	}
+}
+.filters {
+	.invert;
+	margin-left: 2px;
+	float: left;
+	border-radius: @border-radius-small;
+	height: 40px;
+	line-height: 40px;
+	width: 303px;
+	a {
+		float: left;
+  		padding-left: 7px;
+  		padding-right: 7px;
+  		text-align: center;
+	}
+	a.active {
+		background: rgba(255,255,255,0.2);
+	}
+}
