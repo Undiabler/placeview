@@ -2,7 +2,7 @@
 $config = [
     'app' => [
         'name'          => 'Placeview',
-        'product'       => 'placeview.in',
+        'product'       => 'dev.placeview.in',
         'cryptSalt'     => '$9diko$.f#11',
 
     ],
