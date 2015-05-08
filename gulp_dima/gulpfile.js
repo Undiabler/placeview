@@ -27,7 +27,7 @@ gulp.task('less', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('less/*.less', ['less']);
+    gulp.watch('../src/less/placeview.less', ['less']);
 });
 
 // Default Task
