@@ -6,7 +6,7 @@ var less = require('gulp-less');
 
 // Compile Our less
 gulp.task('less', function() {
-    return gulp.src('../less/placeview.less')
+    return gulp.src('../src/less/placeview.less')
         .pipe(less())
         .pipe(gulp.dest('../web/css'));
 });
@@ -17,4 +17,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'less', 'scripts', 'watch']);
+gulp.task('default', ['less', 'watch']);

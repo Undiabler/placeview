@@ -423,6 +423,13 @@ form.find-form button:focus {
   margin-bottom: 20px;
   width: 100%;
 }
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 2px solid #e0e0e0;
+}
 .pano_feed .pano_item .description {
   float: left;
   width: 85%;
@@ -446,11 +453,6 @@ form.find-form button:focus {
 }
 .pano_feed .pano_item .author .avatar {
   float: left;
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 2px solid #e0e0e0;
 }
 .pano_feed .pano_item .author .name {
   float: left;
@@ -461,4 +463,11 @@ form.find-form button:focus {
 }
 .pano_feed .pano_item .author .tags a:before {
   content: "#";
+}
+.photographer_container .avatar {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  margin-top: -75px;
 }

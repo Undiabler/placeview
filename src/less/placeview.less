@@ -22,10 +22,6 @@
 @strips_amount : 3;
 @feed_container_minwidth : 1040px;
 
-*{
-	background: green;
-}
-
 body {
 	margin-bottom: 0;
 }
@@ -291,6 +287,13 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	margin-bottom: 20px;
 	width: 100%;
 }
+.avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	overflow: hidden;
+	border: 2px solid @light_grey;
+}
 .pano_feed {
 	.pano_item {
 		.description {
@@ -315,11 +318,6 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 			padding: @padding-xs-horizontal;
 			.avatar {
 				float: left;
-				width: 40px;
-				height: 40px;
-				border-radius: 20px;
-				overflow: hidden;
-				border: 2px solid @light_grey;
 			}
 			.name {
 				float: left;
@@ -332,5 +330,14 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 				}
 			}
 		}
+	}
+}
+.photographer_container{
+	.avatar {
+		margin: 0 auto;
+		width: 150px;
+		height: 150px;
+		border-radius: 75px;
+		margin-top: -75px;
 	}
 }
