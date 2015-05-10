@@ -21,15 +21,19 @@
 @me_base_size : 38px;
 @strips_amount : 3;
 @feed_container_minwidth : 1040px;
+@photographer_avatar_size : 150px;
+@preview_height : 180px;
 
 body {
 	margin-bottom: 0;
 }
-
-.box_style {
-	border-color: @navbar-inverse-toggle-border-color;
+.box_shadow {
 	-webkit-box-shadow: @carousel-text-shadow;
 	box-shadow: @carousel-text-shadow;
+}
+.box_style {
+	.box_shadow; 
+	border-color: @navbar-inverse-toggle-border-color;
 	margin-bottom: 2px;
 	border-radius: @border-radius-small;
 }
@@ -263,8 +267,9 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 		float:left;
 		width: floor(100%/@strips_amount);
 		.item {
+			position:relative;
 			.preview {
-				height: 180px;
+				height: @preview_height;
 				overflow: hidden;
 			}
 		}
@@ -288,6 +293,7 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	width: 100%;
 }
 .avatar {
+	.box_shadow;
 	width: 40px;
 	height: 40px;
 	border-radius: 20px;
@@ -335,9 +341,28 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 .photographer_container{
 	.avatar {
 		margin: 0 auto;
-		width: 150px;
-		height: 150px;
-		border-radius: 75px;
-		margin-top: -75px;
+		width: @photographer_avatar_size;
+		height: @photographer_avatar_size;
+		border-radius: @photographer_avatar_size/2;
+		margin-top: -@photographer_avatar_size*2/3;
+	}
+	.partner {
+		position: absolute;
+		top: @preview_height;
+		left: @indent_widget_screen/2;
+		padding-top: 36px;
+		margin-top: -20px;
+		background: url("../img/partner.png");
+		background-repeat: no-repeat;
+	}
+	.info{
+		padding: @padding-xs-horizontal;
+		text-align: center;
+	}
+	.social a{
+		display: block;
+		float: left;
+		width: 25%;
+		text-align: center;
 	}
 }

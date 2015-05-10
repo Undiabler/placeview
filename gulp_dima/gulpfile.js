@@ -3,6 +3,7 @@ var gulp = require('gulp');
 
 // Include Our Plugins
 var less = require('gulp-less');
+var watch = require('gulp-watch');
 
 // Compile Our less
 gulp.task('less', function() {
@@ -13,7 +14,7 @@ gulp.task('less', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('../less/placeview.less', ['less']);
+    gulp.watch('../src/less/placeview.less', ['less']);
 });
 
 // Default Task

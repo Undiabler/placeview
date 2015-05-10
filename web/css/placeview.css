@@ -103,17 +103,21 @@
 body {
   margin-bottom: 0;
 }
-.box_style {
-  border-color: #333333;
+.box_shadow {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.box_style {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
 }
 .invert {
-  border-color: #333333;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.6);
@@ -174,9 +178,9 @@ form.find-form button:focus {
   width: 350px;
 }
 .hover_menu button {
-  border-color: #333333;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.6);
@@ -256,9 +260,9 @@ form.find-form button:focus {
   top: 80px;
 }
 .me {
-  border-color: #333333;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.6);
@@ -283,9 +287,9 @@ form.find-form button:focus {
   line-height: 38px;
 }
 .socials_container {
-  border-color: #333333;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
   overflow: hidden;
@@ -303,9 +307,9 @@ form.find-form button:focus {
   opacity: 0.8;
 }
 .advert_container {
-  border-color: #333333;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.6);
@@ -361,9 +365,9 @@ form.find-form button:focus {
   color: #e0e0e0;
 }
 .filters {
-  border-color: #333333;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
   margin-bottom: 2px;
   background: rgba(0, 0, 0, 0.6);
   color: #e0e0e0;
@@ -398,6 +402,9 @@ form.find-form button:focus {
   float: left;
   width: 33%;
 }
+.feed_container .items_container .item {
+  position: relative;
+}
 .feed_container .items_container .item .preview {
   height: 180px;
   overflow: hidden;
@@ -411,9 +418,9 @@ form.find-form button:focus {
   float: left;
 }
 .item {
-  border-color: #333333;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
   float: left;
@@ -424,6 +431,8 @@ form.find-form button:focus {
   width: 100%;
 }
 .avatar {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   width: 40px;
   height: 40px;
   border-radius: 20px;
@@ -469,5 +478,24 @@ form.find-form button:focus {
   width: 150px;
   height: 150px;
   border-radius: 75px;
-  margin-top: -75px;
+  margin-top: -100px;
+}
+.photographer_container .partner {
+  position: absolute;
+  top: 180px;
+  left: 20px;
+  padding-top: 36px;
+  margin-top: -20px;
+  background: url("../img/partner.png");
+  background-repeat: no-repeat;
+}
+.photographer_container .info {
+  padding: 5px;
+  text-align: center;
+}
+.photographer_container .social a {
+  display: block;
+  float: left;
+  width: 25%;
+  text-align: center;
 }
