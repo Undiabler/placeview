@@ -140,6 +140,7 @@ body {
 }
 .navbar-brand img {
   width: 130px;
+  margin-top: -6px;
 }
 #map-canvas {
   overflow: hidden;
@@ -304,7 +305,7 @@ form.find-form button:focus {
   opacity: 0.5;
 }
 .socials_container .social:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 .advert_container {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
