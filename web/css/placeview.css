@@ -176,7 +176,7 @@ form.find-form button:focus {
   top: 80px;
 }
 .hover_menu {
-  width: 350px;
+  width: 360px;
 }
 .hover_menu button {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -377,7 +377,7 @@ form.find-form button:focus {
   border-radius: 3px;
   height: 40px;
   line-height: 40px;
-  width: 303px;
+  width: 314px;
 }
 .filters a {
   color: #e0e0e0;
@@ -431,14 +431,28 @@ form.find-form button:focus {
   margin-bottom: 20px;
   width: 100%;
 }
-.avatar {
-  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+.small_avatar {
   width: 40px;
   height: 40px;
   border-radius: 20px;
+}
+.avatar {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   overflow: hidden;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
   border: 2px solid #e0e0e0;
+}
+.partner {
+  position: absolute;
+  top: 180px;
+  left: 20px;
+  background: url("../img/partner.png");
+  background-repeat: no-repeat;
+  padding-top: 36px;
+  width: 72px;
 }
 .pano_feed .pano_item .description {
   float: left;
@@ -462,6 +476,9 @@ form.find-form button:focus {
   padding: 5px;
 }
 .pano_feed .pano_item .author .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
   float: left;
 }
 .pano_feed .pano_item .author .name {
@@ -476,19 +493,10 @@ form.find-form button:focus {
 }
 .photographer_container .avatar {
   margin: 0 auto;
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
   margin-top: -100px;
 }
 .photographer_container .partner {
-  position: absolute;
-  top: 180px;
-  left: 20px;
-  padding-top: 36px;
   margin-top: -20px;
-  background: url("../img/partner.png");
-  background-repeat: no-repeat;
 }
 .photographer_container .info {
   padding: 5px;
@@ -499,4 +507,42 @@ form.find-form button:focus {
   float: left;
   width: 25%;
   text-align: center;
+}
+.personal_data {
+  position: relative;
+}
+.personal_data .wallpaper {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  height: 200px;
+  overflow: hidden;
+}
+.personal_data .cover_container {
+  overflow: hidden;
+  height: 200px;
+}
+.personal_data .cover {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 16px;
+}
+.personal_data .cover .avatar {
+  height: 100%;
+  float: left;
+}
+.personal_data .cover .avatar .partner {
+  position: absolute;
+  top: 120px;
+}
+.personal_data .cover .name_status {
+  float: left;
+  padding-left: 16px;
+  color: #e0e0e0;
+}
+.personal_data .toolkit {
+  background: green;
+  height: 20px;
 }

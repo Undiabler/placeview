@@ -14,6 +14,10 @@ class IndexController extends Controller
 	public function photographersAction(){
 
 	}
+	
+	public function cabinetAction(){
+
+	}
 
 	public function planingAction(){
 	  // $this->view->setVar('days',$this->getTasks());

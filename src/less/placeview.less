@@ -23,6 +23,7 @@
 @feed_container_minwidth : 1040px;
 @photographer_avatar_size : 150px;
 @preview_height : 180px;
+@wallpaper_size : 200px;
 
 body {
 	margin-bottom: 0;
@@ -94,7 +95,7 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	top: @indent_widget_screen_h;
 }
 .hover_menu {
-	width: 350px;
+	width: 360px;
 }
 .hover_menu button {
 	.invert;
@@ -249,7 +250,7 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	border-radius: @border-radius-small;
 	height: 40px;
 	line-height: 40px;
-	width: 303px;
+	width: 314px;
 	a {
 		float: left;
   		padding-left: 7px;
@@ -293,13 +294,28 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	margin-bottom: 20px;
 	width: 100%;
 }
-.avatar {
-	.box_shadow;
+.small_avatar {
 	width: 40px;
 	height: 40px;
 	border-radius: 20px;
+}
+
+.avatar {
+	.box_shadow;
 	overflow: hidden;
+	width: @photographer_avatar_size;
+	height: @photographer_avatar_size;
+	border-radius: @photographer_avatar_size/2;
 	border: 2px solid @light_grey;
+}
+.partner {
+	position: absolute;
+	top: @preview_height;
+	left: @indent_widget_screen/2;
+	background: url("../img/partner.png");
+	background-repeat: no-repeat;
+	padding-top:36px;
+	width: 72px;
 }
 .pano_feed {
 	.pano_item {
@@ -324,6 +340,7 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 		.author{
 			padding: @padding-xs-horizontal;
 			.avatar {
+				.small_avatar;
 				float: left;
 			}
 			.name {
@@ -342,19 +359,10 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 .photographer_container{
 	.avatar {
 		margin: 0 auto;
-		width: @photographer_avatar_size;
-		height: @photographer_avatar_size;
-		border-radius: @photographer_avatar_size/2;
 		margin-top: -@photographer_avatar_size*2/3;
 	}
 	.partner {
-		position: absolute;
-		top: @preview_height;
-		left: @indent_widget_screen/2;
-		padding-top: 36px;
 		margin-top: -20px;
-		background: url("../img/partner.png");
-		background-repeat: no-repeat;
 	}
 	.info{
 		padding: @padding-xs-horizontal;
@@ -365,5 +373,43 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 		float: left;
 		width: 25%;
 		text-align: center;
+	}
+}
+.personal_data {
+	position:relative;
+	.wallpaper {
+		position: absolute;
+		top:0;
+		z-index: 1;
+		height: @wallpaper_size;
+		overflow:hidden;
+	}
+	.cover_container {
+		overflow: hidden;
+		height: @wallpaper_size;
+	}
+	.cover {
+		z-index: 2;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		padding: @padding-large-horizontal;
+		.avatar {
+			height: 100%;
+			float: left;
+			.partner {
+				position: absolute;
+				top: @photographer_avatar_size*0.8;
+			}
+		}
+		.name_status {
+			float:left;
+			padding-left: @padding-large-horizontal;
+			color: @light_grey;
+		}
+	}
+	.toolkit {
+		background: green;
+		height: 20px;
 	}
 }
