@@ -1,12 +1,14 @@
 @import "bootstrap/variables.less";
 @import "colors.less";
 
-@dark_background : rgba(0, 0, 0, 0.6);
-@light_grey : #e0e0e0;
 @pictogramm_size : 14pt;
 @social_size : 15pt;
+@social_link_size : 30px;
 @indent_widget_screen : 40px;
 @indent_widget_screen_h : 80px;
+
+@dark_background : rgba(0, 0, 0, 0.6);
+@light_grey : #e0e0e0;
 @g-plus-color : #d34836;
 @facebook-color : #3b5998;
 @pinterest-color : #cb2027;
@@ -15,15 +17,18 @@
 @vine-color : #00bf8f;
 @vk-color : #45668e;
 @share-color : #6AA84F;
+@me_border_color : yellowgreen;
+@back_pers_data : #5a1ce3;
+
 @fixed_menu_height : 70px;
 @me_border_width : 2px;
-@me_border_color : yellowgreen;
 @me_base_size : 38px;
 @strips_amount : 3;
 @feed_container_minwidth : 1040px;
 @photographer_avatar_size : 150px;
 @preview_height : 180px;
 @wallpaper_size : 200px;
+@portgolio_toolkit_color : #5A1CE3;
 
 body {
 	margin-bottom: 0;
@@ -193,6 +198,23 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	.social:hover{
 		opacity: 1;
 	}
+	.social {
+		float: left;
+		color: @light_grey;
+		font-size: @social_size;
+		
+		width: @social_link_size;
+		height: @social_link_size;
+		line-height: @social_link_size;
+
+		text-align: center;
+		a {
+			color: @light_grey;
+		}
+		a:hover {
+			color: @light_grey;
+		}
+	}
 }
 .advert_container {
 	.invert;
@@ -201,9 +223,7 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	bottom: 5px;
 	left: @indent_widget_screen;
 }
-.socials_container {
-	line-height: 30px;
-	.g-plus {
+.g-plus {
 		background: @g-plus-color;
 	}
 	.facebook {
@@ -227,21 +247,8 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	.share {
 		background: @share-color
 	}
-	.social {
-		float: left;
-		color: @light_grey;
-		font-size: @social_size;
-		
-		width: 30px;
-		height: 30px;
-		line-height: 30px;
-
-		text-align: center;
-		a:hover {
-			color: @light_grey;
-		}
-	}
-
+.socials_container {
+	line-height: @social_link_size;
 }
 .filters {
 	.invert;
@@ -334,7 +341,9 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 			width: 15%;
 			a{
 				display: block;
+
 				padding: @padding-xs-horizontal;
+				padding-right: 0;
 			}
 		}
 		.author{
@@ -377,6 +386,7 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 }
 .personal_data {
 	position:relative;
+	min-width: 720px;
 	.wallpaper {
 		position: absolute;
 		top:0;
@@ -406,10 +416,97 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 			float:left;
 			padding-left: @padding-large-horizontal;
 			color: @light_grey;
+			width:70%;
 		}
 	}
 	.toolkit {
-		background: green;
-		height: 20px;
+		background: @portgolio_toolkit_color;
+		height: @social_link_size;
+		.soc_cont_cabinet{
+			float: left;
+			width: @social_link_size*8;
+			height: @social_link_size;
+			.social {
+				float: left;
+				color: @light_grey;
+				font-size: @social_size;
+				
+				width: @social_link_size;
+				height: @social_link_size;
+				line-height: @social_link_size;
+
+				text-align: center;
+				a {
+					color: @light_grey;
+				}
+				a:hover {
+					color: @light_grey;
+				}
+			}
+		}
+		a.conect {
+			float: right;
+			height: 30px;
+			line-height: 30px;
+			padding-left: @padding-xs-horizontal;
+			padding-right: @padding-xs-horizontal;
+			color: @light_grey;
+		}
+		a.subscribe {
+			background: #332F95;
+		}
+		a.write {
+			background: #158621;
+		}
+	}
+	.pano_feed {
+		margin: 0;
+	}
+	.toombler {
+		color: @light_grey;
+		text-align: center;
+		margin-top: -@social_link_size;
+		line-height: @social_link_size;
+		.active {
+			display: block;
+		}
+		.profile {
+			background: @accent-base;
+		}
+		.pers_data {
+			background: #5a1ce3;
+		}
+	}
+	.toombler > div {
+		display: none;
+		a{
+			color: @light_grey;
+		}
+	}
+	.pers_data_block > div {
+		float: left;
+	}
+	.pers_data_block {
+		display: none;
+		margin: 0 auto; 
+		max-width: 1024px;
+		.info {
+			width: 80%;
+			td {
+				padding: @padding-xs-horizontal;
+			}
+		}
+		.social_info {
+			width: 20%;
+			.elem {
+				padding: @padding-large-horizontal;
+			}
+		}
+	}
+	.portfolio {
+		display:none;
+	}
+	.active {
+		display: block;
 	}
 }

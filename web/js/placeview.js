@@ -25,4 +25,11 @@ $(function() {
 		$(this).parent().toggleClass("minified");
 		$(this).parent().children(".menu_body").fadeToggle();
 	});
+	$(".toombler .elem").click(function(){
+		$(".toombler .elem").each(function(){
+			$(this).toggleClass("active");
+		});
+		$(".pers_data_block").toggleClass("active");
+		$(".portfolio").toggleClass("active");
+	});
 });
