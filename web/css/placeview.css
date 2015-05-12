@@ -137,6 +137,8 @@ body {
 }
 .spacer {
   height: 70px;
+  width: 100%;
+  overflow: hidden;
 }
 .navbar-brand img {
   width: 130px;
