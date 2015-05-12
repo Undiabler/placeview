@@ -25,7 +25,19 @@ class IndexController extends Controller
         ));
 	}
 
-	
+	public function sign_upAction() {
+		$this->view->disableLevel(array(
+            View::LEVEL_LAYOUT => false,
+            View::LEVEL_MAIN_LAYOUT => false
+        ));
+	}
+
+	public function sign_inAction() {
+		$this->view->disableLevel(array(
+            View::LEVEL_LAYOUT => false,
+            View::LEVEL_MAIN_LAYOUT => false
+        ));	
+	}
 
 	public function planingAction() {
 	  // $this->view->setVar('days',$this->getTasks());
