@@ -120,7 +120,7 @@ body {
   border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(51, 51, 51, 0.9);
   color: #e0e0e0;
 }
 .invert a {
@@ -186,7 +186,7 @@ form.find-form button:focus {
   border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(51, 51, 51, 0.9);
   color: #e0e0e0;
   border: 1px solid transparent;
   float: left;
@@ -214,7 +214,7 @@ form.find-form button:focus {
   border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(51, 51, 51, 0.9);
   color: #e0e0e0;
   width: 100%;
   overflow: hidden;
@@ -268,7 +268,7 @@ form.find-form button:focus {
   border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(51, 51, 51, 0.9);
   color: #e0e0e0;
   font-size: 14pt;
   width: 40px;
@@ -285,8 +285,8 @@ form.find-form button:focus {
   color: #ff5722;
 }
 .me.active {
-  border: 2px solid yellowgreen;
-  color: yellowgreen;
+  border: 2px solid #ff5722;
+  color: #ff5722;
   line-height: 38px;
 }
 .socials_container {
@@ -330,7 +330,7 @@ form.find-form button:focus {
   border-color: #333333;
   margin-bottom: 2px;
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(51, 51, 51, 0.9);
   color: #e0e0e0;
   position: fixed;
   padding: 5px;
@@ -375,7 +375,7 @@ form.find-form button:focus {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   border-color: #333333;
   margin-bottom: 2px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(51, 51, 51, 0.9);
   color: #e0e0e0;
   margin-left: 2px;
   float: left;
