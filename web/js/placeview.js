@@ -32,4 +32,10 @@ $(function() {
 		$(".pers_data_block").toggleClass("active");
 		$(".portfolio").toggleClass("active");
 	});
+	$(".checkbox_cont").click(function(){
+		$(this).children("input[type='checkbox']").click();
+	});
+	$(".checkbox_cont input[type='checkbox']").click(function(){
+		$(this).click();
+	})
 });
