@@ -140,6 +140,9 @@ body {
   width: 100%;
   overflow: hidden;
 }
+.navbar-default {
+  background: #333333;
+}
 .navbar-brand img {
   width: 130px;
   margin-top: -6px;
