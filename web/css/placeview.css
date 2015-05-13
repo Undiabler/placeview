@@ -639,3 +639,58 @@ form.find-form button:focus {
 .personal_data .active {
   display: block;
 }
+.marker {
+  position: absolute;
+  top: 200px;
+  left: 20px;
+  width: 330px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
+  margin-bottom: 2px;
+  border-radius: 3px;
+  background: rgba(51, 51, 51, 0.9);
+  color: #e0e0e0;
+}
+.marker a {
+  color: #e0e0e0;
+}
+.marker a:hover {
+  color: #ff5722;
+}
+.marker .tour_cont {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+.marker .info {
+  text-align: center;
+}
+.marker .info .place {
+  font-size: 12px;
+}
+.marker .social {
+  padding: 5px;
+  float: left;
+  overflow: hidden;
+}
+.marker .social a {
+  font-size: 12px;
+  padding: 5px;
+}
+.marker .author {
+  float: right;
+  padding-top: 5px;
+}
+.marker .author .name {
+  float: left;
+}
+.marker .author .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  float: left;
+  margin: 5px;
+  margin-top: -15px;
+}

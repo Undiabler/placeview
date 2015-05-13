@@ -26,6 +26,7 @@
 @strips_amount : 3;
 @feed_container_minwidth : 1040px;
 @photographer_avatar_size : 150px;
+@small_avatar_size : 40px;
 @preview_height : 180px;
 @wallpaper_size : 200px;
 @portgolio_toolkit_color : #5A1CE3;
@@ -307,9 +308,9 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	width: 100%;
 }
 .small_avatar {
-	width: 40px;
-	height: 40px;
-	border-radius: 20px;
+	width: @small_avatar_size;
+	height: @small_avatar_size;
+	border-radius: @small_avatar_size/2;
 }
 
 .avatar {
@@ -513,5 +514,48 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	}
 	.active {
 		display: block;
+	}
+}
+.marker {
+	//////нужно убрать!!!/////////////
+	position: absolute;
+	top: 200px;
+	left: 20px;
+	///////////////////
+	width: 330px;
+	overflow: hidden;
+	.invert;
+	.tour_cont {
+		width: 100%;
+		height: 100px;
+		overflow: hidden;
+	}
+	.info { 
+		text-align: center;
+		.place {
+			font-size: 12px;
+		}
+	}
+	.social {
+		padding: @padding-xs-horizontal;
+		float: left;
+		overflow: hidden;
+		a{
+			font-size: 12px;
+			padding: @padding-xs-horizontal;
+		}
+	}
+	.author {
+		float: right;
+		padding-top: @small_avatar_size/8;
+		.name {
+			float: left;
+		}
+		.avatar {
+			.small_avatar;
+			float: left;
+			margin: @padding-xs-horizontal;
+			margin-top: -@small_avatar_size*(3/8);
+		}
 	}
 }

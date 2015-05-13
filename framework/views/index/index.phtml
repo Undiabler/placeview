@@ -4,16 +4,48 @@ $this->assets->addJs("js/map.min.js");
 $this->assets->addCss("css/map.css");
 ?>
 
- <div id="menu-spacer">
-    </div>
-    <div class="map_container">
+<div id="menu-spacer"></div>
+<div class="map_container">
 
-<div id="progress">
-	<div id="progress-bar">
+  <div id="progress">
+  	<div id="progress-bar"></div>
+  </div>
+  <div id='map' class="uk-vertical-align uk-text-center"  style="height:100%;"></div>
+  <div class="marker">
+  	<div class="tour_cont">
+  		<img src="img/livadia.jpg">
+  	</div>
+  	<div class="info">
+  		<h5>
+  			Ресторан "Хромая лошадь"
+  		</h5>
+  		<span class="place">
+  			<a href="#">Днепреопетровск,</a> <a href="#">Украина</a>
+  		</span>
+  	</div>
+  	<div class="clearfix"></div>
+  	<div class="social">
+		<a href="#">
+			<i class="fa fa-heart"></i> 2756
+		</a>
+		<a href="#">
+			<i class="fa fa-eye"></i> 2756
+		</a>
+		<a href="#">
+			<i class="fa fa-picture-o"></i> 2756
+		</a>
 	</div>
-</div>
-<div id='map' class="uk-vertical-align uk-text-center"  style="height:100%;"></div>
-
+	<div class="author">
+		<div class="name">
+          <a href="#">
+            Sergio_Armyani
+          </a>
+        </div>
+        <div class="avatar">
+          <img src="img/avatar.jpg">
+        </div>
+      </div>
+  </div>
 </div>
   
 <?php $this->partial("widgets/hover_menu"); ?>
