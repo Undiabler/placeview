@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title></title>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+  <link href="/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/css/player/player.css" />
+  <!-- подключаем панораму -->
+  <script type="text/javascript" src="http://features.placeview.in:9999/js/libs/modernizr.js"></script>
+  <script type="text/javascript" src="http://features.placeview.in:9999/js/init.min.js"></script>
+</head>
+<body>
+  <div id="player">
+    <div id="pano">
+      <div id="container" style='position:fixed;z-index:0;width:100%;height:100%; top: 0px;left: 0px;'></div>
+      <script type="text/javascript">
+          PVLoader({tid:500,pid:1404,manualLoad:false});
+      </script>
+    </div>
+
+    <div id="top_menu">
+      <div class="tour_name">
+        <span>Гостиница абри</span>
+      </div>
+      <div class="pano_name">
+        Гостиница абри не более 60ти символов
+      </div>
+    </div>
+
+    <div id="pano_list">
+      <div class="control">
+        <div class="show">
+          Панорамы <i class="fa fa-angle-down"></i>
+        </div>
+        <div class="hide">
+          Свернуть <i class="fa fa-angle-up"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="/js/player/player.js"></script>
+</body>
+</html>

@@ -11,6 +11,12 @@ gulp.task('less', function() {
         .pipe(less())
         .pipe(gulp.dest('../web/css'));
 });
+//Compile Less of the player
+gulp.task('player_less',function() {
+	return gulp.src('../src/less/player/player.less')
+		.pipe(less())
+		.pipe(gulp.dest('../web/css/player'));
+})
 // Compile Our Bootstrap
 gulp.task('boots', function() {
     return gulp.src('../src/less/styles.less')
@@ -22,6 +28,7 @@ gulp.task('boots', function() {
 gulp.task('watch', function() {
     gulp.watch('../src/less/placeview.less', ['less']);
     gulp.watch('../src/less/styles.less', ['boots']);
+    gulp.watch('../src/less/player/player.less',['player_less'])
 });
 
 // Default Task
