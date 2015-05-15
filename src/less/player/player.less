@@ -43,13 +43,42 @@ body {
 }
 #pano_list {
 	position: absolute;
-	top: 15px;
-	left: 20px;
+	top: 0;
+	left: 0;
+	height: 100%;
 	.control {
 		cursor: pointer;
 		color: @light_grey;
-	}
-	.hide {
-		display: none;
+		&.active {
+			.hide {
+				padding: 12px;
+				display: block;
+			}
+			.show {
+				padding: 12px;
+				display: none;
+			}
+			.slides {
+				display: block;
+				.slide {
+					.name {
+						margin-top: -20px;
+					}
+					.pano {
+						width: 100px;
+						overflow: hidden;
+						img{
+							width: 100px;
+						}
+					}
+				}
+			}
+		}
+		.hide {
+			display: none;
+		}
+		.slides {
+			display: none;
+		}
 	}
 }

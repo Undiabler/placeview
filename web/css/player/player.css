@@ -140,13 +140,38 @@ body {
 }
 #pano_list {
   position: absolute;
-  top: 15px;
-  left: 20px;
+  top: 0;
+  left: 0;
+  height: 100%;
 }
 #pano_list .control {
   cursor: pointer;
   color: #e0e0e0;
 }
-#pano_list .hide {
+#pano_list .control.active .hide {
+  padding: 12px;
+  display: block;
+}
+#pano_list .control.active .show {
+  padding: 12px;
+  display: none;
+}
+#pano_list .control.active .slides {
+  display: block;
+}
+#pano_list .control.active .slides .slide .name {
+  margin-top: -20px;
+}
+#pano_list .control.active .slides .slide .pano {
+  width: 100px;
+  overflow: hidden;
+}
+#pano_list .control.active .slides .slide .pano img {
+  width: 100px;
+}
+#pano_list .control .hide {
+  display: none;
+}
+#pano_list .control .slides {
   display: none;
 }
