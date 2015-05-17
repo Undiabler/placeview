@@ -157,7 +157,11 @@ body {
   display: none;
 }
 #pano_list .control.active .slides {
+  position: absolute;
   display: block;
+  height: 100%;
+  overflow: none;
+  overflow-y: auto;
 }
 #pano_list .control.active .slides .slide .name {
   margin-top: -20px;
