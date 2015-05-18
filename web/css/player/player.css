@@ -160,8 +160,8 @@ body {
   position: absolute;
   display: block;
   height: 100%;
-  overflow: none;
-  overflow-y: auto;
+  width: 115px;
+  overflow-y: scroll;
 }
 #pano_list .control.active .slides .slide .name {
   margin-top: -20px;
