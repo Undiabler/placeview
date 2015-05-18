@@ -1,12 +1,14 @@
 @import "../placeview_var.less";
 
+@default_font_size : 16px;
+@dark_back : rgba(51,51,51,0.5);
+
 body {
 	margin: 0;
 	padding: 0; 
 	font-family: 'Open Sans', sans-serif;
+	font-size: @default_font_size;
 }
-
-@dark_back : rgba(51,51,51,0.5);
 
 #player {
 	width: 100%;
@@ -51,38 +53,53 @@ body {
 		color: @light_grey;
 		&.active {
 			.hide {
-				padding: 12px;
+				padding: (@default_font_size + 2*@padding-xs-horizontal)/2+1;
 				display: block;
 			}
 			.show {
-				padding: 12px;
 				display: none;
 			}
 			.slides {
-				position: absolute;
-				display: block;
-				height: 100%;
-				width: 115px;
-				overflow-y: scroll;
-				.slide {
-					.name {
-						margin-top: -20px;
-					}
-					.pano {
-						width: 100px;
-						overflow: hidden;
-						img{
-							width: 100px;
-						}
-					}
-				}
+				overflow-y: auto;
+				opacity: 1;
 			}
 		}
 		.hide {
 			display: none;
 		}
 		.slides {
-			display: none;
+			position: absolute;
+			display: block;
+			width: 115px;
+			overflow-y: auto;
+			overflow: hidden;
+			-webkit-transition: all 0.5s ease-out 0s;
+			-moz-transition: all 0.5s ease-out 0s;
+			-o-transition: all 0.5s ease-out 0s;
+			transition: all 0.5s ease-out 0s;
+			opacity: 0;
+		.slide {
+				position: relative;
+				width: 100px;
+				.name {
+					position: absolute;
+					bottom: 5px;
+					z-index: 99;
+					background: @dark_back;
+					width: 100%;
+				}
+				.pano {
+					width: 100px;
+					overflow: hidden;
+					img{
+						width: 100px;
+					}
+				}
+			}
+		}
+		.show {
+			display: block;
+			padding: (@default_font_size + 2*@padding-xs-horizontal)/2+1;
 		}
 	}
 }

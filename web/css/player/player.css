@@ -104,6 +104,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
 #player {
   width: 100%;
@@ -149,33 +150,50 @@ body {
   color: #e0e0e0;
 }
 #pano_list .control.active .hide {
-  padding: 12px;
+  padding: 14px;
   display: block;
 }
 #pano_list .control.active .show {
-  padding: 12px;
   display: none;
 }
 #pano_list .control.active .slides {
-  position: absolute;
-  display: block;
-  height: 100%;
-  width: 115px;
-  overflow-y: scroll;
-}
-#pano_list .control.active .slides .slide .name {
-  margin-top: -20px;
-}
-#pano_list .control.active .slides .slide .pano {
-  width: 100px;
-  overflow: hidden;
-}
-#pano_list .control.active .slides .slide .pano img {
-  width: 100px;
+  overflow-y: auto;
+  opacity: 1;
 }
 #pano_list .control .hide {
   display: none;
 }
 #pano_list .control .slides {
-  display: none;
+  position: absolute;
+  display: block;
+  width: 115px;
+  overflow-y: auto;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease-out 0s;
+  -moz-transition: all 0.5s ease-out 0s;
+  -o-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+  opacity: 0;
+}
+#pano_list .control .slides .slide {
+  position: relative;
+  width: 100px;
+}
+#pano_list .control .slides .slide .name {
+  position: absolute;
+  bottom: 5px;
+  z-index: 99;
+  background: rgba(51, 51, 51, 0.5);
+  width: 100%;
+}
+#pano_list .control .slides .slide .pano {
+  width: 100px;
+  overflow: hidden;
+}
+#pano_list .control .slides .slide .pano img {
+  width: 100px;
+}
+#pano_list .control .show {
+  display: block;
+  padding: 14px;
 }
