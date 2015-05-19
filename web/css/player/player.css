@@ -123,7 +123,8 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-align: center;
   background: rgba(51, 51, 51, 0.5);
   color: #e0e0e0;
@@ -166,7 +167,7 @@ body {
 #pano_list .control .slides {
   position: absolute;
   display: block;
-  width: 115px;
+  width: 215px;
   overflow-y: auto;
   overflow: hidden;
   -webkit-transition: all 0.5s ease-out 0s;
@@ -177,7 +178,7 @@ body {
 }
 #pano_list .control .slides .slide {
   position: relative;
-  width: 100px;
+  width: 200px;
 }
 #pano_list .control .slides .slide .name {
   position: absolute;
@@ -185,15 +186,42 @@ body {
   z-index: 99;
   background: rgba(51, 51, 51, 0.5);
   width: 100%;
+  font-size: 0.8em;
+  text-align: center;
 }
 #pano_list .control .slides .slide .pano {
-  width: 100px;
+  width: 200px;
   overflow: hidden;
 }
 #pano_list .control .slides .slide .pano img {
-  width: 100px;
+  width: 200px;
 }
 #pano_list .control .show {
   display: block;
   padding: 14px;
+}
+#multimenu {
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  top: 49.8px;
+  right: 0px;
+  color: #e0e0e0;
+  background: rgba(51, 51, 51, 0.5);
+}
+#multimenu .icons_minimals {
+  font-size: 25px;
+}
+#multimenu .icons_minimals i {
+  cursor: pointer;
+}
+#multimenu .icons_minimals .lang {
+  font-size: 16px;
+  cursor: pointer;
+}
+#multimenu .icons_minimals .lang .cur {
+  color: #ff5722;
+}
+#multimenu .icons_minimals .lang .list {
+  display: none;
 }
