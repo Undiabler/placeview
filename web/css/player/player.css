@@ -200,6 +200,15 @@ body {
   display: block;
   padding: 14px;
 }
+#logo {
+  position: absolute;
+  top: 59.8px;
+  right: 55px;
+}
+#logo img {
+  width: 45px;
+  height: 45px;
+}
 #multimenu {
   position: absolute;
   text-align: center;
@@ -231,4 +240,11 @@ body {
 }
 #multimenu .icons_minimals .lang.active .list {
   display: block;
+}
+#multimenu .info {
+  position: absolute;
+  bottom: 10px;
+  font-size: 25px;
+  width: 100%;
+  cursor: pointer;
 }

@@ -14,12 +14,16 @@
 	show_hide_panos.getElementsByClassName('show')[0].addEventListener('click', function(){
 		this.parentNode.classList.add('active');
 	});
-	select_lang.addEventListener('click', function(){
-		this.classList.toggle('active');
+	select_lang.getElementsByClassName('cur')[0].addEventListener('click', function(){
+		this.parentNode.classList.toggle('active');
 	});
-	select_lang.getElementsByClassName('list').forEach(function(item){
-	});
-
+	var arr = select_lang.getElementsByClassName('list')[0].getElementsByTagName("div");
+	for(var i = 0; i < arr.length; i += 1) {
+		arr[i].addEventListener('click',function(){
+			this.parentNode.parentNode.getElementsByClassName('cur')[0].innerHTML = this.innerHTML;
+			this.parentNode.parentNode.classList.remove('active');
+		});
+	}
 
 /*
 	.addEventListener('click',function(){

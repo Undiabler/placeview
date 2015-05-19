@@ -5,6 +5,7 @@
 @pano_preview_width : 200px;
 @icons_size : 25px;
 @icons_am : 7;
+@default_multimenu_width : 45px;
 
 body {
 	margin: 0;
@@ -109,6 +110,15 @@ body {
 		}
 	}
 }
+#logo {
+	position: absolute;
+	top: 1+4*@padding-xs-horizontal + 1.8*@default_font_size + 10;
+	right: @default_multimenu_width+10;
+	img {
+		width: @default_multimenu_width;
+		height: @default_multimenu_width;
+	}
+}
 #multimenu {
 	position: absolute;
 	text-align: center;
@@ -116,7 +126,7 @@ body {
 	right: 0px;
 	color: @light_grey;
 	background: @dark_back;
-	width: 45px;
+	width: @default_multimenu_width;
 	.icons_minimals {
 		width: 100%;
 		position: absolute;
@@ -125,8 +135,6 @@ body {
 		font-size: @icons_size;
 		i {
 			cursor: pointer;
-		}
-		.icon {
 		}
 		.lang{
 			font-size: @default_font_size;
@@ -144,4 +152,11 @@ body {
 			}
 		}
 	}	
+	.info {
+		position: absolute;
+		bottom: 10px;
+		font-size: @icons_size;
+		width: 100%;
+		cursor: pointer;
+	}
 }
