@@ -1,0 +1,162 @@
+@import "../placeview_var.less";
+
+@default_font_size : 16px;
+@dark_back : rgba(51,51,51,0.5);
+@pano_preview_width : 200px;
+@icons_size : 25px;
+@icons_am : 7;
+@default_multimenu_width : 45px;
+
+body {
+	margin: 0;
+	padding: 0; 
+	font-family: 'Open Sans', sans-serif;
+	font-size: @default_font_size;
+}
+
+#player {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	z-index: 99;
+}
+#pano {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 0;
+}
+#top_menu {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	padding-top: @padding-xs-horizontal;
+	padding-bottom: @padding-xs-horizontal;
+	text-align: center;
+	background: @dark_back;
+	color: @light_grey;
+	.tour_name {
+		text-align: center;
+		span{
+			border-bottom: 1px solid @light_grey;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+	}
+	.pano_name {
+		font-size: 0.8em;
+	}
+}
+#pano_list {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	.control {
+		cursor: pointer;
+		color: @light_grey;
+		&.active {
+			.hide {
+				padding: (@default_font_size + 2*@padding-xs-horizontal)/2+1;
+				display: block;
+			}
+			.show {
+				display: none;
+			}
+			.slides {
+				overflow-y: auto;
+				opacity: 1;
+			}
+		}
+		.hide {
+			display: none;
+		}
+		.slides {
+			position: absolute;
+			display: block;
+			width: @pano_preview_width+15;
+			overflow-y: auto;
+			overflow: hidden;
+			-webkit-transition: all 0.5s ease-out 0s;
+			-moz-transition: all 0.5s ease-out 0s;
+			-o-transition: all 0.5s ease-out 0s;
+			transition: all 0.5s ease-out 0s;
+			opacity: 0;
+		.slide {
+				position: relative;
+				width: @pano_preview_width;
+				.name {
+					position: absolute;
+					bottom: 5px;
+					z-index: 99;
+					background: @dark_back;
+					width: 100%;
+					font-size: 0.8em;
+					text-align: center;
+				}
+				.pano {
+					width: @pano_preview_width;
+					overflow: hidden;
+					img{
+						width: @pano_preview_width;
+					}
+				}
+			}
+		}
+		.show {
+			display: block;
+			padding: (@default_font_size + 2*@padding-xs-horizontal)/2+1;
+		}
+	}
+}
+#logo {
+	position: absolute;
+	top: 1+4*@padding-xs-horizontal + 1.8*@default_font_size + 10;
+	right: @default_multimenu_width+10;
+	img {
+		width: @default_multimenu_width;
+		height: @default_multimenu_width;
+	}
+}
+#multimenu {
+	position: absolute;
+	text-align: center;
+	top: 1+4*@padding-xs-horizontal + 1.8*@default_font_size;
+	right: 0px;
+	color: @light_grey;
+	background: @dark_back;
+	width: @default_multimenu_width;
+	.icons_minimals {
+		width: 100%;
+		position: absolute;
+		top: 50%;
+		margin-top: -(@icons_am * @icons_size + @default_font_size);
+		font-size: @icons_size;
+		i {
+			cursor: pointer;
+		}
+		.lang{
+			font-size: @default_font_size;
+			cursor: pointer;
+			.cur {
+				color: @accent-base;
+			}
+			.list {
+				display: none;
+			}
+			&.active {
+				.list {
+					display: block;
+				}
+			}
+		}
+	}	
+	.info {
+		position: absolute;
+		bottom: 10px;
+		font-size: @icons_size;
+		width: 100%;
+		cursor: pointer;
+	}
+}

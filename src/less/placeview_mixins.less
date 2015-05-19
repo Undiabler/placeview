@@ -1,0 +1,24 @@
+@import "placeview_var.less";
+
+//mixins
+.box_shadow {
+	-webkit-box-shadow: @carousel-text-shadow;
+	box-shadow: @carousel-text-shadow;
+}
+.box_style {
+	.box_shadow; 
+	border-color: @navbar-inverse-toggle-border-color;
+	margin-bottom: 2px;
+	border-radius: @border-radius-small;
+}
+.invert {
+	.box_style;
+	background: @dark_background;
+	color: @light_grey;
+	a {
+		color: @light_grey;
+	}
+	a:hover {
+		color: @accent-base;
+	}
+}

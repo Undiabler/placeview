@@ -21,6 +21,12 @@ class IndexController extends Controller
 	public function cabinetAction() {
 
 	}
+	public function playerAction() {
+		$this->view->disableLevel(array(
+            View::LEVEL_LAYOUT => false,
+            View::LEVEL_MAIN_LAYOUT => false
+        ));
+	}
 
 	public function not_foundAction() {
 		$this->view->disableLevel(array(
@@ -53,8 +59,6 @@ class IndexController extends Controller
 	}
 
 	public function feedAction() {
-
-	
 		
 	}
 

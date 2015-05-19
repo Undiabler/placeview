@@ -100,9 +100,6 @@
 @navbar-active-custom:   @accent-base;
 @topbar-link-custom:     white;
 */
-body {
-  margin-bottom: 0;
-}
 .box_shadow {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -128,6 +125,9 @@ body {
 }
 .invert a:hover {
   color: #ff5722;
+}
+body {
+  margin-bottom: 0;
 }
 #menu-spacer {
   height: 70px;
@@ -405,7 +405,8 @@ form.find-form button:focus {
 }
 .feed_container {
   margin: 60px;
-  min-width: 1040px;
+  width: 1170px;
+  margin: 0 auto;
 }
 .feed_container .items_container {
   padding: 10px;

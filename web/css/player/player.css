@@ -1,0 +1,250 @@
+/*
+// Blue Grey color scheme
+// ----------------
+
+@primary-light:    #CFD8DC;
+@primary-base:     #607D8B;
+@primary-dark:     #37474F; // Navbar and footer background
+
+@accent-light: 	   #FF8A80;
+@accent-base:      #FF5252; // Brand primary color
+@accent-dark:      #FF1744;
+
+@navbar-link-custom:     @primary-light;
+@navbar-text-custom:     @primary-light;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     @primary-light;
+
+
+// Blue color scheme
+// -----------------
+
+@primary-light:    #4FC3F7;
+@primary-base:     #03A9F4;
+@primary-dark:     #0288D1; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     white;
+
+
+// Cyan color scheme
+// ------------------
+
+@primary-light:    #4DD0E1;
+@primary-base:     #00BCD4;
+@primary-dark:     #00838F; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-light;
+@topbar-link-custom:     white;
+
+
+// Teal color scheme
+// ------------------
+
+@primary-light:    #4DB6AC;
+@primary-base:     #009688;
+@primary-dark:     #00695C; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     white;
+
+
+// Green color scheme
+// ------------------
+
+@primary-light:    #81C784;
+@primary-base:     #4CAF50;
+@primary-dark:     #2E7D32; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     white;
+
+
+// Light Green color scheme
+// ------------------
+
+@primary-light:    #AED581;
+@primary-base:     #8BC34A;
+@primary-dark:     #558B2F; // Navbar and footer background
+
+@accent-light:     #ffd180;
+@accent-base:      #ffab40; // Brand primary color
+@accent-dark:      #ff9100;
+
+@navbar-link-custom:     white;
+@navbar-text-custom:     white;
+@navbar-active-custom:   @accent-base;
+@topbar-link-custom:     white;
+*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+#player {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  z-index: 99;
+}
+#pano {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+#top_menu {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  background: rgba(51, 51, 51, 0.5);
+  color: #e0e0e0;
+}
+#top_menu .tour_name {
+  text-align: center;
+}
+#top_menu .tour_name span {
+  border-bottom: 1px solid #e0e0e0;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#top_menu .pano_name {
+  font-size: 0.8em;
+}
+#pano_list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+#pano_list .control {
+  cursor: pointer;
+  color: #e0e0e0;
+}
+#pano_list .control.active .hide {
+  padding: 14px;
+  display: block;
+}
+#pano_list .control.active .show {
+  display: none;
+}
+#pano_list .control.active .slides {
+  overflow-y: auto;
+  opacity: 1;
+}
+#pano_list .control .hide {
+  display: none;
+}
+#pano_list .control .slides {
+  position: absolute;
+  display: block;
+  width: 215px;
+  overflow-y: auto;
+  overflow: hidden;
+  -webkit-transition: all 0.5s ease-out 0s;
+  -moz-transition: all 0.5s ease-out 0s;
+  -o-transition: all 0.5s ease-out 0s;
+  transition: all 0.5s ease-out 0s;
+  opacity: 0;
+}
+#pano_list .control .slides .slide {
+  position: relative;
+  width: 200px;
+}
+#pano_list .control .slides .slide .name {
+  position: absolute;
+  bottom: 5px;
+  z-index: 99;
+  background: rgba(51, 51, 51, 0.5);
+  width: 100%;
+  font-size: 0.8em;
+  text-align: center;
+}
+#pano_list .control .slides .slide .pano {
+  width: 200px;
+  overflow: hidden;
+}
+#pano_list .control .slides .slide .pano img {
+  width: 200px;
+}
+#pano_list .control .show {
+  display: block;
+  padding: 14px;
+}
+#logo {
+  position: absolute;
+  top: 59.8px;
+  right: 55px;
+}
+#logo img {
+  width: 45px;
+  height: 45px;
+}
+#multimenu {
+  position: absolute;
+  text-align: center;
+  top: 49.8px;
+  right: 0px;
+  color: #e0e0e0;
+  background: rgba(51, 51, 51, 0.5);
+  width: 45px;
+}
+#multimenu .icons_minimals {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  margin-top: -191px;
+  font-size: 25px;
+}
+#multimenu .icons_minimals i {
+  cursor: pointer;
+}
+#multimenu .icons_minimals .lang {
+  font-size: 16px;
+  cursor: pointer;
+}
+#multimenu .icons_minimals .lang .cur {
+  color: #ff5722;
+}
+#multimenu .icons_minimals .lang .list {
+  display: none;
+}
+#multimenu .icons_minimals .lang.active .list {
+  display: block;
+}
+#multimenu .info {
+  position: absolute;
+  bottom: 10px;
+  font-size: 25px;
+  width: 100%;
+  cursor: pointer;
+}
