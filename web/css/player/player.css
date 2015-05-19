@@ -201,15 +201,19 @@ body {
   padding: 14px;
 }
 #multimenu {
-  text-align: center;
-  padding: 20px;
   position: absolute;
+  text-align: center;
   top: 49.8px;
   right: 0px;
   color: #e0e0e0;
   background: rgba(51, 51, 51, 0.5);
+  width: 45px;
 }
 #multimenu .icons_minimals {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  margin-top: -191px;
   font-size: 25px;
 }
 #multimenu .icons_minimals i {
@@ -224,4 +228,7 @@ body {
 }
 #multimenu .icons_minimals .lang .list {
   display: none;
+}
+#multimenu .icons_minimals .lang.active .list {
+  display: block;
 }

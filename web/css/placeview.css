@@ -405,7 +405,8 @@ form.find-form button:focus {
 }
 .feed_container {
   margin: 60px;
-  min-width: 1040px;
+  width: 1024px;
+  margin: 0 auto;
 }
 .feed_container .items_container {
   padding: 10px;
