@@ -12,6 +12,10 @@ class IndexController extends Controller
 
 	public function photographersAction() {
 
+		$c=$this->extra->getSql('SELECT * from user_main');
+		// var_dump($c);
+		// exit();
+
 	}
 	
 	public function cabinetAction() {
