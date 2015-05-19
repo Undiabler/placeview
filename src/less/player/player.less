@@ -115,9 +115,16 @@ body {
 	top: 1+4*@padding-xs-horizontal + 1.8*@default_font_size + 10;
 	right: @default_multimenu_width+10;
 	img {
+		opacity: 0.5;
 		width: @default_multimenu_width;
 		height: @default_multimenu_width;
 	}
+	&:hover{
+		img{
+			opacity: 1;
+		}
+	}
+
 }
 #multimenu {
 	position: absolute;
@@ -127,6 +134,15 @@ body {
 	color: @light_grey;
 	background: @dark_back;
 	width: @default_multimenu_width;
+	#default {
+		display: none;
+	}
+	&.default {
+		#default {
+			display: block;
+		}
+
+	}
 	.icons_minimals {
 		width: 100%;
 		position: absolute;

@@ -206,8 +206,12 @@ body {
   right: 55px;
 }
 #logo img {
+  opacity: 0.5;
   width: 45px;
   height: 45px;
+}
+#logo:hover img {
+  opacity: 1;
 }
 #multimenu {
   position: absolute;
@@ -217,6 +221,12 @@ body {
   color: #e0e0e0;
   background: rgba(51, 51, 51, 0.5);
   width: 45px;
+}
+#multimenu #default {
+  display: none;
+}
+#multimenu.default #default {
+  display: block;
 }
 #multimenu .icons_minimals {
   width: 100%;
