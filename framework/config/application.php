@@ -9,10 +9,10 @@ $config = [
     'databases'   => [
         'db' => [
             'adapter'  => 'Phalcon\Db\Adapter\Pdo\Mysql',
-            'host'     => '',
-            'username' => '',
-            'password' => '',
-            'dbname'   => 'imgood',
+            'host'     => 'placeview.in',
+            'username' => 'placeview_bd',
+            'password' => 'rt0rKktOdbNd',
+            'dbname'   => 'placeview',
             'charset'  => 'utf8',
         ]
     ],
