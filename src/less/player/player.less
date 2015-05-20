@@ -1,17 +1,35 @@
 @import "../placeview_var.less";
 
 @default_font_size : 16px;
-@dark_back : rgba(51,51,51,0.5);
+@dark_back : rgba(51,51,51,0.8);
 @pano_preview_width : 200px;
 @icons_size : 25px;
 @icons_am : 7;
 @default_multimenu_width : 45px;
+@multimenu_control_width : 20px;
+@panel_padding : 20px;
 
 body {
 	margin: 0;
 	padding: 0; 
 	font-family: 'Open Sans', sans-serif;
 	font-size: @default_font_size;
+}
+
+.bg_fb_color {
+	background: @facebook-color;
+}
+.bg_vk_color {
+	background: @vk-color;
+}
+.bg_g_color {
+	background: @g-plus-color;
+}
+.bg_tw_color {
+	background: @twitter-color;
+}
+.bg_pin_color {
+	background: @pinterest-color;
 }
 
 #player {
@@ -111,13 +129,21 @@ body {
 	}
 }
 #logo {
+	display: none; //лого не видно когда открыто какойто другой пункт кроме деволта
 	position: absolute;
 	top: 1+4*@padding-xs-horizontal + 1.8*@default_font_size + 10;
 	right: @default_multimenu_width+10;
 	img {
+		opacity: 0.5;
 		width: @default_multimenu_width;
 		height: @default_multimenu_width;
 	}
+	&:hover{
+		img{
+			opacity: 1;
+		}
+	}
+
 }
 #multimenu {
 	position: absolute;
@@ -126,7 +152,133 @@ body {
 	right: 0px;
 	color: @light_grey;
 	background: @dark_back;
-	width: @default_multimenu_width;
+	.panel {
+		display: none;
+		position: relative;
+		height: 100%;
+		width: 5*@default_multimenu_width;
+		text-align: left;
+		.control {
+			position: absolute;
+			top: 50%;
+			margin-top: -(4*@padding-xs-horizontal + 2*@icons_size);
+			margin-left: -(@multimenu_control_width + 4*@padding-xs-horizontal);
+			width: @multimenu_control_width;
+			padding: 2*@padding-xs-horizontal;
+			font-size: @icons_size;
+			background: @dark_back;
+			.active {
+				color: black;
+			}
+		}
+		a {
+			color: @light_grey;
+			&:visited {
+				color: @light_grey;
+			}
+		}
+		.contact-date {
+			padding: 2*@padding-xs-horizontal;
+			i {
+				padding: @padding-xs-horizontal;
+			}
+		}
+		.social {
+			width: 100%;
+			a {
+				font-size: @icons_size;
+				float: left;
+				text-align: center;
+			}
+			&.links-4 {
+				a {
+					width: 5*@default_multimenu_width/4;
+					height: 5*@default_multimenu_width/4;
+					line-height: 5*@default_multimenu_width/4;
+				}
+			}
+			&.links-3 {
+				a {
+					width: 5*@default_multimenu_width/3;
+					height: 5*@default_multimenu_width/4;
+					line-height: 5*@default_multimenu_width/4;
+				}
+			}
+			&.links-2 {
+				a {
+					width: 5*@default_multimenu_width/2;
+					height: 5*@default_multimenu_width/4;
+					line-height: 5*@default_multimenu_width/4;
+				}
+			}
+			&.links-1 {
+				a {
+					width: 5*@default_multimenu_width;
+					height: 5*@default_multimenu_width/4;
+					line-height: 5*@default_multimenu_width/4;
+				}
+			}
+		}
+	}
+	#default {
+		display: none;
+		width: @default_multimenu_width;
+	}
+	#more_info {
+		display: none;
+		width: 5*@default_multimenu_width;
+		.description {
+			padding: 2*@padding-xs-horizontal;
+			font-size: @default_font_size*0.8;
+			text-align: left;
+		}
+		.menu {
+			padding: 2*@padding-xs-horizontal;
+			text-align: left;
+			a {
+				display: block;
+				width: 100%;
+				text-decoration: none;
+				padding: @padding-xs-horizontal;
+				color: @light_grey;
+				&:visited {
+					color: @light_grey;
+				}
+				i {
+					font-size: @icons_size;
+					padding: @padding-xs-horizontal;
+				}
+			}
+			.lang {
+				a {
+					display: inline;
+					&.active{
+						color: @accent-base;
+					}
+				}
+			}
+		}
+	}
+	&.contact {
+		#contact{
+			display: block;
+		}
+	}
+	&.default {
+		#default {
+			display: block;
+		}
+	}
+	&.more_info {
+		#more_info {
+			display: block;
+		}
+	}
+	&.share {
+		#share {
+			display: block;
+		}
+	}
 	.icons_minimals {
 		width: 100%;
 		position: absolute;
