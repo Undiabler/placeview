@@ -5,20 +5,38 @@ $router = new \Phalcon\Mvc\Router(false);
     $router->setDefaultController('index');
     $router->setDefaultAction('index');
 
+    $router->add(
+	    '/{language:[a-z]{2}}/:controller/:action',
+	    array(
+	        'controller' => 2,
+	        'action'     => 3
+	    )
+	);
+
 	$router->add(
 	    "/",
 	    [	"controller" => "index", "action" => "index", ]
 	);
 
 	$router->add(
-	    "/:action",
-	    [	"controller" => "index", "action" => 1, ]
-	);
-	
+	    '/{language:[a-z]{2}}/:action',
+	    [	"controller" => "index", "action" => 2, ]
+	)->setName('index_act');
+
 	$router->add(
-	    "/task/:action",
-	    [	"controller" => "task", "action" => 1, ]
+	    '/:action',
+	    [	"controller" => "index", "action" => 'empty', ]
 	);
+
+	// $router->add(
+	//     "/:action",
+	//     [	"controller" => "index", "action" => 1, ]
+	// );
+	
+	// $router->add(
+	//     "/:action",
+	//     [	"controller" => "index", "action" => 1, ]
+	// );
 
 	$router->add(
 	    "/sphere/:action",

@@ -12,7 +12,7 @@
       </button>
       <!-- Brand name -->
       <a class="navbar-brand" href="/">
-        <img src="img/LOGO_BETA.png">
+        <img src="/img/LOGO_BETA.png">
       </a>
     </div>
     <div class="visible-md visible-lg">
@@ -21,8 +21,8 @@
             <button type="submit" class="btn btn-default">
               <i class="fa fa-search"></i>
             </button>
-      <label class="sr-only" for="nav-search-xs">Search</label>
-      <input type="search" class="form-control" id="nav-search-xs" placeholder="Поиск">
+      <label class="sr-only" for="nav-search-xs"><?=$t->_('search')?></label>
+      <input type="search" class="form-control" id="nav-search-xs" placeholder="<?=$t->_('search')?>">
     </div>
   </form>
     </div>
@@ -30,45 +30,15 @@
       <!-- Navbar links -->
   <ul class="nav navbar-nav navbar-left">
     <!-- Home -->
-    <li >
-      <a href="/feed">
-        <i class="fa fa-eye"></i> Лента туров
-            </a>
-            </li>
-            <!-- Profile -->
-            <li >
-        <a href="#">
-          <i class="fa fa-magic"></i> Создать
-        </a>
-            </li>
-            <!-- Portfolio -->
-            <li>
-        <a href="/photographers">
-          <i class="fa fa-users"></i> Фотографы
-        </a>
-            </li>
+    <li><?=$this->extra->url([['for'=>'index_act','action'=>'feed'],'<i class="fa fa-eye"></i> '.$t->_('feed')])?></li>
+	<li><a href="#"><i class="fa fa-magic"></i> <?=$t->_('create')?></a></li>
+	<li><?=$this->extra->url([['for'=>'index_act','action'=>'photographers'],'<i class="fa fa-users"></i> '.$t->_('p_men')])?></li>
   </ul>
   <ul class="nav navbar-nav navbar-right">
         <!-- Home -->
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-        RU <span class="fa fa-angle-down"></span>
-      </a>
-      <ul class="dropdown-menu" role="menu">
-        <li class="active">
-          <a href="#">RU</a>
-        </li>
-        <li>
-          <a href="#">EN</a>
-        </li>
-      </ul>
-    </li>
-    <!-- Profile -->
-    <li >
-      <a href="#">
-        Войти
-      </a>
-    </li>
+    <?php $this->partial("widgets/langs"); ?>
+
+    <li><a href="#"><?=$t->_('login')?></a></li>
   </ul>
 
 

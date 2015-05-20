@@ -3,11 +3,11 @@
 use Phalcon\Mvc\Controller;
 use Phalcon\Mvc\View;
 
-class IndexController extends Controller
+class IndexController extends CController
 {
 
 	public function initialize() {
-	   
+		var_dump('index initialized');
 	}
 
 	public function photographersAction() {
@@ -55,10 +55,18 @@ class IndexController extends Controller
 	}
 
 	public function indexAction() {
-		
+		exit();
+	}
+
+	public function emptyAction() {
+		exit();
 	}
 
 	public function feedAction() {
+		
+	}
+
+	public function mapAction() {
 		
 	}
 

@@ -80,11 +80,8 @@ $config = [
         'password' => 'rah@Te123H',
         'wsdl' => 'http://services.hamrahvas.com/SMSBuffer.asmx?wsdl'
     ],
-    'company' => [
-        'name'   => 'آتی تل',
-        'domain' => 'ativas.ir',
-        'tel'    => '88759645'
-    ]
+    'lang' => 'en',
+    'langs' => ['en','ru','fr']
 ];
 
 return new \Phalcon\Config($config);
