@@ -2,6 +2,7 @@
 
 @default_font_size : 16px;
 @dark_back : rgba(51,51,51,0.8);
+@light_back : rgba(224,224,224,0.3);
 @pano_preview_width : 200px;
 @icons_size : 25px;
 @icons_am : 7;
@@ -30,6 +31,16 @@ body {
 }
 .bg_pin_color {
 	background: @pinterest-color;
+}
+
+.select {
+	cursor: pointer;
+	.txt {
+		float: left;
+	}
+	.down {
+		float: right;
+	}
 }
 
 #player {
@@ -219,6 +230,17 @@ body {
 				}
 			}
 		}
+		.back_button {
+			cursor: pointer;
+			position: absolute;
+			display: block;
+			width: 100%;
+			padding: 2*@padding-xs-horizontal;
+			background: @light_back;
+			overflow: hidden; 
+			text-align: center;
+			bottom: 0;
+		}
 	}
 	#default {
 		display: none;
@@ -277,6 +299,61 @@ body {
 	&.share {
 		#share {
 			display: block;
+		}
+	}
+	#share {
+		.share_friends {
+			font-size: @default_font_size*0.8;
+			&>div {
+				padding: @padding-xs-horizontal;
+			}
+			.social {
+				padding: 3*@padding-xs-horizontal;
+				overflow: hidden;
+				a {
+					font-size: @icons_size;
+					width: @icons_size + 10;
+					height: @icons_size + 10;
+					float: left;
+
+				}
+			}
+			.html-code {
+				padding: 0;
+				font-size: @default_font_size;
+				line-height: @icons_size + @padding-xs-horizontal*2;
+				.square {
+					margin-right: @padding-xs-horizontal;
+					text-align: center;
+					float: left;
+					background: @light_grey;
+					font-size: @icons_size;
+					width: @icons_size + @padding-xs-horizontal*2;
+					height: @icons_size + @padding-xs-horizontal*2;
+					line-height: @icons_size + @padding-xs-horizontal*2;
+					color: @dark_back;
+				}
+				.code {
+					overflow: hidden;
+					padding: 2*@padding-xs-horizontal;
+					background: @light_back;
+					font-weight: 600;
+					font-size: @default_font_size*0.7;
+					line-height: @default_font_size;
+				}
+			}
+			.check_size {
+				padding: 0;
+				&>div {
+					padding: 2*@padding-xs-horizontal;
+				}
+				.select {
+					background: @light_back;
+					.title{
+						font-size: 1.5*@default_font_size;
+					}
+				}
+			}
 		}
 	}
 	.icons_minimals {

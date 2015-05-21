@@ -121,6 +121,15 @@ body {
 .bg_pin_color {
   background: #cb2027;
 }
+.select {
+  cursor: pointer;
+}
+.select .txt {
+  float: left;
+}
+.select .down {
+  float: right;
+}
 #player {
   width: 100%;
   height: 100%;
@@ -297,6 +306,17 @@ body {
   height: 56.25px;
   line-height: 56.25px;
 }
+#multimenu .panel .back_button {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: rgba(224, 224, 224, 0.3);
+  overflow: hidden;
+  text-align: center;
+  bottom: 0;
+}
 #multimenu #default {
   display: none;
   width: 45px;
@@ -345,6 +365,58 @@ body {
 }
 #multimenu.share #share {
   display: block;
+}
+#multimenu #share .share_friends {
+  font-size: 12.8px;
+}
+#multimenu #share .share_friends > div {
+  padding: 5px;
+}
+#multimenu #share .share_friends .social {
+  padding: 15px;
+  overflow: hidden;
+}
+#multimenu #share .share_friends .social a {
+  font-size: 25px;
+  width: 35px;
+  height: 35px;
+  float: left;
+}
+#multimenu #share .share_friends .html-code {
+  padding: 0;
+  font-size: 16px;
+  line-height: 35px;
+}
+#multimenu #share .share_friends .html-code .square {
+  margin-right: 5px;
+  text-align: center;
+  float: left;
+  background: #e0e0e0;
+  font-size: 25px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  color: rgba(51, 51, 51, 0.8);
+}
+#multimenu #share .share_friends .html-code .code {
+  overflow: hidden;
+  padding: 10px;
+  background: rgba(224, 224, 224, 0.3);
+  font-weight: 600;
+  font-size: 11.2px;
+  line-height: 16px;
+}
+#multimenu #share .share_friends .check_size {
+  padding: 0;
+}
+#multimenu #share .share_friends .check_size > div {
+  padding: 10px;
+}
+#multimenu #share .share_friends .check_size .select {
+  background: rgba(224, 224, 224, 0.3);
+}
+#multimenu #share .share_friends .check_size .select .title {
+  font-size: 24px;
 }
 #multimenu .icons_minimals {
   width: 100%;
