@@ -171,7 +171,6 @@ body {
   height: 100%;
 }
 #pano_list .control {
-  cursor: pointer;
   color: #e0e0e0;
 }
 #pano_list .control.active .hide {
@@ -254,6 +253,7 @@ body {
   text-align: left;
 }
 #multimenu .panel .control {
+  cursor: pointer;
   position: absolute;
   top: 50%;
   margin-top: -70px;
@@ -280,6 +280,7 @@ body {
 }
 #multimenu .panel .social {
   width: 100%;
+  overflow: hidden;
 }
 #multimenu .panel .social a {
   font-size: 25px;
@@ -366,6 +367,18 @@ body {
 #multimenu.share #share {
   display: block;
 }
+#multimenu.warning #warning {
+  display: block;
+}
+#multimenu.qr-code #qr-code {
+  display: block;
+}
+#multimenu.meeting #meeting {
+  display: block;
+}
+#multimenu.show_on_map #show_on_map {
+  display: block;
+}
 #multimenu #share .share_friends {
   font-size: 12.8px;
 }
@@ -417,6 +430,113 @@ body {
 }
 #multimenu #share .share_friends .check_size .select .title {
   font-size: 24px;
+}
+#multimenu #warning .descr {
+  padding: 5px;
+}
+#multimenu #warning .choose {
+  padding: 5px;
+}
+#multimenu #warning .choose a {
+  display: block;
+  text-decoration: none;
+}
+#multimenu #warning textarea {
+  display: block;
+  text-align: left;
+  overflow: hidden;
+  width: 205px;
+  max-width: 205px;
+  padding: 10px;
+  height: 20%;
+}
+#multimenu #warning button {
+  cursor: pointer;
+  margin-top: 5px;
+  display: block;
+  background: none;
+  width: 225px;
+  border: none;
+  background: rgba(224, 224, 224, 0.3);
+  color: #ff5722;
+  line-height: 40px;
+  font-size: 16px;
+}
+#multimenu #qr-code img {
+  width: 100%;
+  background: white;
+}
+#multimenu #qr-code .choose {
+  text-align: center;
+  overflow: hidden;
+  background: rgba(224, 224, 224, 0.3);
+  line-height: 32px;
+  margin-top: -5px;
+}
+#multimenu #qr-code .choose .var {
+  text-decoration: none;
+  float: left;
+  width: 50%;
+}
+#multimenu #qr-code .choose .var.active {
+  color: #ff5722;
+}
+#multimenu #meeting textarea,
+#multimenu #meeting input {
+  margin-bottom: 10px;
+  background: #e0e0e0;
+  border: none;
+  display: block;
+  text-align: left;
+  overflow: hidden;
+  width: 205px;
+  max-width: 205px;
+  padding: 10px;
+}
+#multimenu #meeting textarea::-webkit-input-placeholder,
+#multimenu #meeting input::-webkit-input-placeholder {
+  color: rgba(51, 51, 51, 0.8);
+}
+#multimenu #meeting textarea::-moz-placeholder,
+#multimenu #meeting input::-moz-placeholder {
+  color: rgba(51, 51, 51, 0.8);
+  /* Firefox 19+ */
+}
+#multimenu #meeting textarea:-moz-placeholder,
+#multimenu #meeting input:-moz-placeholder {
+  color: rgba(51, 51, 51, 0.8);
+  /* Firefox 18- */
+}
+#multimenu #meeting textarea:-ms-input-placeholder,
+#multimenu #meeting input:-ms-input-placeholder {
+  color: rgba(51, 51, 51, 0.8);
+}
+#multimenu #meeting .send_mesage .txt {
+  font-size: 13.33333333px;
+  padding: 5px;
+}
+#multimenu #meeting .send_mesage .meeting-link {
+  background: #085394;
+  text-align: center;
+  font-size: 13.33333333px;
+  line-height: 32px;
+}
+#multimenu #meeting .send_mesage .meeting-link a {
+  text-decoration: none;
+}
+#multimenu #show_on_map .map_container {
+  width: 225px;
+  height: 300px;
+  overflow: hidden;
+}
+#multimenu #show_on_map .addres {
+  padding: 10px;
+  font-size: 13.33333333px;
+}
+#multimenu #show_on_map .addres a.coordinates {
+  color: #ff5722;
+  text-decoration: none;
+  font-size: 11.42857143px;
 }
 #multimenu .icons_minimals {
   width: 100%;

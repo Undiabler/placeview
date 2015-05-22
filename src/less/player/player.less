@@ -83,7 +83,6 @@ body {
 	left: 0;
 	height: 100%;
 	.control {
-		cursor: pointer;
 		color: @light_grey;
 		&.active {
 			.hide {
@@ -170,6 +169,7 @@ body {
 		width: 5*@default_multimenu_width;
 		text-align: left;
 		.control {
+			cursor: pointer;
 			position: absolute;
 			top: 50%;
 			margin-top: -(4*@padding-xs-horizontal + 2*@icons_size);
@@ -196,6 +196,7 @@ body {
 		}
 		.social {
 			width: 100%;
+			overflow: hidden;
 			a {
 				font-size: @icons_size;
 				float: left;
@@ -301,6 +302,26 @@ body {
 			display: block;
 		}
 	}
+	&.warning {
+		#warning {
+			display: block;
+		}
+	}
+	&.qr-code {
+		#qr-code {
+			display: block;
+		}
+	}
+	&.meeting {
+		#meeting {
+			display: block;
+		}
+	}
+	&.show_on_map {
+		#show_on_map {
+			display: block;
+		}
+	}
 	#share {
 		.share_friends {
 			font-size: @default_font_size*0.8;
@@ -353,6 +374,117 @@ body {
 						font-size: 1.5*@default_font_size;
 					}
 				}
+			}
+		}
+	}
+	#warning {
+		.descr {
+			padding: @padding-xs-horizontal;
+		}
+		.choose {
+			padding: @padding-xs-horizontal;
+			a {
+				display: block;
+				text-decoration: none;
+			}
+		}
+		textarea {
+			display: block;
+			text-align: left;
+			overflow: hidden;
+			width: 5*@default_multimenu_width - @padding-xs-horizontal*4;
+			max-width: 5*@default_multimenu_width - @padding-xs-horizontal*4;
+			padding: @padding-xs-horizontal*2;
+			height: 20%;
+		}
+		button {
+			cursor: pointer;
+			margin-top: @padding-xs-horizontal;
+			display: block;
+			background: none;
+			width: 5*@default_multimenu_width;
+			border: none;
+			background: @light_back;
+			color: @accent-base;
+			line-height: 40px;
+			font-size: @default_font_size;
+		}
+
+	}
+	#qr-code {
+		img {
+			width: 100%;
+			background: white;
+		}
+		.choose {
+			text-align: center;
+			overflow: hidden;
+			background: @light_back;
+			line-height: 2*@default_font_size;
+			margin-top: -@padding-xs-horizontal;
+			.var {
+				text-decoration: none;
+				float: left;
+				width: 50%;
+				&.active {
+					color: @accent-base;
+				}
+			}
+		}
+	}
+	#meeting {
+		textarea, input {
+			margin-bottom: 2*@padding-xs-horizontal;
+			background: @light_grey;
+			border: none;
+			display: block;
+			text-align: left;
+			overflow: hidden;
+			width: 5*@default_multimenu_width - @padding-xs-horizontal*4;
+			max-width: 5*@default_multimenu_width - @padding-xs-horizontal*4;
+			padding: @padding-xs-horizontal*2;
+			&::-webkit-input-placeholder {
+				color: @dark_back;
+			}
+			&::-moz-placeholder	{
+				color: @dark_back; /* Firefox 19+ */
+			}
+			&:-moz-placeholder {
+				color: @dark_back; /* Firefox 18- */
+			}
+			&:-ms-input-placeholder {
+				color: @dark_back;
+			}
+		}
+		.send_mesage {
+			.txt {
+				font-size: @default_font_size/1.2;
+				padding: @padding-xs-horizontal;
+			}
+			.meeting-link {
+				background: #085394;
+				text-align: center;
+				font-size: @default_font_size/1.2;
+				line-height: @default_font_size*2;
+				a{
+					text-decoration: none;
+				}
+			}
+		}
+	}
+	#show_on_map {
+		.map_container {
+			width: 5*@default_multimenu_width;
+			height: 300px;
+			overflow: hidden;
+		}
+		.addres {
+			padding: 2*@padding-xs-horizontal;
+			font-size: @default_font_size/1.2;
+			a.coordinates {
+				color: @accent-base;
+				text-decoration: none;
+				font-size: @default_font_size/1.4;
 			}
 		}
 	}
