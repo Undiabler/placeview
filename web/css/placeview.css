@@ -160,8 +160,20 @@ body {
   color: black;
 }
 form.find-form {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  border-color: #333333;
+  margin-bottom: 2px;
+  border-radius: 3px;
+  background: rgba(51, 51, 51, 0.9);
+  color: #e0e0e0;
   background: white;
-  border-radius: 20px;
+}
+form.find-form a {
+  color: #e0e0e0;
+}
+form.find-form a:hover {
+  color: #ff5722;
 }
 form.find-form button {
   margin-left: -18px;
@@ -441,6 +453,10 @@ form.find-form button:focus {
   margin-bottom: 20px;
   width: 100%;
 }
+.item .social .elem {
+  color: #ff5722;
+  line-height: 30px;
+}
 .small_avatar {
   width: 40px;
   height: 40px;
@@ -470,9 +486,11 @@ form.find-form button:focus {
 }
 .pano_feed .pano_item .description p {
   padding: 5px;
+  padding-left: 15px;
 }
 .pano_feed .pano_item .description h4 {
   padding: 5px;
+  text-align: center;
 }
 .pano_feed .pano_item .social {
   float: left;
@@ -494,10 +512,14 @@ form.find-form button:focus {
 }
 .pano_feed .pano_item .author .name {
   float: left;
+  margin-left: 5px;
 }
 .pano_feed .pano_item .author .tags {
   float: right;
   width: 50%;
+}
+.pano_feed .pano_item .author .tags a {
+  color: #3f028e;
 }
 .pano_feed .pano_item .author .tags a:before {
   content: "#";
@@ -511,9 +533,14 @@ form.find-form button:focus {
 }
 .photographer_container .info {
   padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: left;
+}
+.photographer_container .info .name_location {
   text-align: center;
 }
-.photographer_container .social a {
+.photographer_container .social .elem {
   display: block;
   float: left;
   width: 25%;
@@ -678,14 +705,20 @@ form.find-form button:focus {
   padding: 5px;
   float: left;
   overflow: hidden;
+  width: 50%;
 }
 .marker .social a {
   font-size: 12px;
   padding: 5px;
 }
+.marker .social .elem {
+  width: 33%;
+  float: left;
+}
 .marker .author {
   float: right;
   padding-top: 5px;
+  width: 50%;
 }
 .marker .author .name {
   float: left;

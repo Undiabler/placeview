@@ -36,8 +36,8 @@ body {
 	color: black;
 }
 form.find-form {
+	.invert;
 	background: white;
-	border-radius: 20px;
 }
 form.find-form button {
 	margin-left: -18px;
@@ -254,6 +254,12 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	margin: 10px;
 	margin-bottom: 20px;
 	width: 100%;
+	.social {
+		.elem {
+			color: @accent-base;
+			line-height: @social_link_size;
+		}
+	}
 }
 .small_avatar {
 	width: @small_avatar_size;
@@ -285,9 +291,11 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 			width: 85%;
 			p{
 				padding: @padding-xs-horizontal;
+				padding-left: 3*@padding-xs-horizontal;
 			}
 			h4{
-				padding: @padding-xs-horizontal
+				padding: @padding-xs-horizontal;
+				text-align: center;				
 			}
 		}
 		.social {
@@ -295,7 +303,6 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 			width: 15%;
 			a{
 				display: block;
-
 				padding: @padding-xs-horizontal;
 				padding-right: 0;
 			}
@@ -308,12 +315,16 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 			}
 			.name {
 				float: left;
+				margin-left: @padding-xs-horizontal;
 			}
 			.tags {
 				float: right;
 				width: 50%;
-				a:before{
-					content: "#";
+				a {
+					color: @hash_tag_color;
+					&:before{
+						content: "#";
+					}
 				}
 			}
 		}
@@ -329,13 +340,20 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	}
 	.info{
 		padding: @padding-xs-horizontal;
-		text-align: center;
+		padding-left: 3*@padding-xs-horizontal;
+		padding-right: 3*@padding-xs-horizontal;
+		text-align: left;
+		.name_location {
+			text-align: center;
+		}
 	}
-	.social a{
-		display: block;
-		float: left;
-		width: 25%;
-		text-align: center;
+	.social {
+		.elem {
+			display: block;
+			float: left;
+			width: 25%;
+			text-align: center;
+		}
 	}
 }
 .personal_data {
@@ -470,7 +488,7 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	top: 200px;
 	left: 20px;
 	///////////////////
-	width: 330px;
+	width: @map_marker;
 	overflow: hidden;
 	.invert;
 	.tour_cont {
@@ -488,14 +506,20 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 		padding: @padding-xs-horizontal;
 		float: left;
 		overflow: hidden;
+		width: 50%;
 		a{
 			font-size: 12px;
 			padding: @padding-xs-horizontal;
+		}
+		.elem {
+			width: 33%;
+			float: left;
 		}
 	}
 	.author {
 		float: right;
 		padding-top: @small_avatar_size/8;
+		width: 50%;
 		.name {
 			float: left;
 		}

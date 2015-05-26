@@ -26,6 +26,7 @@ gulp.task('boots', function() {
 
 // Watch Files For Changes
 gulp.task('watch', function() {
+    gulp.watch('../src/less/placeview_var.less', ['less']);
     gulp.watch('../src/less/placeview.less', ['less']);
     gulp.watch('../src/less/styles.less', ['boots']);
     gulp.watch('../src/less/player/player.less',['player_less'])
