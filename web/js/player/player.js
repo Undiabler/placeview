@@ -65,6 +65,12 @@
 		});
 	}
 
+	document.getElementById("close_all").getElementsByTagName("span")[0].addEventListener("click", function() {
+		show_hide_panos.classList.remove("active");
+		multimenu.classList.remove(multimenu.classList);
+		multimenu.classList.add("default");
+	});
+
 	elems = multimenu.getElementsByClassName("back_button");
 
 	length = elems.length;	 

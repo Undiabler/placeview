@@ -97,7 +97,7 @@ body {
 			}
 			.slides {
 				overflow-y: auto;
-				opacity: 1;
+				width: @pano_preview_width+15;
 			}
 		}
 		.hide {
@@ -106,14 +106,13 @@ body {
 		.slides {
 			position: absolute;
 			display: block;
-			width: @pano_preview_width+15;
+			width: 0;
 			overflow-y: auto;
 			overflow: hidden;
-			-webkit-transition: all .5s ease-out 0s;
-			-moz-transition: all .5s ease-out 0s;
-			-o-transition: all .5s ease-out 0s;
-			transition: all .5s ease-out 0s;
-			opacity: 0;
+			-webkit-transition: all .25s ease-out 0s;
+			-moz-transition: all .25s ease-out 0s;
+			-o-transition: all .25s ease-out 0s;
+			transition: all .25s ease-out 0s;
 		.slide {
 				position: relative;
 				width: @pano_preview_width;
@@ -158,6 +157,7 @@ body {
 	}
 }
 #multimenu {
+	z-index: 99;
 	-webkit-transition: width .25s;
     -moz-transition: width .25s;
     -o-transition: width .25s;
@@ -548,6 +548,19 @@ body {
 		bottom: 10px;
 		font-size: @icons_size;
 		width: 100%;
+		cursor: pointer;
+	}
+}
+#close_all {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	color: @light_grey;
+	overflow: hidden;
+	span {
+		background: @dark_back;
+		padding: @padding-xs-horizontal;
 		cursor: pointer;
 	}
 }

@@ -185,7 +185,7 @@ body {
 }
 #pano_list .control.active .slides {
   overflow-y: auto;
-  opacity: 1;
+  width: 215px;
 }
 #pano_list .control .hide {
   display: none;
@@ -193,14 +193,13 @@ body {
 #pano_list .control .slides {
   position: absolute;
   display: block;
-  width: 215px;
+  width: 0;
   overflow-y: auto;
   overflow: hidden;
-  -webkit-transition: all 0.5s ease-out 0s;
-  -moz-transition: all 0.5s ease-out 0s;
-  -o-transition: all 0.5s ease-out 0s;
-  transition: all 0.5s ease-out 0s;
-  opacity: 0;
+  -webkit-transition: all 0.25s ease-out 0s;
+  -moz-transition: all 0.25s ease-out 0s;
+  -o-transition: all 0.25s ease-out 0s;
+  transition: all 0.25s ease-out 0s;
 }
 #pano_list .control .slides .slide {
   position: relative;
@@ -241,6 +240,7 @@ body {
   opacity: 1;
 }
 #multimenu {
+  z-index: 99;
   -webkit-transition: width .25s;
   -moz-transition: width .25s;
   -o-transition: width .25s;
@@ -615,5 +615,18 @@ body {
   bottom: 10px;
   font-size: 25px;
   width: 100%;
+  cursor: pointer;
+}
+#close_all {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: #e0e0e0;
+  overflow: hidden;
+}
+#close_all span {
+  background: rgba(51, 51, 51, 0.8);
+  padding: 5px;
   cursor: pointer;
 }
