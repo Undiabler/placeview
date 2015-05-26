@@ -27,6 +27,17 @@
 		});
 	}
 
+	elems = document.getElementById("more_info").getElementsByClassName("lang")[0].getElementsByTagName("a");
+	length = elems.length;
+	for(i = 0; i < length; i += 1) {
+		elems[i].addEventListener("click", function() {
+			var buf = this.parentNode.getElementsByTagName("a");
+			for(var j = 0; j < buf.length; j += 1) {
+				buf[j].classList.toggle("active");
+			}
+		});
+	}
+
 	multimenu_controls.getElementsByClassName("show_on_map")[0].addEventListener("click", function() {
 		multimenu.classList.remove(multimenu.classList);
 		multimenu.classList.add("show_on_map");
