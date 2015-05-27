@@ -555,9 +555,13 @@ body {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	display: none;
 	text-align: center;
 	color: @light_grey;
 	overflow: hidden;
+	&.active {
+		display: block;
+	}
 	span {
 		background: @dark_back;
 		padding: @padding-xs-horizontal;

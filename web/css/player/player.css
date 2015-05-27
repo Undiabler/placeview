@@ -621,9 +621,13 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
+  display: none;
   text-align: center;
   color: #e0e0e0;
   overflow: hidden;
+}
+#close_all.active {
+  display: block;
 }
 #close_all span {
   background: rgba(51, 51, 51, 0.8);
