@@ -123,6 +123,23 @@ class Security extends Plugin
 		return $this->persistent->acl;
 	}
 
+	public function lang($dispatcher){
+		$lang = $dispatcher->getParam("language");		
+		if (!$lang) {
+			if (preg_match('/^\/[a-z]{2}/',$_SERVER['REQUEST_URI'])) return;
+			$new_lang=substr($this->request->getBestLanguage(),0,2);
+			if (file_exists(__DIR__."/../messages/".$new_lang.".php")){
+				$this->config->lang=$new_lang;
+				$server = $_SERVER['REQUEST_URI'];
+				if ($server=='/') $server='/map';
+				header("Location: /".$this->config->lang.$server);
+				exit();
+			}
+		} else {
+			$this->config->lang=$lang;
+		}
+	}
+
 	/**
 	 * This action is executed before execute any action in the application
 	 *
@@ -131,6 +148,8 @@ class Security extends Plugin
 	 */
 	public function beforeDispatch(Event $event, Dispatcher $dispatcher)
 	{
+
+		$this->lang($dispatcher);
 
 		$controller = $dispatcher->getControllerName();
 		$action = $dispatcher->getActionName();

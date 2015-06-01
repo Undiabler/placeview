@@ -40,6 +40,7 @@ class IndexController extends CController
             View::LEVEL_LAYOUT => false,
             View::LEVEL_MAIN_LAYOUT => false
         ));
+        $this->view->setTemplateAfter('login');
 	}
 
 	public function sign_inAction() {
@@ -47,6 +48,7 @@ class IndexController extends CController
             View::LEVEL_LAYOUT => false,
             View::LEVEL_MAIN_LAYOUT => false
         ));	
+        $this->view->setTemplateAfter('login');
 	}
 
 	public function planingAction() {

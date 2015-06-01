@@ -8,8 +8,15 @@
 
 'login'                                                        => 'Account',
 
-'Смотреть'                                                     => 'Explore',
-'Заказать'                                                     => 'Order',
+'sign'                                                     => 'Sign In',
+'sign_email'=>'Enter email',
+'sign_pass'=>'Enter password',
+'sign_remember'=>'Remember me',
+'sign_submit'=>'Submit',
+'sign_create'=>'Create an Account.',
+'sign_notreg'=>'Not registered?',
+
+''                                                     => 'Order',
 'Карта'		                                                   => 'Map',
 
 'Модерация'                                                    => 'Moderation',

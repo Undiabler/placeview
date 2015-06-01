@@ -1,5 +1,5 @@
 <!DOCTYPE html> 
-<html> 
+<html lang="<?=$this->config->lang?>"> 
     <head> 
     <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1,maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico"></link>
@@ -19,29 +19,25 @@
         <meta name="og:url" content="http://placeview.in/" />
         <meta name="og:image" content="http://placeview.in/img/site/LOGO_BETA.png" />
 
+        <?php $this->partial("widgets/meta/alternate"); ?>
+
         <link rel="stylesheet" href="/css/uikit.almost-flat.css">
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
         <script type="text/javascript" src="/js/uikit.js"></script>
 
-
-
         <!-- <link href='/assets/css/map.css' rel='stylesheet' /> -->
-         <?php $this->assets->outputCss() ?>
+        <?php $this->assets->outputCss() ?>
 
-
-         <link href="/css/styles.css" rel="stylesheet">
-         <link rel="stylesheet" type="text/css" href="">
+        <link href="/css/styles.css" rel="stylesheet">
 
     <!-- CSS Plugins -->
-    <link href="/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">    
     <link href="/css/animate.css" rel="stylesheet">
 
     <!-- Google Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic,cyrillic-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -58,7 +54,7 @@
     <!-- PRELOADER
     ============================== -->
     <div class="preloader">
-      <img src="img/preloader.gif" alt="Loading..." class="preloader__img">
+      <img src="/img/preloader.gif" alt="Loading..." class="preloader__img">
     </div>
 
 	<?php $this->partial("widgets/header"); ?>

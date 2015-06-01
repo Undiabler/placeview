@@ -38,7 +38,7 @@
         <!-- Home -->
     <?php $this->partial("widgets/langs"); ?>
 
-    <li><a href="#"><?=$t->_('login')?></a></li>
+    <li><?=$this->extra->url([['for'=>'index_act','action'=>'sign_in'],$t->_('login')])?></li>
   </ul>
 
 
