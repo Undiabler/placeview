@@ -193,7 +193,7 @@ form.find-form button:focus {
   top: 80px;
 }
 .hover_menu {
-  width: 360px;
+  width: 362px;
 }
 .hover_menu button {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -397,7 +397,6 @@ form.find-form button:focus {
   border-radius: 3px;
   height: 40px;
   line-height: 40px;
-  width: 314px;
 }
 .filters a {
   color: #e0e0e0;
@@ -407,8 +406,8 @@ form.find-form button:focus {
 }
 .filters a {
   float: left;
-  padding-left: 7px;
-  padding-right: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
   text-align: center;
   text-decoration: none;
 }
