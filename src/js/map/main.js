@@ -7,7 +7,8 @@ var lng=L.latLng(-37.79, 175.27);
 var map = L.map('map', {
 	minZoom: 3,
 	center: lng,
-	zoom: 13
+	zoom: 13,
+	zoomControl:false 
 });
 
 L.Icon.Default.imagePath = '/img';
