@@ -15,6 +15,9 @@
 'sign_submit'=>'Submit',
 'sign_create'=>'Create an Account.',
 'sign_notreg'=>'Not registered?',
+'sign_into'=>'Sign into your account.',
+'sign_already'=>'Already a member?',
+'sign_register'=>'Sign Up',
 
 ''                                                     => 'Order',
 'Карта'		                                                   => 'Map',

@@ -19,14 +19,19 @@ $router = new \Phalcon\Mvc\Router(false);
 	);
 
 	$router->add(
+	    "/logout",
+	    [	"controller" => "index", "action" => "logout", 'language'=>'en'  ]
+	);
+
+	$router->add(
 	    '/{language:[a-z]{2}}/:action',
 	    [	"controller" => "index", "action" => 2, ]
 	)->setName('index_act');
 
 	$router->add(
-	    '/:action',
-	    [	"controller" => "index", "action" => 'empty', ]
-	);
+	    '/ajax/:action',
+	    [	"controller" => "ajax", "action" => 1, 'language'=>'en' ]
+	)->setName('ajax_act');
 
 	// $router->add(
 	//     "/:action",
@@ -46,12 +51,6 @@ $router = new \Phalcon\Mvc\Router(false);
 	$router->add(
 	    "/tools/:action",
 	    [	"controller" => "tools", "action" => 1, ]
-	);
-
-
-	$router->add(
-	    "/logout",
-	    [	"controller" => "login", "action" => "logout", ]
 	);
 
 	$router->add(

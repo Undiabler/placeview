@@ -7,22 +7,24 @@ use Phalcon\Mvc\Model\Validator\Uniqueness as UniquenessValidator;
 class Users extends BaseModel
 {
 
-	public $id;
 
-            public $firstName;
-            public $lastName;
+	public function getSource()
+    {
+    	return 'user_main';
+    }
+
+	public $id;
 
 	public $email;
 
 	public $hash;
-	
-	public $role;
 
 	public $status;
+	public $groups;
 
-       public function initialize()
+    public function initialize()
     {
-        $this->allowEmptyString(array('lastName'));
+       $this->allowEmptyString(array('lastName'));
        $this->skipAttributesOnCreate(array('registrationDate','lastLogin'));
     }
 

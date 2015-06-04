@@ -26,15 +26,7 @@ function getFolders(dir){
 }
 
 var scriptsPath = './../src/js/';
-var scriptsDest = './../assets/js/';
-
-
-
-
-    // gulp.src(['./../js/**/*.js'],{base: './'})
-    //     .pipe(concat('engine.js'))
-    //     .pipe(uglify())
-    //     .pipe(gulp.dest('app'));
+var scriptsDest = './../web/js/';
 
 gulp.task('build', function() {
 
@@ -46,11 +38,10 @@ gulp.task('build', function() {
       
       return gulp.src(src_file)
       	// .pipe(cache(src_file))
-      	.pipe(jshint())
-      	.pipe(jshint.reporter('default'))
       	.pipe(browserify({
             insertGlobals : false,
             transform : [reactify],
+            // transform : [reactify],
             debug : false
           }))
         .pipe(rename(folder + '.dev.js'))

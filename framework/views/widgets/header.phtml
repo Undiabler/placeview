@@ -37,8 +37,8 @@
   <ul class="nav navbar-nav navbar-right">
         <!-- Home -->
     <?php $this->partial("widgets/langs"); ?>
-
-    <li><?=$this->extra->url([['for'=>'index_act','action'=>'sign_in'],$t->_('login')])?></li>
+   
+    <?php $this->partial("widgets/header/logined"); ?>
   </ul>
 
 

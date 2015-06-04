@@ -61,7 +61,7 @@ class Loader {
 		// 	'notNullValidations' => false
 		// ));
 
-		    $di['modelsMetadata'] = function() {
+		    $di['modelsMetadata'] = function() use ($config) {
 
 			    // Создать менеджер мета-данных с APC
 			    if (strstr($_SERVER["HTTP_HOST"], $config->app->product)) {

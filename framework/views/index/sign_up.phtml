@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="body-plain__title">
-            <h1 class="text-center">Sign Up</h1>
+            <h1 class="text-center"><?=$t->_('sign_register');?></h1>
           </div>
         </div> 
       </div> <!-- / .row -->
@@ -15,12 +15,12 @@
             <!-- Sign Up form -->
             <form role="form">
               <div class="form-group">
-                <label for="sign-up__email" class="sr-only">Enter email</label>
-                <input type="email" class="form-control" id="sign-up__email" placeholder="Enter email">
+                <label for="sign-up__email" class="sr-only"><?=$t->_('sign_email');?></label>
+                <input type="email" class="form-control" id="sign-up__email" placeholder="<?=$t->_('sign_email');?>">
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox"> I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                  Pressing this button you agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
                 </label>
               </div>
               <button type="submit" class="btn btn-primary btn-block btn-lg">Create Account</button>
@@ -28,7 +28,7 @@
 
             <!-- Sign In link -->
             <hr />
-            <p>Already a member? <a href="sign-in.html">Sign into your account.</a></p>
+            <p><?=$t->_('sign_already');?> <?=$this->extra->url([['for'=>'index_act','action'=>'sign_in'],$t->_('sign_into')])?></p>
           </div> <!-- / .body-plain__form -->
 
           <!-- Footer -->

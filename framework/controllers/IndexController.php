@@ -6,6 +6,8 @@ use Phalcon\Mvc\View;
 class IndexController extends CController
 {
 
+	use LoginTrait; #sign_in and sign_up
+
 	public function initialize() {
 		var_dump('index initialized');
 	}
@@ -35,32 +37,12 @@ class IndexController extends CController
         ));
 	}
 
-	public function sign_upAction() {
-		$this->view->disableLevel(array(
-            View::LEVEL_LAYOUT => false,
-            View::LEVEL_MAIN_LAYOUT => false
-        ));
-        $this->view->setTemplateAfter('login');
-	}
-
-	public function sign_inAction() {
-		$this->view->disableLevel(array(
-            View::LEVEL_LAYOUT => false,
-            View::LEVEL_MAIN_LAYOUT => false
-        ));	
-        $this->view->setTemplateAfter('login');
-	}
-
 	public function planingAction() {
 	  // $this->view->setVar('days',$this->getTasks());
 		$this->view->setVar('days',[]);
 	}
 
 	public function indexAction() {
-		exit();
-	}
-
-	public function emptyAction() {
 		exit();
 	}
 

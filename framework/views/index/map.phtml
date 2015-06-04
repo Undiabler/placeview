@@ -1,8 +1,17 @@
 <?php
 $this->assets->addJs("realworld.50000.js");
-$this->assets->addJs("js/map.min.js");
+$this->assets->addJs("js/map.dev.js");
 $this->assets->addCss("css/map.css");
 ?>
+
+<style type="text/css">
+.leaflet-popup-content-wrapper{
+	border-radius: 2px;
+}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip {
+  background-color: rgba(51,51,51,0.9);
+  }
+</style>
 
 <div id="menu-spacer"></div>
 <div class="map_container">
