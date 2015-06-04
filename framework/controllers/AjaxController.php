@@ -2,7 +2,7 @@
 
 use Phalcon\Mvc\Controller;
 
-class AjaxController extends JsonController
+class AjaxsController extends JsonController
 {
 
 	public function mapAction(){

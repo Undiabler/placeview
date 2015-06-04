@@ -14,11 +14,6 @@ $router = new \Phalcon\Mvc\Router(false);
 	);
 
 	$router->add(
-	    "/",
-	    [	"controller" => "index", "action" => "index", ]
-	);
-
-	$router->add(
 	    "/logout",
 	    [	"controller" => "index", "action" => "logout", 'language'=>'en'  ]
 	);
@@ -30,7 +25,7 @@ $router = new \Phalcon\Mvc\Router(false);
 
 	$router->add(
 	    '/ajax/map',
-	    [	"controller" => "ajax", "action" => 'map', 'language'=>'en' ]
+	    [	"controller" => "ajaxs", "action" => 'map', 'language'=>'en' ]
 	);
 
 	// $router->add(
