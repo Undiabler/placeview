@@ -64,21 +64,21 @@ class Loader {
 		    $di['modelsMetadata'] = function() use ($config) {
 
 			    // Создать менеджер мета-данных с APC
-			    if (strstr($_SERVER["HTTP_HOST"], $config->app->product)) {
+			    // if (strstr($_SERVER["HTTP_HOST"], $config->app->product)) {
 			    	
-				    $metaData = new \Phalcon\Mvc\Model\MetaData\Xcache(array(
-				        "lifetime" => 86400,
-				        "prefix"   => "my-prefix"
-				    ));
+				   //  $metaData = new \Phalcon\Mvc\Model\MetaData\Xcache(array(
+				   //      "lifetime" => 86400,
+				   //      "prefix"   => "my-prefix"
+				   //  ));
 
-			    } else {
+			    // } else {
 			   
 			    	 $metaData = new \Phalcon\Mvc\Model\MetaData\Memory(array(
 				        "lifetime" => 86400,
 				        "prefix"   => "my-prefix"
 				    ));
 
-			    }
+			    // }
 
 			    return $metaData;
 			};
