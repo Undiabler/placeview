@@ -64,6 +64,7 @@ class Security extends Plugin
 			$publicResources = array(
 				'login'      => array('*'),
 				'index'      => array('*'),
+				'ajax'      => array('*'),
 				'error'     => array('*'),
 				'auth'     => array('*'),
 			);

@@ -24,8 +24,8 @@ $router = new \Phalcon\Mvc\Router(false);
 	)->setName('index_act');
 
 	$router->add(
-	    '/ajax/map',
-	    [	"controller" => "ajaxs", "action" => 'map', 'language'=>'en' ]
+	    '/ajax/:action',
+	    [	"controller" => "ajaxs", "action" => 1, 'language'=>'en' ]
 	);
 
 	// $router->add(
