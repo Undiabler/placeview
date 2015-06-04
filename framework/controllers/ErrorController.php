@@ -1,7 +1,7 @@
 <?php
 use Phalcon\Mvc\Controller;
 
-class ErrorController extends Controller
+class ErrorController extends CController
 {
 	public function initialize()
     {

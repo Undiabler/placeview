@@ -25,7 +25,7 @@ $router = new \Phalcon\Mvc\Router(false);
 
 	$router->add(
 	    '/ajax/:action',
-	    [	"controller" => "ajaxs", "action" => 1, 'language'=>'en' ]
+	    [	"controller" => "ajax", "action" => 1, 'language'=>'en' ]
 	);
 
 	// $router->add(
@@ -93,8 +93,8 @@ $router = new \Phalcon\Mvc\Router(false);
 
 
 	$router->notFound(array(
-	    "controller" => "errors",
-	    "action" => "route404"
+	    "controller" => "error",
+	    "action" => "error404"
 	));
 
 
