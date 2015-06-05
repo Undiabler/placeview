@@ -634,3 +634,7 @@ body {
   padding: 5px;
   cursor: pointer;
 }
+.info_block {
+  position: absolute;
+  z-index: 99;
+}
