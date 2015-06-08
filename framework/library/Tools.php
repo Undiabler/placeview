@@ -260,7 +260,7 @@ class Tools
 		'ZW'=>[-19.0158364,29.152802,6]
 		];
 		if (isset($array[$key])) return $array[$key];
-		return [0,0,12];
+		return [47.1006328,16.3176908,4];
 	}
 
 	public static function countryCode($ip){
