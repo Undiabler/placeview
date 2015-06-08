@@ -12,7 +12,7 @@
 
 body {
 	margin: 0;
-	padding: 0; 
+	padding: 0;
 	font-family: 'Open Sans', sans-serif;
 	font-size: @default_font_size;
 }
@@ -141,7 +141,7 @@ body {
 	}
 }
 #logo {
-	display: none; //лого не видно когда открыто какойто другой пункт кроме деволта
+	display: block;
 	position: absolute;
 	top: 1+4*@padding-xs-horizontal + 1.8*@default_font_size + 10;
 	right: @default_multimenu_width+10;
@@ -542,7 +542,7 @@ body {
 				}
 			}
 		}
-	}	
+	}
 	.info {
 		position: absolute;
 		bottom: 10px;
@@ -567,4 +567,17 @@ body {
 		padding: @padding-xs-horizontal;
 		cursor: pointer;
 	}
+}
+.marker {
+	position: absolute;
+	z-index: 99;
+	text-align: center;
+	background: @dark_back;
+	color: @light_grey;
+	padding: @padding-xs-horizontal;
+	font-size: 1.5*@default_font_size;
+	line-height: 2*@default_font_size;
+	width: 2*@default_font_size;
+	border-radius: 50%;
+	cursor: pointer;
 }

@@ -39,7 +39,7 @@ class Loader {
 
 		    	// var_dump($bd_config);
 		    	$db=new DbAdapter($config->databases->db->toArray());
-				
+
 				// $eventsManager = $di->getShared('eventsManager');
 
 				// $logger = new FileLogger("app/logs/db.log");
@@ -53,11 +53,11 @@ class Loader {
 				// });
 
 				// $db->setEventsManager($eventsManager);
-		        
+
 		        return $db;
 		    };
 
-		// \Phalcon\Mvc\Model::setup(array(    
+		// \Phalcon\Mvc\Model::setup(array(
 		// 	'notNullValidations' => false
 		// ));
 
@@ -65,14 +65,13 @@ class Loader {
 
 			    // Создать менеджер мета-данных с APC
 			    // if (strstr($_SERVER["HTTP_HOST"], $config->app->product)) {
-			    	
+
 				   //  $metaData = new \Phalcon\Mvc\Model\MetaData\Xcache(array(
 				   //      "lifetime" => 86400,
 				   //      "prefix"   => "my-prefix"
 				   //  ));
 
 			    // } else {
-			   
 			    	 $metaData = new \Phalcon\Mvc\Model\MetaData\Memory(array(
 				        "lifetime" => 86400,
 				        "prefix"   => "my-prefix"
@@ -129,7 +128,7 @@ class Loader {
 	                    }
 	                }
 	            });
-			    
+
 			    $dispatcher->setEventsManager($eventsManager);
 
 			    return $dispatcher;
