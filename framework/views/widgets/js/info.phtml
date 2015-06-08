@@ -1,0 +1,22 @@
+<?php 
+
+$geo = Tools::countryCode($this->request->getClientAddress());
+// $geo = $this->request->getQuery('geo',null,'NULL');
+$geocode = Tools::geoCode($geo);
+
+?>
+<script type="text/javascript">
+(function(){
+	// <?=$geo?>
+	// <?=$this->request->getClientAddress()?>
+	
+ 	function User(){
+
+		this.geoCode = function (){
+			return [<?=$geocode[0]?>,<?=$geocode[1]?>,<?=$geocode[2]?>];
+		}
+	}
+
+	window.user = new User();
+})();
+</script>
