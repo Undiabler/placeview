@@ -1,10 +1,17 @@
 // Include gulp
-var gulp = require('gulp'); 
+var gulp = require('gulp');
 
 // Include Our Plugins
 var less = require('gulp-less');
 var watch = require('gulp-watch');
+var react = require('gulp-react');
 
+// Compile jsx to js
+gulp.task('jsx', function () {
+    return gulp.src('../src/js/components.jsx')
+        .pipe(react())
+        .pipe(gulp.dest('../web/js'));
+});
 // Compile Our less
 gulp.task('less', function() {
     return gulp.src('../src/less/placeview.less')

@@ -457,9 +457,13 @@ form.find-form button:focus {
   line-height: 30px;
 }
 .small_avatar {
-  width: 40px;
-  height: 40px;
+  width: 40px !important;
+  height: 40px !important;
   border-radius: 20px;
+}
+.small_avatar img {
+  width: 40px !important;
+  height: 40px !important;
 }
 .avatar {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
@@ -479,13 +483,15 @@ form.find-form button:focus {
   padding-top: 36px;
   width: 72px;
 }
+.pano_feed .pano_item .info {
+  padding: 5px;
+}
 .pano_feed .pano_item .description {
   float: left;
   width: 85%;
 }
 .pano_feed .pano_item .description p {
   padding: 5px;
-  padding-left: 15px;
 }
 .pano_feed .pano_item .description h4 {
   padding: 5px;
@@ -497,17 +503,22 @@ form.find-form button:focus {
 }
 .pano_feed .pano_item .social a {
   display: block;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   padding-right: 0;
 }
 .pano_feed .pano_item .author {
   padding: 5px;
 }
 .pano_feed .pano_item .author .avatar {
-  width: 40px;
-  height: 40px;
+  width: 40px !important;
+  height: 40px !important;
   border-radius: 20px;
   float: left;
+}
+.pano_feed .pano_item .author .avatar img {
+  width: 40px !important;
+  height: 40px !important;
 }
 .pano_feed .pano_item .author .name {
   float: left;
@@ -619,9 +630,6 @@ form.find-form button:focus {
 .personal_data .toolkit a.write {
   background: #158621;
 }
-.personal_data .pano_feed {
-  margin: 0;
-}
 .personal_data .toombler {
   color: #e0e0e0;
   text-align: center;
@@ -633,9 +641,11 @@ form.find-form button:focus {
 }
 .personal_data .toombler .profile {
   background: #ff5722;
+  cursor: pointer;
 }
 .personal_data .toombler .pers_data {
   background: #5a1ce3;
+  cursor: pointer;
 }
 .personal_data .toombler > div {
   display: none;
@@ -680,6 +690,11 @@ form.find-form button:focus {
   border-radius: 3px;
   background: rgba(51, 51, 51, 0.9);
   color: #e0e0e0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: none;
+  border-radius: 0;
+  border: 0;
 }
 .leaflet-popup-content a {
   color: #e0e0e0;
@@ -691,6 +706,9 @@ form.find-form button:focus {
   width: 100%;
   height: 100px;
   overflow: hidden;
+}
+.leaflet-popup-content .tour_cont img {
+  max-width: 100% !important;
 }
 .leaflet-popup-content .info {
   text-align: center;
@@ -721,10 +739,14 @@ form.find-form button:focus {
   float: left;
 }
 .leaflet-popup-content .author .avatar {
-  width: 40px;
-  height: 40px;
+  width: 40px !important;
+  height: 40px !important;
   border-radius: 20px;
   float: left;
   margin: 5px;
   margin-top: -15px;
+}
+.leaflet-popup-content .author .avatar img {
+  width: 40px !important;
+  height: 40px !important;
 }

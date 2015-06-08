@@ -4,7 +4,6 @@
 body {
 	margin-bottom: 0;
 }
-
 #menu-spacer{
 	height: @fixed_menu_height;
 }
@@ -41,7 +40,7 @@ form.find-form {
 }
 form.find-form button {
 	margin-left: -18px;
-} 
+}
 form.find-form input {
 	border: none;
 }
@@ -114,7 +113,6 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	height: 100%;
 	width: 100%;
 }
-
 .me_container {
 	position: fixed;
 	right: @indent_widget_screen;
@@ -261,9 +259,13 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 	}
 }
 .small_avatar {
-	width: @small_avatar_size;
-	height: @small_avatar_size;
+	width: @small_avatar_size !important;
+	height: @small_avatar_size !important;
 	border-radius: @small_avatar_size/2;
+	img {
+		width: @small_avatar_size !important;
+		height: @small_avatar_size !important;
+	}
 }
 
 .avatar {
@@ -285,12 +287,14 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 }
 .pano_feed {
 	.pano_item {
+		.info {
+			padding: @padding-xs-horizontal;
+		}
 		.description {
 			float: left;
 			width: 85%;
 			p{
 				padding: @padding-xs-horizontal;
-				padding-left: 3*@padding-xs-horizontal;
 			}
 			h4{
 				padding: @padding-xs-horizontal;
@@ -302,7 +306,8 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 			width: 15%;
 			a{
 				display: block;
-				padding: @padding-xs-horizontal;
+				padding-top: @padding-xs-horizontal;
+				padding-bottom: @padding-xs-horizontal;
 				padding-right: 0;
 			}
 		}
@@ -430,9 +435,6 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 			background: #158621;
 		}
 	}
-	.pano_feed {
-		margin: 0;
-	}
 	.toombler {
 		color: @light_grey;
 		text-align: center;
@@ -443,9 +445,11 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 		}
 		.profile {
 			background: @accent-base;
+			cursor: pointer;
 		}
 		.pers_data {
 			background: #5a1ce3;
+			cursor: pointer;
 		}
 	}
 	.toombler > div {
@@ -481,17 +485,23 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 		display: block;
 	}
 }
-
 .leaflet-popup-content {
-
 	width: @map_marker;
 	margin: 0;
 	overflow: hidden;
 	.invert;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background: none;
+	border-radius: 0;
+	border: 0;
 	.tour_cont {
 		width: 100%;
 		height: 100px;
 		overflow: hidden;
+		img {
+			max-width: 100% !important;
+		}
 	}
 	.info {
 		text-align: center;
