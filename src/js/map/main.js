@@ -3,11 +3,13 @@ require('./leaflet.markercluster.js');
 require('./../test.js');
 // var React = require('./../react-with-addons.js');
 
-var lng=L.latLng(-37.79, 175.27);
+var geo = window.user.geoCode();
+
+var lng=L.latLng(geo[0], geo[1]);
 var map = L.map('map', {
 	minZoom: 3,
 	center: lng,
-	zoom: 13,
+	zoom: geo[2],
 	zoomControl:false 
 });
 
