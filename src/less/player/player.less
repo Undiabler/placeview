@@ -2,6 +2,7 @@
 
 @default_font_size : 16px;
 @dark_back : rgba(51,51,51,0.8);
+@dark_color : rgb(51,51,51);
 @light_back : rgba(224,224,224,0.3);
 @pano_preview_width : 200px;
 @icons_size : 25px;
@@ -571,13 +572,49 @@ body {
 .marker {
 	position: absolute;
 	z-index: 99;
-	text-align: center;
-	background: @dark_back;
-	color: @light_grey;
-	padding: @padding-xs-horizontal;
+	color: @dark_color;
 	font-size: 1.5*@default_font_size;
-	line-height: 2*@default_font_size;
-	width: 2*@default_font_size;
-	border-radius: 50%;
 	cursor: pointer;
+}
+.infoblocks {
+	display: none;
+}
+.info_container {
+	&.active {
+		display: block;
+	}
+	display: none;
+	width: 300px;
+	position: absolute;
+	z-index: 99;
+	color: @light_grey;
+	.control {
+		float: right;
+		overflow: hidden;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		background-color: @dark_back;
+		.elem {
+			cursor: pointer;
+		}
+	}
+	.cont {
+		display: none;
+		&.active {
+			display: block;
+		}
+		padding: @padding-xs-horizontal;
+		background: @dark_back;
+		height: 300px;
+		overflow: auto;
+		.header {
+			padding: @padding-xs-horizontal;
+			font-size: @default_font_size;
+		}
+		.txt {
+			font-size: @default_font_size/1.3;
+		}
+	}
 }

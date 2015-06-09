@@ -8,9 +8,29 @@
 	multimenu_controls = multimenu.getElementsByClassName("icons_minimals")[0];
 
 	elem_position();
-	
+
 	window.onresize = function() {
 		elem_position()
+	}
+
+	document.getElementsByClassName('info_container')[0].getElementsByClassName('close')[0].addEventListener('click',function() {
+		document.getElementsByClassName('info_container')[0].classList.remove('active');
+	});
+
+	var arr = document.getElementsByClassName("info_marker");
+	for(var i = 0; i < arr.length; i += 1) {
+		arr[i].addEventListener('click', function(){
+
+			document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft + "px";
+			document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
+
+			var arr2 = document.getElementsByClassName("info_container")[0].getElementsByClassName("cont");
+			for(var j = 0; j < arr2.length; j += 1) {
+				arr2[j].classList.remove("active");
+			}
+			document.getElementsByClassName('info_container')[0].classList.add('active');
+			document.getElementsByClassName("info_container")[0].getElementsByClassName(this.getAttribute('data-info'))[0].classList.add("active");
+		});
 	}
 
 	show_hide_panos.getElementsByClassName('hide')[0].addEventListener('click', function(){
@@ -57,7 +77,7 @@
 	elems = multimenu.getElementsByClassName("back_button");
 	multimenu_close(elems);
 	elems = multimenu.getElementsByClassName("control");
-	length = elems.length;	 
+	length = elems.length;
 	for(i = 0; i < length; i += 1) {
 			elems[i]=elems[i].getElementsByClassName("fa-times")[0];
 	}
