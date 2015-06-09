@@ -12,6 +12,10 @@ $geocode = Tools::geoCode($geo);
 	
  	function User(){
 
+ 		this.lang = function (){
+ 			return '<?=$this->config->lang?>';
+ 		}
+
 		this.geoCode = function (){
 			return [<?=$geocode[0]?>,<?=$geocode[1]?>,<?=$geocode[2]?>];
 		}

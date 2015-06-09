@@ -13,9 +13,10 @@ class AjaxController extends JsonController
 
 	public function tourAction(){
 		$id = $this->request->getQuery('id');
-		$tour_main = $this->extra->getSql('SELECT * from tours_main WHERE id = ? ',[$id]);
-		$tour_lang = $this->extra->getSql('SELECT * from tours_lang WHERE id = ? ',[$id]);
-		$this->addjson('tours',['tour'=>$tours,'']);
+		$lang = $this->request->getQuery('lang',null,'en');
+		$tour_main = $this->extra->getSql('SELECT * from tours_main WHERE id = ? ',[$id],true);
+		$tour_lang = $this->extra->getSql('SELECT * from tours_lang WHERE id = ? AND lang = ? ',[$id,$lang],true);
+		$this->addjson('data',['tour'=>$tour_main,'text'=>$tour_lang]);
 		$this->returnjson();
 	}
 

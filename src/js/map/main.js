@@ -40,7 +40,27 @@ L.Icon.Default.imagePath = '/img';
 	map.on('popupopen', function(){
 	    var cont = document.getElementsByClassName('leaflet-popup-content')[0];    
 	    var lst = cont.getElementsByClassName('tour_cont')[0];
-	    console.log(lst.getAttribute('data-id'));
+	    tour_id = lst.getAttribute('data-id');
+	    lst.getElementsByTagName('img')[0].src='http://img.placeview.in/preview/'+tour_id;
+	    console.log(tour_id);
+
+	    $.ajax({
+		  url: "/ajax/tour",
+		  data: {id:tour_id,lang:window.user.lang()}
+		}).done(function( data ) {
+
+			// TODO:добавить кэш уже загруженных
+			console.log(data);
+			if (data && data.code == 0) {
+				var cont = document.getElementsByClassName('leaflet-popup-content')[0];    
+				var info = cont.getElementsByClassName('info')[0];
+				info.getElementsByTagName('h5')[0].innerHTML=data.data.text.name || 'No name';
+				
+				var author = cont.getElementsByClassName('author')[0];
+				author.getElementsByTagName('img')[0].src='http://img.placeview.in/avatars/ava'+data.data.tour.creator_id+'.jpg';
+
+			}
+		});
 	});
 
 		var markers = L.markerClusterGroup({ chunkedLoading: true, chunkProgress: updateProgressBar });
@@ -57,13 +77,13 @@ L.Icon.Default.imagePath = '/img';
 				var id = a.id;
 				var marker = L.marker(L.latLng(a.map_x, a.map_y),{icon:giveimg(a.category_id)});
 				marker.bindPopup('<div class="tour_cont" data-id="'+id+'">\
-	  		<img src="/img/livadia.jpg">\
+	  		<img src="about:blank">\
 	  	</div>\
 	  	<div class="info">\
 	  		<h5>\
-	  			Ресторан "Хромая лошадь"\
+	  			...\
 	  		</h5>\
-	  		<span class="place">\
+	  		<span class="place" style="display:none;">\
 	  			<a href="#">Днепреопетровск,</a> <a href="#">Украина</a>\
 	  		</span>\
 	  	</div>\
@@ -82,11 +102,11 @@ L.Icon.Default.imagePath = '/img';
 		<div class="author">\
 			<div class="name">\
 	          <a href="#">\
-	            Sergio_Armyani\
+	            NONAME\
 	          </a>\
 	        </div>\
 	        <div class="avatar">\
-	          <img src="/img/avatar.jpg">\
+	          <img src="about:blank">\
 	        </div>\
 	      </div>');
 				markerList.push(marker);

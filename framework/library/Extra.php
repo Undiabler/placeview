@@ -154,11 +154,11 @@ class Extra extends Component
     }
 
 
-    public function getSql($sql,$params=[]){
+    public function getSql($sql,$params=[],$one=false){
         $cn=$this->db->query("$sql",$params);
         $cn->setFetchMode(Phalcon\Db::FETCH_ASSOC);
-        $rows = $cn->fetchAll();
-        return $rows;
+        if ($one) return $cn->fetch();
+        return $cn->fetchAll();
     }
 
     public function url($array){
@@ -180,19 +180,6 @@ class Extra extends Component
         $arr=$_GET;
         unset($arr['_url']);
         return $uri_parts[0]."?".http_build_query(array_merge($arr, $params));
-    }
-
-    public function getSpheres(){
-        $sp=$this->extra->getSql("( SELECT *,1 as owner from spheres WHERE owner_id = ? ORDER BY sort ) 
-            UNION ALL 
-            (SELECT *,0 as owner from spheres WHERE id in (SELECT sphere_id from spheres_users WHERE user_id = ? AND accepted = 1))",[$this->user->getId(),$this->user->getId()]);
-        return $sp;
-    }
-
-
-    public function getInvites(){
-        $sp=$this->extra->getSql("SELECT t.id,t.name,t.color,us.firstName,us.lastName from spheres as t LEFT JOIN users as us ON us.id=t.owner_id WHERE t.id in (SELECT sphere_id as id from spheres_users WHERE user_id = ? AND accepted = 0 )",[$this->user->getId()]);
-        return $sp;
     }
 
     public function notify($id,$message){
