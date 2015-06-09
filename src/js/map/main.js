@@ -13,7 +13,30 @@ var map = L.map('map', {
 	zoomControl:false 
 });
 
-L.Icon.Default.imagePath = '/img';
+if (navigator.geolocation) {
+
+	function remove_geo_class(){
+		$("#map_geolocation").removeClass('active');
+		map.off('move', remove_geo_class);
+	}
+
+	function showPosition(position) {
+	    map.setView(new L.LatLng(position.coords.latitude, position.coords.longitude), 12, {animation: true});
+		setTimeout(function(){map.on('move', remove_geo_class);},1000);
+	}
+
+	$("#map_geolocation").click(function(){
+		$(this).addClass("active");
+	    navigator.geolocation.getCurrentPosition(showPosition);
+	});
+
+} else {
+	$("#map_geolocation").hide();
+}
+
+
+
+	L.Icon.Default.imagePath = '/img';
 
 	var accessToken = 'pk.eyJ1IjoidW5kaWFibGVyIiwiYSI6IklmTWFaNTQifQ.AdDOmeVgWcAOPofiAolAmQ';
 	//токен для дотупа на mapbox
