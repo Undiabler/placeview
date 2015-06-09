@@ -6,21 +6,21 @@
 
 <?php 
 	$i = 0;
-	foreach ($tours as $tour) {
-		if ($i%3==0) {
-			if ($i>0) echo('</div>');
-			echo('<div class="pano_container items_container">');
+	foreach ($tours_array as $tours) {
+		echo('<div class="pano_container items_container">');
+
+		foreach ($tours as $tour) {	
+			$this->partial('widgets/feed_elem',[
+				'img'=>'http://img.placeview.in/preview/'.$tour['id'],
+				'name'=>$tour['name'],
+				'description'=>$tour['description'],
+				'avatar'=>'http://img.placeview.in/avatars/ava'.$tour['creator_id'].'.jpg',
+				'author_name'=>'noname',
+				]);
 		}
-		$this->partial('widgets/feed_elem',[
-			'img'=>'http://img.placeview.in/preview/'.$tour['id'],
-			'name'=>$tour['name'],
-			'description'=>$tour['description'],
-			'avatar'=>'http://img.placeview.in/avatars/ava'.$tour['creator_id'].'.jpg',
-			'author_name'=>'noname',
-			]);
-		$i++;
+		
+		echo('</div>');
 	} 
-	echo('</div>');
 ?>
   
   <div class="spacer"></div>
