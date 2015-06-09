@@ -48,6 +48,8 @@ class IndexController extends CController
 
 	public function feedAction() {
 		
+		$tours = $this->extra->getSql('SELECT * from tours_main INNER JOIN tours_lang ON tours_lang.id = tours_main.id AND lang = ? ORDER BY tours_main.id DESC LIMIT 20 ',[$this->config->lang]);
+		$this->view->setVar('tours',$tours);	
 	}
 
 	public function mapAction() {
