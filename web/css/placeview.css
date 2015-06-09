@@ -431,6 +431,9 @@ form.find-form button:focus {
   height: 180px;
   overflow: hidden;
 }
+.feed_container .items_container .item .preview img {
+  width: 100%;
+}
 .feed_container .spacer {
   width: 100%;
   height: 70px;
