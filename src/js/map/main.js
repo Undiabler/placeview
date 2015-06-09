@@ -61,7 +61,7 @@ if (navigator.geolocation) {
 		}
 
 	map.on('popupopen', function(){
-	    var cont = document.getElementsByClassName('leaflet-popup-content')[0];    
+	    var cont = document.getElementsByClassName('leaflet-popup-content')[0];
 	    var lst = cont.getElementsByClassName('tour_cont')[0];
 	    tour_id = lst.getAttribute('data-id');
 	    lst.getElementsByTagName('img')[0].src='http://img.placeview.in/preview/'+tour_id;
@@ -75,10 +75,10 @@ if (navigator.geolocation) {
 			// TODO:добавить кэш уже загруженных
 			console.log(data);
 			if (data && data.code == 0) {
-				var cont = document.getElementsByClassName('leaflet-popup-content')[0];    
+				var cont = document.getElementsByClassName('leaflet-popup-content')[0];
 				var info = cont.getElementsByClassName('info')[0];
 				info.getElementsByTagName('h5')[0].innerHTML=data.data.text.name || 'No name';
-				
+
 				var author = cont.getElementsByClassName('author')[0];
 				author.getElementsByTagName('img')[0].src='http://img.placeview.in/avatars/ava'+data.data.tour.creator_id+'.jpg';
 
@@ -94,18 +94,20 @@ if (navigator.geolocation) {
 		}).done(function( data ) {
 
 			var markerList = [];
-			    
+
 			for (var i = 0; i < data.tours.length; i++) {
 				var a = data.tours[i];
 				var id = a.id;
 				var marker = L.marker(L.latLng(a.map_x, a.map_y),{icon:giveimg(a.category_id)});
 				marker.bindPopup('<div class="tour_cont" data-id="'+id+'">\
-	  		<img src="about:blank">\
+	  		<a href="#"><img src="about:blank"></a>\
 	  	</div>\
 	  	<div class="info">\
-	  		<h5>\
-	  			...\
-	  		</h5>\
+	  		<a href="#">\
+		  		<h5>\
+		  			...\
+		  		</h5>\
+	  		</a>\
 	  		<span class="place" style="display:none;">\
 	  			<a href="#">Днепреопетровск,</a> <a href="#">Украина</a>\
 	  		</span>\
