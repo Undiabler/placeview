@@ -15,7 +15,15 @@ class AjaxController extends JsonController
 		$id = $this->request->getQuery('id');
 		$lang = $this->request->getQuery('lang',null,'en');
 		$tour_main = $this->extra->getSql('SELECT * from tours_main WHERE id = ? ',[$id],true);
+		
 		$tour_lang = $this->extra->getSql('SELECT * from tours_lang WHERE id = ? AND lang = ? ',[$id,$lang],true);
+		
+		$langs = "'".implode("','",$this->config->langs->toArray())."'";
+
+		if (!$tour_lang)
+		$tour_lang = $this->extra->getSql("SELECT * from tours_lang WHERE id = ? ORDER BY FIELD(lang, $langs) ",[$id],true);
+			
+
 		$this->addjson('data',['tour'=>$tour_main,'text'=>$tour_lang]);
 		$this->returnjson();
 	}
