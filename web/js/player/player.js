@@ -14,22 +14,31 @@
 	}
 
 	document.getElementsByClassName('info_container')[0].getElementsByClassName('close')[0].addEventListener('click',function() {
+		var arr = document.getElementsByClassName('marker');
+		for(var i = 0; i < arr.length; i += 1) {
+			arr[i].classList.remove('hide');
+		}
 		document.getElementsByClassName('info_container')[0].classList.remove('active');
 	});
 
 	var arr = document.getElementsByClassName("info_marker");
 	for(var i = 0; i < arr.length; i += 1) {
 		arr[i].addEventListener('click', function(){
-
-			document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft + "px";
-			document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
-
 			var arr2 = document.getElementsByClassName("info_container")[0].getElementsByClassName("cont");
 			for(var j = 0; j < arr2.length; j += 1) {
 				arr2[j].classList.remove("active");
 			}
 			document.getElementsByClassName('info_container')[0].classList.add('active');
 			document.getElementsByClassName("info_container")[0].getElementsByClassName(this.getAttribute('data-info'))[0].classList.add("active");
+			if(this.offsetLeft > document.getElementById("player").clientWidth/2)
+				document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft - document.getElementsByClassName("info_container")[0].clientWidth + "px";
+			else
+				document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft + "px";
+			if(this.offsetTop > document.getElementById("player").clientHeight/2)
+				document.getElementsByClassName("info_container")[0].style.top = this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight + "px";
+			else
+				document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
+			this.classList.add('hide')
 		});
 	}
 

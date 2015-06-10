@@ -641,6 +641,9 @@ body {
   font-size: 25px;
   cursor: pointer;
 }
+.marker.hide {
+  display: none;
+}
 .infoblocks {
   display: none;
 }
