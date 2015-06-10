@@ -24,6 +24,10 @@
 	var arr = document.getElementsByClassName("info_marker");
 	for(var i = 0; i < arr.length; i += 1) {
 		arr[i].addEventListener('click', function(){
+			var arr2 = document.getElementsByClassName('marker');
+			for(var i = 0; i < arr.length; i += 1) {
+				arr2[i].classList.remove('hide');
+			}
 			var arr2 = document.getElementsByClassName("info_container")[0].getElementsByClassName("cont");
 			for(var j = 0; j < arr2.length; j += 1) {
 				arr2[j].classList.remove("active");
