@@ -4,12 +4,12 @@
 
 <div class="pano_feed feed_container">
 
-<?php 
+<?php
 	$i = 0;
 	foreach ($tours_array as $tours) {
 		echo('<div class="pano_container items_container">');
 
-		foreach ($tours as $tour) {	
+		foreach ($tours as $tour) {
 			$this->partial('widgets/feed_elem',[
 				'img'=>'http://img.placeview.in/preview/'.$tour['id'],
 				'name'=>$tour['name'],
@@ -18,11 +18,11 @@
 				'author_name'=>'noname',
 				]);
 		}
-		
+
 		echo('</div>');
-	} 
+	}
 ?>
-  
+
   <div class="spacer"></div>
 </div>
 

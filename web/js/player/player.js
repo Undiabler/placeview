@@ -8,9 +8,45 @@
 	multimenu_controls = multimenu.getElementsByClassName("icons_minimals")[0];
 
 	elem_position();
-	
+
 	window.onresize = function() {
 		elem_position()
+	}
+
+	document.getElementsByClassName('info_container')[0].getElementsByClassName('close')[0].addEventListener('click',function() {
+		var arr = document.getElementsByClassName('marker');
+		for(var i = 0; i < arr.length; i += 1) {
+			console.log(arr[i]);
+			arr[i].classList.remove('hide');
+		}
+		document.getElementsByClassName('info_container')[0].classList.remove('active');
+	});
+	var arr = document.getElementsByClassName("marker");
+	for (var i = 0; i < arr.length; i += 1) {
+		arr[i].addEventListener('click', function(){
+			var arr2 = document.getElementsByClassName('marker');
+			for(var i = 0; i < arr2.length; i += 1) {
+				arr2[i].classList.remove('hide');
+			}
+			var arr2 = document.getElementsByClassName("block_container")[0].getElementsByClassName("cont");
+			for(var j = 0; j < arr2.length; j += 1) {
+				arr2[j].classList.remove("active");
+			}
+			if(this.classList.contains("info_marker")){
+				document.getElementsByClassName('info_container')[0].classList.add('active');
+				document.getElementsByClassName("info_container")[0].getElementsByClassName(this.getAttribute('data-info'))[0].classList.add("active");
+				if(this.offsetLeft > document.getElementById("player").clientWidth/2)
+					document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft - document.getElementsByClassName("info_container")[0].clientWidth + "px";
+				else
+					document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft + "px";
+				if(this.offsetTop > document.getElementById("player").clientHeight/2)
+					document.getElementsByClassName("info_container")[0].style.top = this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight + "px";
+				else
+					document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
+
+			}
+			this.classList.add('hide')
+		});
 	}
 
 	show_hide_panos.getElementsByClassName('hide')[0].addEventListener('click', function(){
@@ -57,7 +93,7 @@
 	elems = multimenu.getElementsByClassName("back_button");
 	multimenu_close(elems);
 	elems = multimenu.getElementsByClassName("control");
-	length = elems.length;	 
+	length = elems.length;
 	for(i = 0; i < length; i += 1) {
 			elems[i]=elems[i].getElementsByClassName("fa-times")[0];
 	}

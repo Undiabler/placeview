@@ -427,7 +427,11 @@ form.find-form button:focus {
 .feed_container .items_container .item {
   position: relative;
 }
+.feed_container .items_container .item a.preview {
+  display: block;
+}
 .feed_container .items_container .item .preview {
+  display: block;
   height: 180px;
   overflow: hidden;
 }
@@ -499,6 +503,12 @@ form.find-form button:focus {
 .pano_feed .pano_item .description h4 {
   padding: 5px;
   text-align: center;
+}
+.pano_feed .pano_item .description h4 a {
+  color: #333333;
+}
+.pano_feed .pano_item .description h4 a:hover {
+  color: #ff5722;
 }
 .pano_feed .pano_item .social {
   float: left;
@@ -712,6 +722,7 @@ form.find-form button:focus {
   text-align: center;
 }
 .leaflet-popup-content .tour_cont img {
+  width: 100%;
   max-width: 100% !important;
 }
 .leaflet-popup-content .info {

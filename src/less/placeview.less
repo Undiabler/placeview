@@ -228,7 +228,11 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 		width: floor(100%/@strips_amount);
 		.item {
 			position:relative;
+			a.preview {
+				display: block;
+			}
 			.preview {
+				display: block;
 				height: @preview_height;
 				overflow: hidden;
 				img {
@@ -302,6 +306,12 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 			h4{
 				padding: @padding-xs-horizontal;
 				text-align: center;
+				a {
+					color: @default_color;
+					&:hover {
+						color: @accent-base;
+					}
+				}
 			}
 		}
 		.social {
@@ -504,6 +514,7 @@ form.find-form button, form.find-form button:hover, form.find-form button:focus 
 		overflow: hidden;
 		text-align: center;
 		img {
+			width: 100%;
 			max-width: 100% !important;
 		}
 	}
