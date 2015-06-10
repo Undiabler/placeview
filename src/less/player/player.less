@@ -553,6 +553,46 @@ body {
 		cursor: pointer;
 	}
 }
+.modules {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	text-align: center;
+	font-size: @icons_size;
+	a{
+		cursor: pointer;
+		color: @light_grey;
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+		text-align: center;
+		&.active {
+			border: 2px solid @accent-base;
+			border-radius: 50%;
+		}
+	}
+}
+.module_container {
+	z-index: 99;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-left: -200px;
+	margin-top: -200px;
+	color: @light_grey;
+	.control {
+		.elem {
+			float: right;
+		}
+	}
+	.module {
+		background: @dark_back;
+		overflow: hidden;
+	}
+}
 #close_all {
 	position: absolute;
 	bottom: 0;

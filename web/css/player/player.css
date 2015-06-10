@@ -618,6 +618,44 @@ body {
   width: 100%;
   cursor: pointer;
 }
+.modules {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+.modules a {
+  cursor: pointer;
+  color: #e0e0e0;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.modules a.active {
+  border: 2px solid #ff5722;
+  border-radius: 50%;
+}
+.module_container {
+  z-index: 99;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
+  color: #e0e0e0;
+}
+.module_container .control .elem {
+  float: right;
+}
+.module_container .module {
+  background: rgba(51, 51, 51, 0.8);
+  overflow: hidden;
+}
 #close_all {
   position: absolute;
   bottom: 0;
