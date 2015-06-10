@@ -132,6 +132,7 @@ body {
 }
 #player {
   width: 100%;
+  min-width: 600px;
   height: 100%;
   overflow: hidden;
   position: absolute;
@@ -635,6 +636,7 @@ body {
   cursor: pointer;
 }
 .marker {
+  display: block;
   position: absolute;
   z-index: 99;
   color: #333333;
