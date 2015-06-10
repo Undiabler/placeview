@@ -571,15 +571,40 @@ body {
 	}
 }
 .marker {
+	display: block;
+	position: absolute;
+	z-index: 98;
+	font-size: @icons_size;
+	cursor: pointer;
+	color: @light_grey;
+	background: @dark_back;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 50%;
 	&.hide {
 		display: none;
 	}
-	display: block;
-	position: absolute;
-	z-index: 99;
-	color: @dark_color;
-	font-size: @icons_size;
-	cursor: pointer;
+	&.near_center {
+		z-index: 99;
+		border-radius: 0;
+		width: auto;
+		height: auto;
+		padding: @padding-xs-horizontal;
+		.preview {
+			max-width: 100px;
+			display: block;
+			line-height: @default_font_size;
+			font-size: @default_font_size/1.2;
+		}
+		.fa {
+			display: none;
+		}
+	}
+	.preview {
+		display: none;
+	}
 }
 .infoblocks {
 	display: none;
