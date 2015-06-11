@@ -10,6 +10,7 @@
 @default_multimenu_width : 45px;
 @multimenu_control_width : 20px;
 @panel_padding : 20px;
+@module_width : 600px;
 
 body {
 	margin: 0;
@@ -578,10 +579,11 @@ body {
 	position: absolute;
 	top:50%;
 	left: 50%;
-	width: 400px;
-	height: 400px;
-	margin-left: -200px;
-	margin-top: -200px;
+	width: @module_width;
+	height: @module_width;
+	margin-left: -@module_width/2;
+	margin-top: -@module_width/2;
+
 	color: @light_grey;
 	.control {
 		.elem {
@@ -589,8 +591,21 @@ body {
 		}
 	}
 	.module {
+		padding: @panel_padding;
 		background: @dark_back;
 		overflow: hidden;
+		.elem {
+			float: left;
+			width: 50%;
+			td {
+				input, textarea {
+					width: 100%;
+				}
+			}
+			h4 {
+				margin: 0;
+			}
+		}
 	}
 }
 #close_all {
