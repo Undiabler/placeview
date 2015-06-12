@@ -638,34 +638,74 @@ body {
   border: 2px solid #ff5722;
   border-radius: 50%;
 }
-.module_container {
+#module_container {
+  display: none;
   z-index: 99;
   position: absolute;
   top: 50%;
   left: 50%;
+  overflow: hidden;
   width: 600px;
-  height: 600px;
+  height: 450px;
   margin-left: -300px;
-  margin-top: -300px;
+  margin-top: -225px;
   color: #e0e0e0;
 }
-.module_container .control .elem {
-  float: right;
+#module_container.active {
+  display: block;
 }
-.module_container .module {
+#module_container .control .elem {
+  float: right;
+  cursor: pointer;
+}
+#module_container .module {
   padding: 20px;
   background: rgba(51, 51, 51, 0.8);
   overflow: hidden;
 }
-.module_container .subcribe_module .elem {
+#module_container.subcribe_module #subcribe_module {
+  display: block;
+}
+#module_container #subcribe_module {
+  display: none;
+}
+#module_container #subcribe_module .arend_pokupka {
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-size: 19.2px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#module_container #subcribe_module .interested_in {
+  padding: 5px;
+}
+#module_container #subcribe_module .subscribe {
+  line-height: 32px;
+  font-size: 13.33333333px;
+  text-align: center;
+}
+#module_container #subcribe_module .subscribe button {
+  cursor: pointer;
+  font-size: 19.2px;
+  border: none;
+  background: #597eaa;
+  color: white;
+  padding: 10px;
+}
+#module_container #subcribe_module ul {
+  font-size: 12.30769231px;
+  padding-left: 20px;
+}
+#module_container #subcribe_module .elem {
   float: left;
   width: 50%;
 }
-.module_container .subcribe_module .elem td input,
-.module_container .subcribe_module .elem td textarea {
+#module_container #subcribe_module .elem td input,
+#module_container #subcribe_module .elem td textarea {
   width: 100%;
 }
-.module_container .subcribe_module .elem h4 {
+#module_container #subcribe_module .elem h4 {
   margin: 0;
 }
 #close_all {

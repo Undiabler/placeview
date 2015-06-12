@@ -13,6 +13,21 @@
 		elem_position()
 	}
 
+	document.getElementById("module_container").getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function() {
+		var arr = document.getElementById("module_container").classList;
+		document.getElementById("module_container").classList.remove(document.getElementById("module_container").classList[0],document.getElementById("module_container").classList[1]);
+	})
+
+	var arr = document.getElementsByClassName("modules")[0].getElementsByClassName("elem");
+	for(var i = 0; i< arr.length; i += 1) {
+		arr[i].addEventListener('click', function() {
+			if(!document.getElementById("module_container").classList.contains("active"))
+				document.getElementById("module_container").classList.add('active');
+			if(!document.getElementById("module_container").classList.contains(this.getAttribute('data-module')))
+			document.getElementById("module_container").classList.add(this.getAttribute('data-module'));
+		});
+	}
+
 	document.getElementsByClassName('info_container')[0].getElementsByClassName('close')[0].addEventListener('click',function() {
 		var arr = document.getElementsByClassName('marker');
 		for(var i = 0; i < arr.length; i += 1) {

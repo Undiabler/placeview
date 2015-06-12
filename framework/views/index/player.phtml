@@ -490,7 +490,7 @@
     </div>
   </div>
 
-  <div class="module_container">
+  <div id="module_container" class="">
 
     <div class="control">
       <div class="elem close">
@@ -508,7 +508,7 @@
       <div style="clear:both"></div>
     </div>
 
-    <div class="module subcribe_module">
+    <div class="module" id="subcribe_module">
       <div class="elem">
         <h4>
           Подпишись на обновления агенства, чтобы не упустить интересный объект
@@ -539,17 +539,35 @@
       </div>
       <div class="elem">
         <h4>
-          Ищу недвижимость для
+          Ищу недвижимость для:
         </h4>
+        <div>
+          <div class="arend_pokupka"><input type="radio">Аренда</div>
+          <div class="arend_pokupka"><input type="radio">Покупка</div>
+        </div>
+        <div class="interested_in">
+          Мне интересно получать свежую информацию о:
+          <ul>
+            <li><input type="checkbox">о похожих по типу объектах в Украине</li>
+            <li><input type="checkbox">о новостях рынка недвижимости</li>
+            <li><input type="checkbox">свой вариант агентства</li>
+            <li><input type="checkbox">свой вариант агентства</li>
+            <li><input type="checkbox">свой вариант агентства</li>
+            <li><input type="checkbox">свой вариант агентства</li>
+          </ul>
+        </div>
       </div>
       <div style="clear:both"></div>
-      <div></div>
+      <div class="subscribe">
+        <input type="checkbox"> я даю согласие на получение корреспонденции по данной рассылке<br>
+        <button>Подписаться</button>
+      </div>
     </div>
 
   </div>
 
   <div class="modules">
-    <a class="elem">
+    <a class="elem" data-module="subcribe_module">
       <i class="fa fa-bell-o"></i>
     </a>
   </div>
