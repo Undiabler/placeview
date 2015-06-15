@@ -76,8 +76,11 @@ if (navigator.geolocation) {
 			console.log(data);
 			if (data && data.code == 0) {
 				var cont = document.getElementsByClassName('leaflet-popup-content')[0];
+
 				var info = cont.getElementsByClassName('info')[0];
 				info.getElementsByTagName('h5')[0].innerHTML=data.data.text.name || 'No name';
+				cont.getElementsByClassName('tour_cont')[0].getElementsByTagName('a')[0].href=
+				info.getElementsByTagName('a')[0].href='/'+window.user.lang()+'/place/'+data.data.tour.url;
 
 				var author = cont.getElementsByClassName('author')[0];
 				author.getElementsByTagName('img')[0].src='http://img.placeview.in/avatars/ava'+data.data.tour.creator_id+'.jpg';
