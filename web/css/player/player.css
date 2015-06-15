@@ -764,15 +764,26 @@ body {
 .infoblocks {
   display: none;
 }
-.info_container {
+.block_container {
   display: none;
-  width: 300px;
   position: absolute;
   z-index: 99;
-  color: #e0e0e0;
 }
-.info_container.active {
+.block_container.active {
   display: block;
+}
+.block_container .control .elem {
+  cursor: pointer;
+}
+.block_container .cont {
+  display: none;
+}
+.block_container .cont.active {
+  display: block;
+}
+.info_container {
+  width: 300px;
+  color: #e0e0e0;
 }
 .info_container .control {
   float: right;
@@ -783,11 +794,7 @@ body {
   text-align: center;
   background-color: rgba(51, 51, 51, 0.8);
 }
-.info_container .control .elem {
-  cursor: pointer;
-}
 .info_container .cont {
-  display: none;
   padding: 5px;
   background: rgba(51, 51, 51, 0.8);
   height: 300px;

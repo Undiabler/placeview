@@ -707,14 +707,27 @@ body {
 .infoblocks {
 	display: none;
 }
-.info_container {
+.block_container {
 	&.active {
 		display: block;
 	}
 	display: none;
-	width: 300px;
 	position: absolute;
 	z-index: 99;
+	.control {
+		.elem {
+			cursor: pointer;
+		}
+	}
+	.cont {
+		display: none;
+		&.active {
+			display: block;
+		}
+	}
+}
+.info_container {
+	width: 300px;
 	color: @light_grey;
 	.control {
 		float: right;
@@ -724,12 +737,8 @@ body {
 		line-height: 20px;
 		text-align: center;
 		background-color: @dark_back;
-		.elem {
-			cursor: pointer;
-		}
 	}
 	.cont {
-		display: none;
 		&.active {
 			display: block;
 		}
