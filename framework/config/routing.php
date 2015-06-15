@@ -5,13 +5,13 @@ $router = new \Phalcon\Mvc\Router(false);
     $router->setDefaultController('index');
     $router->setDefaultAction('index');
 
-    $router->add(
-	    '/{language:[a-z]{2}}/:controller/:action',
-	    array(
-	        'controller' => 2,
-	        'action'     => 3
-	    )
-	);
+ //    $router->add(
+	//     '/{language:[a-z]{2}}/:controller/:action',
+	//     array(
+	//         'controller' => 2,
+	//         'action'     => 3
+	//     )
+	// );
 
 	$router->add(
 	    "/logout",
@@ -27,6 +27,17 @@ $router = new \Phalcon\Mvc\Router(false);
 	    '/ajax/:action',
 	    [	"controller" => "ajax", "action" => 1, 'language'=>'en' ]
 	);
+
+	$router->add(
+	    '/{language:[a-z]{2}}/place/{url1:[a-zA-Z0-9-]{4,}}',
+	    [	"controller" => "place", "action" => 'view', ]
+	)->setName('tour_url');
+
+	$router->add(
+	    '/{language:[a-z]{2}}/place/{url1:[a-zA-Z0-9-]{4,}}/{url2:[a-zA-Z0-9-]{4,}}',
+	    [	"controller" => "place", "action" => 'view', ]
+	)->setName('pano_url');
+
 
 	// $router->add(
 	//     "/:action",

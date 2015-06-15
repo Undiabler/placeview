@@ -11,6 +11,7 @@
 
 		foreach ($tours as $tour) {
 			$this->partial('widgets/feed_elem',[
+				'url'=>'/'.$this->config->lang.'/place/'.$tour['url'],
 				'img'=>'http://img.placeview.in/preview/'.$tour['id'],
 				'name'=>$tour['name'],
 				'description'=>$tour['description'],
