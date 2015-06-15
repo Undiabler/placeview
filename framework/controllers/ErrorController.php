@@ -1,10 +1,16 @@
 <?php
 use Phalcon\Mvc\Controller;
+use Phalcon\Mvc\View;
 
 class ErrorController extends CController
 {
 	public function initialize()
     {
+		$this->view->disableLevel(array(
+	        View::LEVEL_LAYOUT => false,
+	        View::LEVEL_MAIN_LAYOUT => false
+	    ));
+        $this->view->setTemplateAfter('error');
         $this->view->pick("index/error");
     }
 

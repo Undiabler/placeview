@@ -78,7 +78,7 @@
     <div id="pano">
       <div id="container" style='position:fixed;z-index:0;width:100%;height:100%; top: 0px;left: 0px;'></div>
       <script type="text/javascript">
-          PVLoader({tid:500,pid:1404,manualLoad:false});
+          PVLoader({tid:<?=$tour_id?>,pid:<?=$pano_id?>,manualLoad:false});
       </script>
     </div>
 
@@ -92,120 +92,32 @@
     </div>
 
     <div id="pano_list">
-      <div id="show_hide_panos" class="control">
-        <div class="show">
-          Панорамы <i class="fa fa-angle-down"></i>
-        </div>
-        <div class="hide">
-          Свернуть <i class="fa fa-angle-up"></i>
-        </div>
+		<div id="show_hide_panos" class="control">
+			<div class="show">
+			  Панорамы <i class="fa fa-angle-down"></i>
+			</div>
+			<div class="hide">
+			  Свернуть <i class="fa fa-angle-up"></i>
+			</div>
 
-        <div class="slides">
+			<div class="slides">
+			<?php foreach ($all_panos as $key => $pano) { ?>
 
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1 <br />asdasd
-            </div>
-          </div>
+			  <div class="slide">
+			    <div class="pano">
+			      <img src="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano['id']?>/mobile_f.jpg">
+			    </div>
+			    <div class="name">
+			      <?=$pano['name']?>
+			    </div>
+			  </div>
+			
+			<?php } ?>
 
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
+			</div>
+	    </div>
+  	</div>
 
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
-
-          <div class="slide">
-            <div class="pano">
-              <img src="/img/preview.jpg">
-            </div>
-            <div class="name">
-              name1
-            </div>
-          </div>
-
-      </div>
-    </div>
-
-
-  </div>
   <div id="logo">
     <a href="#">
       <img src="/img/logo.jpg">

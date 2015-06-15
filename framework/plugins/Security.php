@@ -65,6 +65,7 @@ class Security extends Plugin
 				'login'      => array('*'),
 				'index'      => array('*'),
 				'ajax'      => array('*'),
+				'place'      => array('*'),
 				'error'     => array('*'),
 				'auth'     => array('*'),
 			);
