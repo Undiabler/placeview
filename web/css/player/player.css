@@ -215,6 +215,13 @@ body {
   font-size: 0.8em;
   text-align: center;
 }
+#pano_list .control .slides .slide a.name {
+  color: #e0e0e0;
+  text-decoration: none;
+}
+#pano_list .control .slides .slide a.name:hover {
+  text-decoration: underline;
+}
 #pano_list .control .slides .slide .pano {
   width: 200px;
   overflow: hidden;
