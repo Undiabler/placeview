@@ -419,6 +419,12 @@ body {
 #multimenu.meeting #meeting {
   display: block;
 }
+#multimenu.inform {
+  width: 225px;
+}
+#multimenu.inform #inform {
+  display: block;
+}
 #multimenu.show_on_map {
   width: 225px;
 }

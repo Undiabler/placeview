@@ -142,7 +142,6 @@
 	}
 
 	function close_all_check() {
-		console.log("check close all")
 		if((multimenu_opened) && (panos_opened)) {
 			document.getElementById("close_all").classList.add("active");
 			return;
