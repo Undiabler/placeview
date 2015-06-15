@@ -53,6 +53,7 @@ class PlaceController extends CController
 
 
 		$this->view->setVar('all_panos',$all_panos);
+		$this->view->setVar('tour',$tour);
 		$this->view->setVar('tour_id',$tour['id']);
 		$this->view->setVar('pano_id',$pano['id']);
 		$this->view->pick("index/player");

@@ -153,7 +153,7 @@
 			    <div class="pano">
 			      <img src="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano['id']?>/mobile_f.jpg">
 			    </div>
-			    <a href="#" class="name">
+			    <a href="/<?=$this->config->lang.'/place/'.$tour['url'].'/'.$pano['url']?>" class="name">
 			      <?=$pano['name']?>
 			    </a>
 			  </div>
@@ -422,17 +422,20 @@
         <i class="fa fa-info active"></i>
         <i class="fa fa-times"></i>
       </div>
-      <div class="map_container">
-        <div style="background:green;overflow:hidden;width:300px;height:300px;">
-
+      <div class="photo_cont">
+        <img src="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano['id']?>/mobile_f.jpg">
+        <div class="name">
+          <?=$pano['name']?>
         </div>
       </div>
-      <div class="addres">
-        ул. Рогалева 16 <br />
-        г. Днепропетровск, Украина
-        <a href="#" class="coordinates">
-          58.34434, 14.23232
-        </a>
+      <div class="txt_cont">
+        <div class="txt">
+          aklsdf asldkjf asldkf ja;sld kjfasld kfja;sld kjfas;ld kjasl;d kfjas;d lkfajs;d lkfjas;d lfka js;d
+          ad fasd fasdf kjashdl kfjahd lkjashd kfajshdkfj hsadk fjhaskd jfhaskld jfahsldk jfahsldk jfhaskdfj
+          asd faskjd fhaslkd jfhaslkd jhalsdk fjhaskldj fhaskdjf hlkasjd hkasjdfh skajd hskajd hfaksjd hfask
+          as dfas djaksjd haksd jhfalksd jhalsdk jahsdk jfhasdk fjhasdk fjahsdl kfjashd lkfjsahd lfksjdh fka
+          asd fasd kljfahsdk j fahlsd kjfahsdk fjashd lkajsd haksjd fhaksd jfhaslkd jfahsldk jfahsdk jfhaskd
+        </div>
       </div>
       <div class="back_button">
         Свернуть <i class="fa fa-angle-right"></i>
