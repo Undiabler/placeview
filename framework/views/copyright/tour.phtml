@@ -1,0 +1,70 @@
+<div id="menu-spacer"></div>
+<div class="container">
+<div class="row">
+	<br>
+	<div class="ui__section">
+		<h4>Переведите текст</h4>
+	<form role="form" method="post">
+	<input type="hidden" name="type" value="tour"/>
+	<input type="hidden" name="tour_id" value="<?=$tour_id?>"/>
+
+	<div class="form-group">
+		
+		<div class="row">
+			<div class="col-sm-6">
+			<h4><?=$t->_($lang_from);?></h4>
+
+			<?php echo $this->tag->textField(["name_from",
+						        'class'=>'form-control',
+						        'readonly'=>"readonly",
+						        // 'value'=>$name_from
+			]) ?>
+
+			<?php echo $this->tag->textArea(array(
+			    "description_from",
+			    "rows" => 15,
+		        'class'=>'form-control col-sm-12',
+		        'readonly'=>"readonly",
+		        // 'value'=>$description_from
+			)) ?>
+
+			<?php if (strlen($contacts_from)>1) echo $this->tag->textArea(array(
+			    "contacts_from",
+			    "rows" => 10,
+		        'class'=>'form-control col-sm-12',
+		        'readonly'=>"readonly",
+		        // 'value'=>$contacts_from
+			)) ?>
+
+			</div>
+
+			<div class="col-sm-6">
+			<h4><?=$t->_($lang_to);?></h4>		
+
+			<?php echo $this->tag->textField(["name_to",
+						        'class'=>'form-control'
+			]) ?>
+
+			<?php echo $this->tag->textArea(array(
+			    "description_to",
+			    "rows" => 15,
+			    'class'=>"form-control col-sm-12",
+			)) ?>
+
+			<?php if (strlen($contacts_from)>1) echo $this->tag->textArea(array(
+			    "contacts_to",
+			    "rows" => 10,
+			    'class'=>"form-control col-sm-12",
+			)) ?>
+
+			</div>
+		</div>
+
+	</div>
+		<div class="form-group">
+			<input type="submit" class="btn btn-sm btn-primary" value="Отправить перевод" />
+		</div>
+	</form>
+	</div>
+</div>
+</div>
