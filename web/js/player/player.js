@@ -1,7 +1,8 @@
 (function(){
-	var show_hide_panos, multimenu, select_lang, multimenu_controls, select_size, i, length, elems;
+	var show_hide_panos, multimenu, select_lang, multimenu_controls, select_size, i, length, elems, tutorial;
 	var multimenu_opened = false;
 	var panos_opened = false;
+	tutorial = document.getElementById("tutorial");
 	show_hide_panos = document.getElementById('show_hide_panos');
 	multimenu = document.getElementById('multimenu');
 	select_lang = multimenu.getElementsByClassName('lang')[0];
@@ -11,6 +12,12 @@
 
 	window.onresize = function() {
 		elem_position()
+	}
+	window.onload = function () {
+		multimenu.getElementsByClassName("icon")[0].click()
+		show_panos();
+		if(!localStorage.getItem('player'))
+			tutorial.classList.add("active");
 	}
 
 	document.getElementById("module_container").getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function() {
@@ -66,16 +73,21 @@
 		});
 	}
 
-	show_hide_panos.getElementsByClassName('hide')[0].addEventListener('click', function(){
+	function hide_panos() {
 		show_hide_panos.classList.remove('active');
 		panos_opened = false;
 		close_all_check();
+	}
+	show_hide_panos.getElementsByClassName('hide')[0].addEventListener('click', function(){
+		hide_panos();
 	});
-
-	show_hide_panos.getElementsByClassName('show')[0].addEventListener('click', function(){
+	function show_panos() {
 		show_hide_panos.classList.add('active');
 		panos_opened = true;
 		close_all_check();
+	}
+	show_hide_panos.getElementsByClassName('show')[0].addEventListener('click', function(){
+		show_panos();
 	});
 
 	//выбор языка в нераскрытом мультименю
@@ -104,11 +116,13 @@
 
 	elems = multimenu_controls.getElementsByClassName("icon");
 	multimenu_show(elems);
+
 	elems = document.getElementById("more_info").getElementsByClassName("menu")[0].getElementsByClassName("elem");
 	multimenu_show(elems);
 	close_all_panels(document.getElementById("close_all").getElementsByTagName("span")[0]);
 	elems = multimenu.getElementsByClassName("back_button");
 	multimenu_close(elems);
+
 	elems = multimenu.getElementsByClassName("control");
 	length = elems.length;
 	for(i = 0; i < length; i += 1) {
@@ -116,12 +130,21 @@
 	}
 	multimenu_close(elems);
 
-	//показать влкадку с подписями к иконкам
-	document.getElementById("default").getElementsByClassName("info")[0].addEventListener("click", function(){
+	tutorial.getElementsByClassName("close")[0].addEventListener('click', function() {
+		tutorial.classList.remove("active");
+		localStorage.setItem('player', true);
+	});
+
+	function multimenu_show_block(block_id) {
 		multimenu.classList.remove(multimenu.classList);
-		multimenu.classList.add("more_info");
+		multimenu.classList.add(block_id);
 		multimenu_opened = true;
 		close_all_check();
+	}
+
+	//показать влкадку с подписями к иконкам
+	document.getElementById("default").getElementsByClassName("info")[0].addEventListener("click", function(){
+		multimenu_show_block("more_info");
 	});
 
 	select_size = multimenu.getElementsByClassName("check_size")[0].getElementsByClassName("select")[0];
@@ -177,6 +200,7 @@
 			});
 		}
 	}
+
 
 	function multimenu_show(el) {
 		length = el.length;

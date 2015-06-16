@@ -797,3 +797,46 @@ body {
 		}
 	}
 }
+#tutorial {
+	&.active {
+		display: block;
+	}
+	display: none;
+	position: absolute;
+	background: @dark_back;
+	left: 50%;
+	top: 50%;
+	width: 500px;
+	margin-left: -250px;
+	margin-top: -200px;
+	z-index: 999;
+	color: @light_grey;
+	padding: @padding-xs-horizontal*4;
+	text-align: center;
+	i {
+		font-size: @default_font_size*3;
+		padding: @padding-xs-horizontal;
+	}
+	.control {
+		.elem {
+			float: right;
+			cursor: pointer;
+		}
+	}
+	.header {
+		text-align: center;
+		i {
+			color: @accent-base;
+		}
+	}
+	.device {
+		width: 350px;
+		margin: 0 auto;
+		text-align: left;
+		padding: @padding-xs-horizontal*2;
+		.controler {
+			color: @accent-base;
+			padding-left: @default_font_size*3 + @padding-xs-horizontal*2;
+		}
+	}
+}
