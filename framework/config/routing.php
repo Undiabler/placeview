@@ -5,13 +5,13 @@ $router = new \Phalcon\Mvc\Router(false);
     $router->setDefaultController('index');
     $router->setDefaultAction('index');
 
- //    $router->add(
-	//     '/{language:[a-z]{2}}/:controller/:action',
-	//     array(
-	//         'controller' => 2,
-	//         'action'     => 3
-	//     )
-	// );
+    $router->add(
+	    '/{language:[a-z]{2}}/:controller/:action',
+	    array(
+	        'controller' => 2,
+	        'action'     => 3
+	    )
+	);
 
 	$router->add(
 	    "/logout",
