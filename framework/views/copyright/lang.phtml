@@ -1,0 +1,25 @@
+<div id="menu-spacer"></div>
+<div class="container">
+<div class="row">
+	<br>
+	<div class="ui__section">
+		<h4>Выберите направление перевода</h4>
+	<form role="form">
+	<div class="row">
+		<div class="col-sm-6">
+			
+		<?=$this->tag->selectStatic(
+					    array(
+					        "from",
+					        array(
+					            array_values($this->config->langs->toArray()),
+					        ),
+					        'class'=>'form-control'
+					    )
+					    )?>
+		</div>
+	</div>
+	</form>
+	</div>
+</div>
+</div>
