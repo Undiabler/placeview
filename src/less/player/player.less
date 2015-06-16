@@ -518,6 +518,15 @@ body {
 		}
 	}
 	#inform {
+		.container {
+			max-height: 100%;
+			overflow: auto;
+			.spacer {
+				overflow: hidden;
+				width: 100%;
+				height: @default_font_size + 4*@padding-xs-horizontal;
+			}
+		}
 		.photo_cont {
 			position: relative;
 			text-align: center;
@@ -531,6 +540,10 @@ body {
 				background: @dark_back;
 				bottom: 5px;
 			}
+		}
+		.txt {
+			font-size: @default_font_size/1.2;
+			padding: @padding-xs-horizontal;
 		}
 	}
 	#show_on_map {

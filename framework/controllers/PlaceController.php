@@ -22,7 +22,7 @@ class PlaceController extends CController
 
 		if ($pano_url)
 			var_dump($pano_url);
-			
+
 		$tour = $this->extra->getSql("SELECT * FROM tours_main WHERE url = ?",[$tour_url],true);
 		var_dump($tour);
 
