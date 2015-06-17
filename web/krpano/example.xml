@@ -23,9 +23,24 @@
 
 	<events onresize="ifnot(in_area_tween, resizearea() );" />
 
+	<control mousetype="drag2d"
+         touchtype="drag2d"
+         zoomtocursor="false"
+         zoomoutcursor="true"
+         mouseaccelerate="1.0"
+         mousespeed="10.0"
+         mousefriction="0.8"
+         mousefovchange="1.0"
+         fovspeed="3.0"
+         fovfriction="0.9"
+         touchfriction="0.87"
+         touchzoom="true"
+         />
+
 	<action name="init">
 		set(view.fovtype,HFOV); 
-		switch(control.mousetype, moveto, drag2d); switch(control.touchtype, moveto, drag2d);
+		<!-- switch(control.mousetype, moveto, drag2d);  -->
+		<!-- switch(control.touchtype, moveto, drag2d); -->
 	</action>
 
 	<action name="calcaspect">
