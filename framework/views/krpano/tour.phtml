@@ -1,0 +1,106 @@
+<!--
+	krpano
+	- fovtype example (it's also a example of <area> and combobox usage)
+	- choose what kind of fov type the fov value represents
+	- VFOV, HFOV, DFOV or MFOV
+-->
+
+<krpano onstart="init()">
+
+	<security>
+	    <crossdomainxml url="http://img.placeview.in/crossdomain.xml" /> 
+	</security>
+
+	<!-- pano image -->
+	<preview url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_id?>/mobile_f.jpg" />
+	
+	<image type="CUBE" devices="desktop">
+		<!-- <cube url="../../panos/p4/pano_%s.jpg" /> -->
+		<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_id?>/pano_%s.jpg" />
+		<!-- <cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_id?>/mobile_%s.jpg" /> -->
+	</image>
+
+	<image type="CUBE" devices="mobile|tablet" >
+		<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_id?>/mobile_%s.jpg" />
+	</image>
+
+	<view hlookat="103" fovmin="50" fovmax="100" />
+
+	<events onresize="ifnot(in_area_tween, resizearea() );" />
+
+	<control mousetype="drag2d"
+         touchtype="drag2d"
+         zoomtocursor="false"
+         zoomoutcursor="true"
+         mouseaccelerate="1.0"
+         mousespeed="10.0"
+         mousefriction="0.8"
+         mousefovchange="1.0"
+         fovspeed="3.0"
+         fovfriction="0.9"
+         touchfriction="0.87"
+         touchzoom="true"
+         />
+
+	<action name="init">
+		set(view.fovtype,HFOV); 
+		<!-- switch(control.mousetype, moveto, drag2d);  -->
+		<!-- switch(control.touchtype, moveto, drag2d); -->
+	</action>
+
+	<action name="calcaspect">
+		<!-- calc new area, result stored in: destx,desty,destwidth,destheight  -->
+		if(aspect === null, set(aspect,0));
+		if(aspect LE 0,
+			copy(destwidth, stagewidth);
+			copy(destheight, stageheight);
+		  ,
+			trace(aspect);
+			math.max(maxlength, stagewidth, stageheight);
+			if(aspect GE 1.0,
+				copy(destheight, maxlength);
+				mul(destwidth, maxlength, aspect);
+			  ,
+				div(destheight, maxlength, aspect);
+				copy(destwidth, maxlength);
+			  );
+			
+			if(destwidth GT stagewidth, div(dwnscale,stagewidth,destwidth), set(dwnscale,1.0) );
+			mul(destwidth,  destwidth, dwnscale);
+			mul(destheight, destheight, dwnscale);
+			if(destheight GT stageheight, div(dwnscale,stageheight,destheight), set(dwnscale,1.0) );
+			mul(destwidth,  destwidth, dwnscale);
+			mul(destheight, destheight, dwnscale);
+		  );
+		sub(destx, stagewidth,  destwidth);
+		sub(desty, stageheight, destheight);
+		mul(destx, destx, 0.5);
+		mul(desty, desty, 0.5);
+	</action>
+
+
+	<action name="resizearea">
+		calcaspect();
+
+		<!-- set new area size -->
+		copy(area.x,      destx);
+		copy(area.y,      desty);
+		copy(area.width,  destwidth);
+		copy(area.height, destheight);
+	</action>
+
+
+	<action name="changeaspect">
+		calcaspect();
+
+		<!-- tween(animated change) to new area -->
+		set(in_area_tween,true);
+		tween(area.x,      get(destx),      0.5, easeInOutSine);
+		tween(area.y,      get(desty),      0.5, easeInOutSine);
+		tween(area.width,  get(destwidth),  0.5, easeInOutSine);
+		tween(area.height, get(destheight), 0.5, easeInOutSine, WAIT);
+		set(in_area_tween,false);
+	</action>
+
+</krpano>
+

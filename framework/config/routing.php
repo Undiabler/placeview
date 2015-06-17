@@ -29,6 +29,11 @@ $router = new \Phalcon\Mvc\Router(false);
 	);
 
 	$router->add(
+	    '/tour-xml/tour_{tour_id:[0-9]{1,}}_{pano_id:[0-9]{1,}}\.xml',
+	    [	"controller" => "krpano", "action" => 'tour', 'language'=>'en' ]
+	);
+
+	$router->add(
 	    '/{language:[a-z]{2}}/place/{url1:[a-zA-Z0-9-]{4,}}',
 	    [	"controller" => "place", "action" => 'view', ]
 	)->setName('tour_url');

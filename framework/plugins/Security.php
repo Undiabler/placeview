@@ -63,6 +63,7 @@ class Security extends Plugin
 
 			$publicResources = array(
 				'login'      => array('*'),
+				'krpano'      => array('*'),
 				'index'      => array('*'),
 				'ajax'      => array('*'),
 				'place'      => array('*'),
