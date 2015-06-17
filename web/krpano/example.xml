@@ -21,7 +21,7 @@
 
 	<view hlookat="103" fovmin="50" fovmax="100" />
 
-	<events onresize="ifnot(in_area_tween, resizearea() );"onviewchange="showfovtext();" />
+	<events onresize="ifnot(in_area_tween, resizearea() );" />
 
 	<action name="init">
 		set(view.fovtype,HFOV); 
