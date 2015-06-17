@@ -10,6 +10,7 @@
 	<!-- подключаем панораму -->
 	<script type="text/javascript" src="http://features.placeview.in:9999/js/libs/modernizr.js"></script>
 	<script type="text/javascript" src="http://features.placeview.in:9999/js/init.min.js"></script>
+	<script src="/krpano/embedpano.js"></script>
 </head>
 <body>
   <div id="player">
@@ -161,7 +162,10 @@
     <div id="pano">
       <div id="container" style='position:fixed;z-index:0;width:100%;height:100%; top: 0px;left: 0px;'></div>
       <script type="text/javascript">
-          PVLoader({tid:<?=$tour_id?>,pid:<?=$pano_id?>,manualLoad:false});
+          // PVLoader({tid:<?=$tour_id?>,pid:<?=$pano_id?>,manualLoad:false});
+          // 
+          // <script>
+		embedpano({swf:"/krpano/krpano.swf", xml:"/krpano/example.xml", target:"pano", html5:"auto", passQueryParameters:true});
       </script>
     </div>
 
