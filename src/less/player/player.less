@@ -797,6 +797,37 @@ body {
 		}
 	}
 }
+.photo_container {
+	background: @dark_back;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	.control {
+		padding: @padding-xs-horizontal*4;
+		.elem {
+			color: @light_grey;
+			font-size: @default_font_size*2;
+			&.back {
+				float: left;
+			}
+			float: right;
+		}
+	}
+	.cont {
+		width: 1000px;
+		height: 500px;
+		margin: 0 auto;
+		.photos {
+			.photo {
+				text-align: center;
+				img {
+						max-width: 1000px;
+						height: 500px;
+				}
+			}
+		}
+	}
+}
 #tutorial {
 	&.active {
 		display: block;
