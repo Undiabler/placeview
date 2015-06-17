@@ -24,7 +24,7 @@
 		<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_id?>/mobile_%s.jpg" />
 	</image>
 
-	<view hlookat="103" fovmin="50" fovmax="100" />
+	<view hlookat="0" fovmin="50" fov="120"  fovmax="120" />
 
 	<events onresize="ifnot(in_area_tween, resizearea() );" />
 
@@ -43,6 +43,7 @@
          />
 
 	<action name="init">
+		<!-- set(view.fovtype,HFOV);  -->
 		set(view.fovtype,HFOV); 
 		<!-- switch(control.mousetype, moveto, drag2d);  -->
 		<!-- switch(control.touchtype, moveto, drag2d); -->
