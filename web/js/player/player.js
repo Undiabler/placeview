@@ -1,5 +1,5 @@
 (function(){
-	var show_hide_panos, multimenu, select_lang, multimenu_controls, select_size, i, length, elems, tutorial;
+	var show_hide_panos, multimenu, select_lang, multimenu_controls, select_size, i, length, elems, tutorial, photo_container;
 	var multimenu_opened = false;
 	var panos_opened = false;
 	tutorial = document.getElementById("tutorial");
@@ -7,6 +7,7 @@
 	multimenu = document.getElementById('multimenu');
 	select_lang = multimenu.getElementsByClassName('lang')[0];
 	multimenu_controls = multimenu.getElementsByClassName("icons_minimals")[0];
+	photo_container = document.getElementsByClassName("photo_container")[0];
 
 	elem_position();
 
@@ -19,6 +20,10 @@
 		if(!localStorage.getItem('player'))
 			tutorial.classList.add("active");
 	}
+
+	photo_container.getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function(){
+		photo_container.classList.remove("active")
+	});
 
 	document.getElementById("module_container").getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function() {
 		var arr = document.getElementById("module_container").classList;
