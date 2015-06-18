@@ -802,27 +802,47 @@ body {
 	width: 100%;
 	height: 100%;
 	z-index: 999;
+	overflow: auto;
 	.control {
-		padding: @padding-xs-horizontal*4;
 		.elem {
+			position: fixed;
 			color: @light_grey;
 			font-size: @default_font_size*2;
 			&.back {
-				float: left;
+				left: 20px;
+				top: 20px;
+			}
+			&.close {
+				right: 40px;
+				top: 20px;
 			}
 			float: right;
 		}
 	}
 	.cont {
+		color: @light_grey;
 		width: 1000px;
 		height: 500px;
 		margin: 0 auto;
+		.album_info {
+			text-align: center;
+			line-height: @default_font_size*2;
+			.name {
+			}
+			.amount {
+				font-size:  @default_font_size/1.2;
+			}
+		}
 		.photos {
 			.photo {
 				text-align: center;
 				img {
 						max-width: 1000px;
 						height: 500px;
+				}
+				.descr {
+					color: @light_grey;
+					text-align: left;
 				}
 			}
 		}
