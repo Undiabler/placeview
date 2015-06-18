@@ -15,8 +15,6 @@
 		elem_position()
 	}
 	window.onload = function () {
-		multimenu.getElementsByClassName("icon")[0].click()
-		show_panos();
 		if(!localStorage.getItem('player'))
 			tutorial.classList.add("active");
 	}
