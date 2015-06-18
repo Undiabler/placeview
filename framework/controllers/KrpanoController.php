@@ -19,6 +19,10 @@ class KrpanoController extends Controller
 		$tour_id = $this->dispatcher->getParam('tour_id');
 		$pano_id = $this->dispatcher->getParam('pano_id');
 
+		$hotspots = $this->extra->getSql('SELECT * from pano_hotspots WHERE pano_id = ?',[$pano_id]);
+
+		$this->view->setVar('hotspots',$hotspots);
+		
 		$this->view->setVar('tour_id',$tour_id);
 		$this->view->setVar('pano_id',$pano_id);
 

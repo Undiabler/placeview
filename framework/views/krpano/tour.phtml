@@ -42,7 +42,7 @@
          touchzoom="true"
          />
 
-    <autorotate enabled="true" 
+    <autorotate enabled="false" 
             waittime="2.0" 
             accel="1.5" 
             speed="5" 
@@ -110,6 +110,16 @@
 		tween(area.height, get(destheight), 0.5, easeInOutSine, WAIT);
 		set(in_area_tween,false);
 	</action>
+
+<?php foreach ($hotspots as $key => $hotspot): 
+if ($hotspot['type']!=0) continue;
+?>
+<hotspot name="spot_<?=$hotspot['id']?>" url="/img/pano/mv.png" scale="0.8" zoom="false" ath="<?=$hotspot['ath']?>" atv="<?=$hotspot['atv']?>" ondown="draghotspot();"/>
+<?php endforeach ?>
+	<!-- <hotspot name="spot2" url="/img/map/0b.png" zoom="false" ath="36.099" atv="0" ondown="draghotspot();"/> -->
+
+	<!-- <hotspot name="spot3" url="/img/map/0b.png" zoom="false" ath="113.441" atv="0" ondown="draghotspot();"/> -->
+	<!-- <hotspot name="spot4" url="/img/map/0b.png" zoom="false" ath="-195.40" atv="0" ondown="draghotspot();"/> -->
 
 </krpano>
 
