@@ -115,6 +115,7 @@
 	}
 
 	//выбор языка в раскрытом мультименю
+/*
 	elems = document.getElementById("more_info").getElementsByClassName("lang")[0].getElementsByTagName("a");
 	length = elems.length;
 	for(i = 0; i < length; i += 1) {
@@ -125,12 +126,12 @@
 			}
 		});
 	}
+*/
+//	elems = multimenu_controls.getElementsByClassName("icon");
+//	multimenu_show(elems);
 
-	elems = multimenu_controls.getElementsByClassName("icon");
-	multimenu_show(elems);
-
-	elems = document.getElementById("more_info").getElementsByClassName("menu")[0].getElementsByClassName("elem");
-	multimenu_show(elems);
+//	elems = document.getElementById("more_info").getElementsByClassName("menu")[0].getElementsByClassName("elem");
+//	multimenu_show(elems);
 	close_all_panels(document.getElementById("close_all").getElementsByTagName("span")[0]);
 	elems = multimenu.getElementsByClassName("back_button");
 	multimenu_close(elems);
@@ -155,17 +156,20 @@
 	}
 
 	//показать влкадку с подписями к иконкам
+/*
 	document.getElementById("default").getElementsByClassName("info")[0].addEventListener("click", function(){
 		multimenu_show_block("more_info");
 	});
+*/
+//	select_size = multimenu.getElementsByClassName("check_size")[0].getElementsByClassName("select")[0];
 
-	select_size = multimenu.getElementsByClassName("check_size")[0].getElementsByClassName("select")[0];
-
+/*
 	select_size.getElementsByClassName("title")[0].addEventListener("click", function() {
 		select_size.classList.toggle("active");
 	});
+*/
 
-	elems = select_size.getElementsByClassName("option");
+//	elems = select_size.getElementsByClassName("option");
 	length = elems.length;
 
 	for(i = 0; i < length; i += 1) {
