@@ -69,7 +69,7 @@
 				else
 					document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
 
-			}else if(this.classList.contains("phonto_marker")){
+			}else if(this.classList.contains("photo_marker")){
 
 			}
 			this.classList.add('hide')
