@@ -76,12 +76,14 @@
 		});
 	}
 
-	function show_loader() {
-		document.getElementById("loader").classList.add("active");
-	}
-	function hide_loader() {
-		document.getElementById("loader").classList.remove("active");
-	}
+	window.loader = new (function () {
+		this.show_loader = function () {
+			document.getElementById("loader").classList.add("active");
+		}
+		this.hide_loader = function() {
+			document.getElementById("loader").classList.remove("active");
+		}
+	})();
 
 	function hide_panos() {
 		show_hide_panos.classList.remove('active');
