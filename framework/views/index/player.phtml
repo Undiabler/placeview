@@ -214,10 +214,10 @@
 
     <div id="top_menu">
       <div class="tour_name">
-        <span>Гостиница абри</span>
+        <span><?=$tour_lang['name']?></span>
       </div>
       <div class="pano_name">
-        Гостиница абри не более 60ти символов
+        <span><?=substr($tour_lang['description'],0,60)?></span>
       </div>
     </div>
 
@@ -510,30 +510,11 @@
         <div class="photo_cont">
           <img src="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano['id']?>/mobile_f.jpg">
           <div class="name">
-            <?=$pano['name']?>
+			<?=$tour_lang['name']?>
           </div>
         </div>
         <div class="txt">
-          aklsdf asldkjf asldkf ja;sld kjfasld kfja;sld kjfas;ld kjasl;d kfjas;d lkfajs;d lkfjas;d lfka js;d
-          ad fasd fasdf kjashdl kfjahd lkjashd kfajshdkfj hsadk fjhaskd jfhaskld jfahsldk jfahsldk jfhaskdfj
-          asd faskjd fhaslkd jfhaslkd jhalsdk fjhaskldj fhaskdjf hlkasjd hkasjdfh skajd hskajd hfaksjd hfask
-          as dfas djaksjd haksd jhfalksd jhalsdk jahsdk jfhasdk fjhasdk fjahsdl kfjashd lkfjsahd lfksjdh fka
-          asd fasd kljfahsdk j fahlsd kjfahsdk fjashd lkajsd haksjd fhaksd jfhaslkd jfahsldk jfahsdk jfhaskd
-          aklsdf asldkjf asldkf ja;sld kjfasld kfja;sld kjfas;ld kjasl;d kfjas;d lkfajs;d lkfjas;d lfka js;d
-          ad fasd fasdf kjashdl kfjahd lkjashd kfajshdkfj hsadk fjhaskd jfhaskld jfahsldk jfahsldk jfhaskdfj
-          asd faskjd fhaslkd jfhaslkd jhalsdk fjhaskldj fhaskdjf hlkasjd hkasjdfh skajd hskajd hfaksjd hfask
-          as dfas djaksjd haksd jhfalksd jhalsdk jahsdk jfhasdk fjhasdk fjahsdl kfjashd lkfjsahd lfksjdh fka
-          asd fasd kljfahsdk j fahlsd kjfahsdk fjashd lkajsd haksjd fhaksd jfhaslkd jfahsldk jfahsdk jfhaskd
-          aklsdf asldkjf asldkf ja;sld kjfasld kfja;sld kjfas;ld kjasl;d kfjas;d lkfajs;d lkfjas;d lfka js;d
-          ad fasd fasdf kjashdl kfjahd lkjashd kfajshdkfj hsadk fjhaskd jfhaskld jfahsldk jfahsldk jfhaskdfj
-          asd faskjd fhaslkd jfhaslkd jhalsdk fjhaskldj fhaskdjf hlkasjd hkasjdfh skajd hskajd hfaksjd hfask
-          as dfas djaksjd haksd jhfalksd jhalsdk jahsdk jfhasdk fjhasdk fjahsdl kfjashd lkfjsahd lfksjdh fka
-          asd fasd kljfahsdk j fahlsd kjfahsdk fjashd lkajsd haksjd fhaksd jfhaslkd jfahsldk jfahsdk jfhaskd
-          aklsdf asldkjf asldkf ja;sld kjfasld kfja;sld kjfas;ld kjasl;d kfjas;d lkfajs;d lkfjas;d lfka js;d
-          ad fasd fasdf kjashdl kfjahd lkjashd kfajshdkfj hsadk fjhaskd jfhaskld jfahsldk jfahsldk jfhaskdfj
-          asd faskjd fhaslkd jfhaslkd jhalsdk fjhaskldj fhaskdjf hlkasjd hkasjdfh skajd hskajd hfaksjd hfask
-          as dfas djaksjd haksd jhfalksd jhalsdk jahsdk jfhasdk fjhasdk fjahsdl kfjashd lkfjsahd lfksjdh fka
-          asd fasd kljfahsdk j fahlsd kjfahsdk fjashd lkajsd haksjd fhaksd jfhaslkd jfahsldk jfahsdk jfhaskd
+          <?=$tour_lang['description']?>
         </div>
         <div class="spacer"></div>
       </div>
@@ -553,11 +534,7 @@
         </div>
       </div>
       <div class="addres">
-        ул. Рогалева 16 <br />
-        г. Днепропетровск, Украина
-        <a href="#" class="coordinates">
-          58.34434, 14.23232
-        </a>
+        <?=$tour_lang['contacts']?>
       </div>
       <div class="back_button">
         Свернуть <i class="fa fa-angle-right"></i>

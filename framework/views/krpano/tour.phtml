@@ -11,18 +11,38 @@
 	    <crossdomainxml url="http://img.placeview.in/crossdomain.xml" /> 
 	</security>
 
-	<!-- pano image -->
-	<preview url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_id?>/mobile_f.jpg" />
-	
-	<image type="CUBE" devices="desktop">
-		<!-- <cube url="../../panos/p4/pano_%s.jpg" /> -->
-		<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_id?>/pano_%s.jpg" />
-		<!-- <cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_id?>/mobile_%s.jpg" /> -->
-	</image>
+	<action name="init">
+		set(view.fovtype,HFOV); 
+		loadscene(pano_<?=$pano_id?>, null, MERGE);
+	</action>
 
-	<image type="CUBE" devices="mobile|tablet" >
-		<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_id?>/mobile_%s.jpg" />
-	</image>
+	<?php foreach ($panos as $pano_key_id => $pano): ?>
+	<scene name="pano_<?=$pano_key_id?>" onstart="">
+
+		<events name="pano_<?=$pano_key_id?>_loaded" onloadcomplete="js(console.log('loaded'))"/>
+
+		<view hlookat="202.65" vlookat="8.12" fov="105.5"/>
+
+		<image type="CUBE" devices="desktop">
+			<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_key_id?>/pano_%s.jpg" />
+		</image>
+
+		<image type="CUBE" devices="mobile|tablet" >
+			<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_key_id?>/mobile_%s.jpg" />
+		</image>
+
+		<?php foreach ($pano['hotspots'] as $key => $hotspot): 
+		// var_dump($hotspot);
+		$data=json_decode($hotspot['data'],true);
+		// var_dump($data
+		if ($hotspot['type']!=0) continue;
+		$to_go = 'pano_'.$data['url'];
+		?>
+		<hotspot name="spot_<?=$hotspot['id']?>" url="/img/pano/mv.png" scale="0.8" zoom="false" ath="<?=$hotspot['ath']?>" atv="<?=$hotspot['atv']?>" ondown="loadscene(<?=$to_go?>,null,MERGE,BLEND(1));js(console.log(<?=$to_go?>));"/>
+		<?php endforeach ?>
+
+	</scene>
+	<?php endforeach ?>	
 
 	<view hlookat="0" fovmin="50" fov="120"  fovmax="120" />
 
@@ -42,20 +62,13 @@
          touchzoom="true"
          />
 
-    <autorotate enabled="true" 
+    <autorotate enabled="false" 
             waittime="2.0" 
             accel="1.5" 
             speed="5" 
             horizon="-5" 
             tofov="150" 
             />
-
-	<action name="init">
-		<!-- set(view.fovtype,HFOV);  -->
-		set(view.fovtype,HFOV); 
-		<!-- switch(control.mousetype, moveto, drag2d);  -->
-		<!-- switch(control.touchtype, moveto, drag2d); -->
-	</action>
 
 	<action name="calcaspect">
 		<!-- calc new area, result stored in: destx,desty,destwidth,destheight  -->
@@ -110,6 +123,11 @@
 		tween(area.height, get(destheight), 0.5, easeInOutSine, WAIT);
 		set(in_area_tween,false);
 	</action>
+
+	<!-- <hotspot name="spot2" url="/img/map/0b.png" zoom="false" ath="36.099" atv="0" ondown="draghotspot();"/> -->
+
+	<!-- <hotspot name="spot3" url="/img/map/0b.png" zoom="false" ath="113.441" atv="0" ondown="draghotspot();"/> -->
+	<!-- <hotspot name="spot4" url="/img/map/0b.png" zoom="false" ath="-195.40" atv="0" ondown="draghotspot();"/> -->
 
 </krpano>
 

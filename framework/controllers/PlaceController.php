@@ -24,7 +24,7 @@ class PlaceController extends CController
 			var_dump($pano_url);
 
 		$tour = $this->extra->getSql("SELECT * FROM tours_main WHERE url = ?",[$tour_url],true);
-		var_dump($tour);
+		// var_dump($tour);
 
 		if (!$tour) {
 			$this->dispatcher->forward(['controller' => 'error','action' => 'error404']);
@@ -47,6 +47,13 @@ class PlaceController extends CController
 				GROUP BY id
 				ORDER BY FIELD(lang, $langs) 
 			) AS pano_lang ON pano_lang.id = pano_main.id WHERE tour_id = ? ORDER BY sort",[$tour['id']]);
+
+
+		$tour_lang = $this->extra->getSql(" SELECT * FROM tours_lang
+				WHERE id = ?
+				ORDER BY FIELD(lang, $langs) 
+				LIMIT 1
+		",[$tour['id']],true);
 		// echo('<pre>');
 		// var_dump($all_panos);
 		// exit();
@@ -54,6 +61,7 @@ class PlaceController extends CController
 
 		$this->view->setVar('all_panos',$all_panos);
 		$this->view->setVar('tour',$tour);
+		$this->view->setVar('tour_lang',$tour_lang);
 		$this->view->setVar('tour_id',$tour['id']);
 		$this->view->setVar('pano_id',$pano['id']);
 		$this->view->pick("index/player");
