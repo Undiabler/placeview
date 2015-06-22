@@ -76,6 +76,13 @@
 		});
 	}
 
+	function show_loader() {
+		document.getElementById("loader").classList.add("active");
+	}
+	function hide_loader() {
+		document.getElementById("loader").classList.remove("active");
+	}
+
 	function hide_panos() {
 		show_hide_panos.classList.remove('active');
 		panos_opened = false;
