@@ -10,7 +10,8 @@
 	<security>
 	    <crossdomainxml url="http://img.placeview.in/crossdomain.xml" /> 
 	</security>
-<!-- onxmlcomplete="showlog(); trace('EVENTS example');" -->
+<!--  -->
+    <events name="loadingbar" keep="true" onxmlcomplete="js(loader.show_loader());" onloadcomplete="js(loader.hide_loader());"/>
 	<events 
 	 onmouseup="js( hash_upd( get(view.hlookat), get(view.vlookat) ) );" />
 
