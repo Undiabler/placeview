@@ -10,16 +10,20 @@
 	<security>
 	    <crossdomainxml url="http://img.placeview.in/crossdomain.xml" /> 
 	</security>
+<!-- onxmlcomplete="showlog(); trace('EVENTS example');" -->
+	<events 
+	 onmouseup="js( hash_upd( get(view.hlookat), get(view.vlookat) ) );" />
 
 	<action name="init">
 		set(view.fovtype,HFOV); 
 		loadscene(pano_<?=$pano_id?>, null, MERGE);
+		js(onload());
 	</action>
 
 	<?php foreach ($panos as $pano_key_id => $pano): ?>
 	<scene name="pano_<?=$pano_key_id?>" onstart="">
 
-		<events name="pano_<?=$pano_key_id?>_loaded" onloadcomplete="js(console.log('loaded'))"/>
+		<events name="pano_<?=$pano_key_id?>_loaded" onloadcomplete="js(console.log('loaded <?=$pano['url']?>'))"/>
 
 		<view hlookat="202.65" vlookat="8.12" fov="105.5"/>
 
@@ -62,8 +66,8 @@
          touchzoom="true"
          />
 
-    <autorotate enabled="false" 
-            waittime="2.0" 
+    <autorotate enabled="true" 
+            waittime="4.0" 
             accel="1.5" 
             speed="5" 
             horizon="-5" 
