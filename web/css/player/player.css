@@ -296,7 +296,7 @@ body {
   display: block;
   position: absolute;
   top: 59.8px;
-  right: 55px;
+  right: 65px;
 }
 #logo img {
   opacity: 0.5;
@@ -319,8 +319,49 @@ body {
   color: #e0e0e0;
   background: rgba(51, 51, 51, 0.8);
 }
-#multimenu .panel {
+#multimenu > .menu {
+  position: relative;
+  height: 100%;
+  border: 2px solid grey;
+  width: 45px;
+  overflow: hidden;
+}
+#multimenu > .menu .spacer {
+  height: 150px;
+  width: 45px;
+}
+#multimenu > .menu .icon {
+  line-height: 32px;
+  width: 45px;
+  font-size: 20.83333333px;
+  cursor: pointer;
+}
+#multimenu > .menu .ask {
+  position: absolute;
+  bottom: 0;
+}
+#multimenu > .menu .lang {
+  cursor: pointer;
+}
+#multimenu > .menu .lang .cur {
+  color: #ff5722;
+}
+#multimenu > .menu .lang .list {
   display: none;
+}
+#multimenu > .menu .lang.active .list {
+  display: block;
+}
+#multimenu .panels {
+  position: absolute;
+  right: 49px;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.8);
+}
+#multimenu .panel {
+  display: block;
   position: relative;
   height: 100%;
   text-align: left;
@@ -404,7 +445,7 @@ body {
   display: none;
 }
 #multimenu #more_info {
-  display: none;
+  display: block;
   width: 225px;
 }
 #multimenu #more_info .description {
