@@ -770,7 +770,7 @@
 	        temp=location.hash.match(/v:(-?\d+)/);
 	        var v=parseInt(temp&&temp.length>0?temp[1]:0)||0;
 
-			krpano.call("moveto("+h+","+v+");");
+			krpano.call("set(view.hlookat,"+h+");set(view.vlookat,"+v+");");
 			// if (!krpano || !krpano.get)
 		}
 
