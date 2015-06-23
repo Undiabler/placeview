@@ -222,7 +222,7 @@ body {
 	display: block;
 	position: absolute;
 	top: 1+4*@padding-xs-horizontal + 1.8*@default_font_size + 10;
-	right: @default_multimenu_width+10;
+	right: @default_multimenu_width+@padding-xs-horizontal*2 + 10;
 	img {
 		opacity: 0.5;
 		width: @default_multimenu_width;
@@ -246,12 +246,53 @@ body {
 	right: 0px;
 	color: @light_grey;
 	background: @dark_back;
+	&>.menu {
+		position: relative;
+		height: 100%;
+		border: 2px solid grey;
+		width: @default_multimenu_width;
+		overflow: hidden;
+		.spacer {
+			height: 150px;
+			width: @default_multimenu_width;
+		}
+		.icon {
+			line-height: @default_font_size*2;
+			width: @default_multimenu_width;
+			font-size: @icons_size/1.2;
+			cursor: pointer;
+		}
+		.ask {
+			position: absolute;
+			bottom: 0;
+		}
+		.lang {
+			cursor: pointer;
+			.cur {
+				color: @accent-base;
+			}
+			.list {
+				display: none;
+			}
+			&.active {
+				.list {
+					display: block;
+				}
+			}
+		}
+	}
 
-	
-
+	.panels {
+		position: absolute;
+		right: @default_multimenu_width + 4;
+		top: 0;
+		width: 200px;
+		height: 100%;
+		background: @dark_back;
+	}
 
 	.panel {
-		display: none;
+		display: block;
 		position: relative;
 		height: 100%;
 		text-align: left;
@@ -339,7 +380,7 @@ body {
 		display: none;
 	}
 	#more_info {
-		display: none;
+		display: block;
 		width: 5*@default_multimenu_width;
 		.description {
 			padding: 2*@padding-xs-horizontal;

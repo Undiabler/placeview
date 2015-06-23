@@ -9,14 +9,13 @@
 	multimenu_controls = multimenu.getElementsByClassName("icons_minimals")[0];
 	photo_container = document.getElementsByClassName("photo_container")[0];
 
-	elem_position();
-
 	window.onresize = function() {
 		elem_position()
 	}
 	window.onload = function () {
 		if(!localStorage.getItem('player'))
 			tutorial.classList.add("active");
+		elem_position();
 	}
 
 	photo_container.getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function(){
@@ -106,6 +105,7 @@
 	select_lang.getElementsByClassName('cur')[0].addEventListener('click', function(){
 		this.parentNode.classList.toggle('active');
 	});
+
 	var arr = select_lang.getElementsByClassName('list')[0].getElementsByTagName("div");
 	for(var i = 0; i < arr.length; i += 1) {
 		arr[i].addEventListener('click',function(){
@@ -190,8 +190,9 @@
 	}
 
 	function elem_position() {
-		document.getElementsByClassName("slides")[0].style.height = window.innerHeight-document.getElementById("top_menu").clientHeight + "px";
-		document.getElementById("multimenu").style.height = window.innerHeight-document.getElementById("top_menu").clientHeight + "px";
+		document.getElementsByClassName("slides")[0].style.height = window.innerHeight- document.getElementById("top_menu").clientHeight + "px";
+		document.getElementById("multimenu").style.height = window.innerHeight - document.getElementById("top_menu").clientHeight + "px";
+		document.getElementById("multimenu").getElementsByClassName("menu")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 4 + "px";
 	}
 
 	function close_all_panels(el) {
