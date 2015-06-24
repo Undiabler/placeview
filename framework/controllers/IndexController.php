@@ -48,7 +48,7 @@ class IndexController extends CController
 
 	public function feedAction() {
 		
-		$tours = $this->extra->getSql('SELECT * from tours_main INNER JOIN tours_lang ON tours_lang.id = tours_main.id AND lang = ? ORDER BY tours_main.id DESC LIMIT 20 ',[$this->config->lang]);
+		$tours = $this->extra->getSql('SELECT * from tours_main INNER JOIN tours_lang ON tours_lang.id = tours_main.id AND lang = ? WHERE tours_main.status=1 ORDER BY tours_main.id DESC LIMIT 21 ',[$this->config->lang]);
 		
 		$tours_arr = [0=>[],1=>[],2=>[]];
 

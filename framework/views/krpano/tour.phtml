@@ -1,19 +1,17 @@
 <!--
 	krpano
-	- fovtype example (it's also a example of <area> and combobox usage)
-	- choose what kind of fov type the fov value represents
-	- VFOV, HFOV, DFOV or MFOV
+	- Auto-generated file.
+	- Placeview.in
+	- Created by Undiabler
 -->
-
-<krpano onstart="init()">
+<krpano onstart="init()" showerrors="false">
 
 	<security>
 	    <crossdomainxml url="http://img.placeview.in/crossdomain.xml" /> 
 	</security>
-<!--  -->
-    <events name="loadingbar" keep="true" onxmlcomplete="js(loader.show_loader());" onloadcomplete="js(loader.hide_loader());"/>
-	<events 
-	 onmouseup="js( hash_upd( get(view.hlookat), get(view.vlookat) ) );" />
+
+    <events name="loadingbar" keep="true" onxmlcomplete="js(loader.show_loader());" onloadcomplete="js(loader.hide_loader());" />
+	<events onmouseup="js( hash_upd( get(view.hlookat), get(view.vlookat) ) );" />
 
 	<action name="init">
 		set(view.fovtype,HFOV); 
@@ -135,4 +133,3 @@
 	<!-- <hotspot name="spot4" url="/img/map/0b.png" zoom="false" ath="-195.40" atv="0" ondown="draghotspot();"/> -->
 
 </krpano>
-

@@ -706,7 +706,7 @@
 
   	var newurl=location.pathname+'#h:'+Math.round(hlookat)+'v:'+Math.round(vlookat);
   
-    if (window.history && window.history.replaceState) 
+    if (window.history && window.history.replaceState)
         window.history.replaceState( null , document.title, newurl );
     else 
     	console.warn("History: "+newurl);
@@ -719,7 +719,7 @@
 		 id:"krpanoViewer", 
 		 xml:"/tour-xml/tour_<?=$tour_id?>_<?=$pano_id?>.xml", 
 		 target:"pano", 
-		 html5:"only", 
+		 html5:"auto", 
 		 passQueryParameters:false
 		});   
 
