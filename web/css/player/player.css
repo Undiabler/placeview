@@ -353,18 +353,63 @@ body {
   display: block;
 }
 #multimenu .panels {
+  -webkit-transition: right 1s ease-out 0s;
+  -moz-transition: right 1s ease-out 0s;
+  -o-transition: right 1s ease-out 0s;
+  transition: right 1s ease-out 0s;
   position: absolute;
-  right: 49px;
+  right: -200px;
   top: 0;
   width: 200px;
   height: 100%;
   background: rgba(51, 51, 51, 0.8);
 }
-#multimenu .panel {
-  display: block;
+#multimenu .panels.active {
+  right: 49px;
+}
+#multimenu .panels > .photo_preview {
   position: relative;
+  overflow: hidden;
+  width: 249px;
+  margin-top: -50px;
+}
+#multimenu .panels > .photo_preview .im_cont {
+  width: 249px;
+  height: 150px;
+  overflow: hidden;
+}
+#multimenu .panels > .photo_preview .im_cont img {
+  float: left;
+  max-width: 249px;
+}
+#multimenu .panels > .photo_preview a.name {
+  background: rgba(51, 51, 51, 0.8);
+  position: absolute;
+  display: block;
+  color: #e0e0e0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+}
+#multimenu .panels > .photo_preview a.name:hover {
+  text-decoration: underline;
+}
+#multimenu .panel {
+  margin-top: 100px;
+  display: none;
+  position: absolute;
+  top: 0;
   height: 100%;
+  overflow: hidden;
+  width: 200px;
   text-align: left;
+}
+#multimenu .panel.active {
+  display: block;
+}
+#multimenu .panel.active {
+  display: block;
 }
 #multimenu .panel .control {
   text-align: center;
@@ -404,49 +449,58 @@ body {
 }
 #multimenu .panel .social.links-4 {
   overflow: hidden;
-  width: 225px;
+  width: 200px;
 }
 #multimenu .panel .social.links-4 a {
-  width: 56.25px;
-  height: 56.25px;
-  line-height: 56.25px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
 }
 #multimenu .panel .social.links-3 {
   overflow: hidden;
-  width: 225px;
+  width: 200px;
 }
 #multimenu .panel .social.links-3 a {
-  width: 75px;
-  height: 56.25px;
-  line-height: 56.25px;
+  width: 66.66666667px;
+  height: 50px;
+  line-height: 50px;
 }
 #multimenu .panel .social.links-2 a {
-  width: 112.5px;
-  height: 56.25px;
-  line-height: 56.25px;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
 }
 #multimenu .panel .social.links-1 a {
-  width: 225px;
-  height: 56.25px;
-  line-height: 56.25px;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
 }
 #multimenu .panel .back_button {
   cursor: pointer;
   position: absolute;
   display: block;
-  width: 100%;
-  padding: 10px;
-  background: rgba(224, 224, 224, 0.3);
+  width: 249px;
+  line-height: 32px;
+  background: #e0e0e0;
+  color: #333333;
   overflow: hidden;
   text-align: center;
-  bottom: 0;
+  bottom: 150px;
+}
+#multimenu .panel .back_button > div {
+  float: left;
+}
+#multimenu .panel .back_button .wider {
+  width: 200px;
+}
+#multimenu .panel .back_button .smal {
+  width: 49px;
 }
 #multimenu #default {
   display: none;
 }
 #multimenu #more_info {
-  display: block;
-  width: 225px;
+  margin-top: 150px;
 }
 #multimenu #more_info .description {
   padding: 10px;
@@ -454,14 +508,14 @@ body {
   text-align: left;
 }
 #multimenu #more_info .menu {
-  padding: 10px;
+  padding-left: 10px;
   text-align: left;
 }
 #multimenu #more_info .menu a {
   display: block;
   width: 100%;
   text-decoration: none;
-  padding: 5px;
+  line-height: 32px;
   color: #e0e0e0;
 }
 #multimenu #more_info .menu a:visited {
@@ -471,62 +525,32 @@ body {
   font-size: 25px;
   padding: 5px;
 }
-#multimenu #more_info .menu .lang a {
-  display: inline;
-}
-#multimenu #more_info .menu .lang a.active {
-  color: #ff5722;
-}
 #multimenu.default {
   width: 45px;
 }
 #multimenu.default #default {
   display: block;
 }
-#multimenu.contact {
-  width: 225px;
-}
 #multimenu.contact #contact {
   display: block;
-}
-#multimenu.more_info {
-  width: 225px;
 }
 #multimenu.more_info #more_info {
   display: block;
 }
-#multimenu.share {
-  width: 225px;
-}
 #multimenu.share #share {
   display: block;
-}
-#multimenu.warning {
-  width: 225px;
 }
 #multimenu.warning #warning {
   display: block;
 }
-#multimenu.qr-code {
-  width: 225px;
-}
 #multimenu.qr-code #qr-code {
   display: block;
-}
-#multimenu.meeting {
-  width: 225px;
 }
 #multimenu.meeting #meeting {
   display: block;
 }
-#multimenu.inform {
-  width: 225px;
-}
 #multimenu.inform #inform {
   display: block;
-}
-#multimenu.show_on_map {
-  width: 225px;
 }
 #multimenu.show_on_map #show_on_map {
   display: block;
@@ -605,8 +629,8 @@ body {
   display: block;
   text-align: left;
   overflow: hidden;
-  width: 205px;
-  max-width: 205px;
+  width: 180px;
+  max-width: 180px;
   padding: 10px;
   height: 20%;
 }
@@ -615,7 +639,7 @@ body {
   margin-top: 5px;
   display: block;
   background: none;
-  width: 225px;
+  width: 200px;
   border: none;
   background: rgba(224, 224, 224, 0.3);
   color: #ff5722;
@@ -649,8 +673,8 @@ body {
   display: block;
   text-align: left;
   overflow: hidden;
-  width: 205px;
-  max-width: 205px;
+  width: 180px;
+  max-width: 180px;
   padding: 10px;
 }
 #multimenu #meeting textarea::-webkit-input-placeholder,
@@ -679,19 +703,20 @@ body {
   background: #085394;
   text-align: center;
   font-size: 13.33333333px;
-  line-height: 32px;
 }
 #multimenu #meeting .send_mesage .meeting-link a {
   text-decoration: none;
 }
 #multimenu #inform .container {
+  direction: rtl;
   max-height: 100%;
   overflow: auto;
+  text-align: left;
 }
 #multimenu #inform .container .spacer {
   overflow: hidden;
   width: 100%;
-  height: 36px;
+  height: 100px;
 }
 #multimenu #inform .photo_cont {
   position: relative;
@@ -710,11 +735,6 @@ body {
 #multimenu #inform .txt {
   font-size: 13.33333333px;
   padding: 5px;
-}
-#multimenu #show_on_map .map_container {
-  width: 225px;
-  height: 300px;
-  overflow: hidden;
 }
 #multimenu #show_on_map .addres {
   padding: 10px;

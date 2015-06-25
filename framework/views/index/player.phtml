@@ -228,12 +228,12 @@
 			<?php foreach ($all_panos as $key => $pano) { ?>
 
 			  <div class="slide">
-			    <div class="pano">
-			      <img src="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano['id']?>/mobile_f.jpg">
-			    </div>
-			    <a href="/<?=$this->config->lang.'/place/'.$tour['url'].'/'.$pano['url']?>" class="name">
-			      <?=$pano['name']?>
-			    </a>
+          <div class="pano">
+            <img src="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano['id']?>/mobile_f.jpg">
+          </div>
+          <a href="/<?=$this->config->lang.'/place/'.$tour['url'].'/'.$pano['url']?>" class="name">
+            <?=$pano['name']?>
+          </a>
 			  </div>
 
 			<?php } ?>
@@ -293,228 +293,259 @@
       </div>
     </div>
 
-    <div class="panels">
+    <div class="panels active">
 
-      <div id="more_info" class="panel">
-        <div class="description">
-          Premier Hotel Abri открыл свои двери гостям и жителям Днепропетровска. Отель расположен в непосредственной близости от культурно-исторического центра города.
-        </div>
-        <div class="menu">
-          <a href="#" class="elem inform">
-            <i class="fa fa-info"></i> Информация
-          </a>
-          <a href="#" class="elem show_on_map">
-            <i class="fa fa-map-marker"></i> Показать на карте
-          </a>
-          <a href="#" class="elem contact">
-            <i class="fa fa-phone"></i> Контакты
-          </a>
-          <a href="#" class="elem qr-code">
-            <i class="fa fa-qrcode"></i> QR код
-          </a>
-          <a href="#" class="elem share">
-            <i class="fa fa-share-alt"></i> Поделиться
-          </a>
-          <a href="#" class="elem meeting">
-            <i class="fa fa-flag"></i> Назначить встречу
-          </a>
-          <a href="#" class="elem warning">
-            <i class="fa fa-exclamation-triangle"></i> Сообщить о ошибке
-          </a>
-          <div class="lang">
-            <a href="#" class="active">RU</a>
-            <a href="#">EN</a>
+      <div class="photo_preview">
+        <div class="pano">
+          <div class="im_cont">
+            <img src="/img/livadia.jpg">
           </div>
         </div>
+        <a href="#" class="name">
+          Ливадия
+        </a>
+      </div>
+
+      <div id="more_info" class="panel">
+        <div class="menu">
+          <a href="#" class="elem inform">
+            Информация
+          </a>
+          <a href="#" class="elem show_on_map">
+            Показать на карте
+          </a>
+          <a href="#" class="elem contact">
+            Контакты
+          </a>
+          <a href="#" class="elem qr-code">
+            QR код
+          </a>
+          <a href="#" class="elem share">
+            Поделиться
+          </a>
+          <a href="#" class="elem meeting">
+            Назначить встречу
+          </a>
+          <a href="#" class="elem warning">
+            Сообщить о ошибке
+          </a>
+        </div>
         <div class="back_button">
-          Свернуть <i class="fa fa-angle-right"></i>
+          <div class="wider">
+            Свернуть <i class="fa fa-angle-right"></i>
+          </div>
+         <div class="smal">
+          <i class="fa fa-times"></i>
+         </div>
         </div>
       </div>
 
-    </div>
+      <div id="inform" class="panel">
+        <div class="container">
+          <div class="txt">
+            Lorem ipsum Sed nisi in nostrud commodo quis dolore ad id aliqua ex proident anim nulla Duis commodo ut est proident velit et ex reprehenderit deserunt magna occaecat occaecat id sed minim aute mollit cillum non labore dolore ea cillum esse ullamco in consectetur elit amet dolore Duis cillum do velit aliquip commodo ad esse do deserunt nulla cillum in elit enim ex amet sit cillum pariatur enim proident culpa laborum nulla cupidatat irure Duis cupidatat in commodo laboris Duis anim reprehenderit cillum aliqua reprehenderit elit amet ea id officia qui dolore ullamco sit dolore qui consequat nulla aliqua sit adipisicing officia voluptate ullamco voluptate sed fugiat commodo labore ullamco magna laborum sint ut est irure Duis sed sunt incididunt fugiat aliqua nisi labore in consectetur in qui irure Excepteur in dolore anim aliquip ex ullamco in esse enim labore voluptate nisi do ex magna laboris labore culpa sed et qui aute adipisicing tempor minim et enim id Ut mollit pariatur quis eiusmod consequat est pariatur aliqua in eu labore ut in minim sint quis culpa aliquip in ex deserunt dolore est minim dolore dolor proident in non sed laborum nulla commodo non magna esse adipisicing velit sed nostrud incididunt quis sed.
+          </div>
+          <div class="spacer"></div>
+        </div>
+      </div>
 
+      <div id="show_on_map" class="panel">
+        <div class="map_container">
+          <div style="background:green;overflow:hidden;width:300px;height:300px;"></div>
+        </div>
+        <div class="addres">
+          ул. Рогалева 16 <br />
+          г. Днепропетровск, Украина
+          <a href="#" class="coordinates">
+            58.34434, 14.23232
+          </a>
+        </div>
+      </div>
+
+      <div id="contact" class="panel">
+        <div class="contact-date">
+          <i class="fa fa-phone"></i> (0562) 31 85 36
+        </div>
+
+        <div class="contact-date">
+          <i class="fa fa-phone"></i> (056) 731 87 88
+        </div>
+
+        <div class="contact-date">
+          <i class="fa fa-at"></i> hotel@hotel
+        </div>
+
+        <div class="contact-date">
+          <a href="#">
+            <i class="fa fa-globe"></i> www.abri-hotel.com
+          </a>
+        </div>
+
+        <div class="contact-date">
+          <a href="#">
+            <i class="fa fa-skype"></i> abri-hotel
+          </a>
+        </div>
+
+        <div class="social links-4">
+          <a href="#" class="bg_fb_color"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="bg_g_color"><i class="fa fa-google-plus"></i></a>
+          <a href="#" class="bg_tw_color"><i class="fa fa-twitter"></i></a>
+          <a href="#" class="bg_vk_color"><i class="fa fa-vk"></i></a>
+        </div>
+      </div>
+      <div id="qr-code" class="panel">
+        <img src="/img/qr-code.png">
+        <div class="choose">
+          <a href="#" class="var active">GPS</a>
+          <a href="#" class="var">Link</a>
+        </div>
+      </div>
+
+      <div id="share" class="panel">
+        <div class="share_friends">
+          <div class="decr">
+            Поделится с друзьями ссылкой
+          </div>
+          <div class="social">
+            <a href="#" class="bg_g_color"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="bg_fb_color"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="bg_pin_color"> <i class="fa fa-pinterest-p"></i></a>
+            <a href="#" class="bg_tw_color"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="bg_vk_color"><i class="fa fa-vk"></i></a>
+          </div>
+          <div style="clear: both;"></div>
+          <div class="html-code">
+            <i class="fa fa-code square"></i> HTML-code
+            <div class="code">
+              &lt;iframe width="800" height="600" frameborder="0" src="http://placeview.in/pano/1392"&gt
+
+              &lt;/iframe&gt
+            </div>
+          </div>
+          <div class="check_size">
+            <div class="title">
+              Размер фрейма панорамы
+            </div>
+            <div class="select">
+              <div class="title">
+                <div class="txt">800 x 600</div>
+                <div class="down">
+                  <i class="fa fa-angle-down"></i>
+                </div>
+              </div>
+              <div style="clear: both;"></div>
+              <div class="options">
+                <div class="option">
+                  640 x 480
+                </div>
+                <div class="option">
+                  800 x 600
+                </div>
+                <div class="option">
+                  1024 x 768
+                </div>
+                <div class="option">
+                  1280 x 720
+                </div>
+                <div class="option">
+                  1366 x 768
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="meeting" class="panel">
+        <input type="text" placeholder="Введите заголовок встречи">
+        <textarea placeholder="Введите описание встречи"></textarea>
+        <div class="send_mesage">
+          <div class="txt">
+            Отпрваить приглашения на встречу личным сообщением через
+          </div>
+          <div class="social links-4">
+            <a href="#" class="bg_fb_color"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="bg_g_color"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="bg_tw_color"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="bg_vk_color"><i class="fa fa-vk"></i></a>
+          </div>
+          <div class="txt">
+            или
+          </div>
+          <div class="meeting-link">
+            <a href="#">
+              Копировать ссылку-приглашение
+            </a>
+          </div>
+          <div class="txt">
+            Эту информацию увидят те пользователи, у которых есть ссылка-приглашение
+          </div>
+        </div>
+      </div>
+
+      <div id="warning" class="panel active">
+        <div class="descr">
+          Пожалуйста, выберите о чем Вы хотите сообщить
+        </div>
+        <div class="choose">
+          <a href="#">
+            <input type="radio" name="theme_warning" value="Сообщить о ошибке"> Сообщить о ошибке
+          </a>
+          <a href="#">
+            <input type="radio" name="theme_warning" value="Отправить жалобу"> Отправить жалобу
+          </a>
+          <a href="#">
+            <input type="radio" name="theme_warning" value="Отметить как спам"> Отметить как спам
+          </a>
+        </div>
+        <textarea></textarea>
+        <button>Отправить сообщение</button>
+      </div>
+
+
+    </div>
   </div>
   <!--
   <div id="multimenu" class="inform">
-    <div id="default">
-      <div class="icons_minimals">
-        <div class="icon inform">
-          <i class="fa fa-info"></i>
-        </div>
-        <div class="icon show_on_map">
-          <i class="fa fa-map-marker"></i>
-        </div>
-        <div class="icon contact">
-          <i class="fa fa-phone"></i>
-        </div>
-        <div class="icon qr-code">
-          <i class="fa fa-qrcode"></i>
-        </div>
-        <div class="icon share">
-          <i class="fa fa-share-alt"></i>
-        </div>
-        <div class="icon meeting">
-          <i class="fa fa-flag"></i>
-        </div>
-        <div class="icon warning">
-          <i class="fa fa-exclamation-triangle"></i>
-        </div>
-        <div class="lang">
-          <div class="cur">
-            RU
-          </div>
-          <div class="list">
-            <div>
-              RU
-            </div>
-            <div>
-              ENG
-            </div>
-            <div>
-              DE
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="info">
-        <i class="fa fa-info-circle"></i>
-      </div>
-    </div>
-    <div id="more_info" class="panel">
-      <div class="description">
-        Premier Hotel Abri открыл свои двери гостям и жителям Днепропетровска. Отель расположен в непосредственной близости от культурно-исторического центра города.
-      </div>
-      <div class="menu">
-        <a href="#" class="elem inform">
-          <i class="fa fa-info"></i> Информация
-        </a>
-        <a href="#" class="elem show_on_map">
-          <i class="fa fa-map-marker"></i> Показать на карте
-        </a>
-        <a href="#" class="elem contact">
-          <i class="fa fa-phone"></i> Контакты
-        </a>
-        <a href="#" class="elem qr-code">
-          <i class="fa fa-qrcode"></i> QR код
-        </a>
-        <a href="#" class="elem share">
-          <i class="fa fa-share-alt"></i> Поделиться
-        </a>
-        <a href="#" class="elem meeting">
-          <i class="fa fa-flag"></i> Назначить встречу
-        </a>
-        <a href="#" class="elem warning">
-          <i class="fa fa-exclamation-triangle"></i> Сообщить о ошибке
-        </a>
-        <div class="lang">
-          <a href="#" class="active">RU</a>
-          <a href="#">EN</a>
-        </div>
-      </div>
-      <div class="back_button">
-        Свернуть <i class="fa fa-angle-right"></i>
-      </div>
-    </div>
+
     <div id="contact" class="panel">
-      <div class="control">
-        <i class="fa fa-phone active"></i>
-        <i class="fa fa-times"></i>
-      </div>
+
       <div class="contact-date">
         <i class="fa fa-phone"></i> (0562) 31 85 36
       </div>
+
       <div class="contact-date">
         <i class="fa fa-phone"></i> (056) 731 87 88
       </div>
+
       <div class="contact-date">
         <i class="fa fa-at"></i> hotel@hotel
       </div>
+
       <div class="contact-date">
         <a href="#">
           <i class="fa fa-globe"></i> www.abri-hotel.com
         </a>
       </div>
+
       <div class="contact-date">
         <a href="#">
           <i class="fa fa-skype"></i> abri-hotel
         </a>
       </div>
+
       <div class="social links-4">
         <a href="#" class="bg_fb_color"><i class="fa fa-facebook"></i></a>
         <a href="#" class="bg_g_color"><i class="fa fa-google-plus"></i></a>
         <a href="#" class="bg_tw_color"><i class="fa fa-twitter"></i></a>
         <a href="#" class="bg_vk_color"><i class="fa fa-vk"></i></a>
       </div>
-      <div class="back_button">
-        Свернуть <i class="fa fa-angle-right"></i>
-      </div>
-    </div>
-    <div id="share" class="panel">
-      <div class="control">
-        <i class="fa fa-share-alt active"></i>
-        <i class="fa fa-times"></i>
-      </div>
-      <div class="share_friends">
-        <div class="decr">
-          Поделится с друзьями ссылкой
-        </div>
-        <div class="social">
-          <a href="#" class="bg_g_color"><i class="fa fa-google-plus"></i></a>
-          <a href="#" class="bg_fb_color"><i class="fa fa-facebook"></i></a>
-          <a href="#" class="bg_pin_color"> <i class="fa fa-pinterest-p"></i></a>
-          <a href="#" class="bg_tw_color"><i class="fa fa-twitter"></i></a>
-          <a href="#" class="bg_vk_color"><i class="fa fa-vk"></i></a>
-        </div>
-        <div style="clear: both;"></div>
-        <div class="html-code">
-          <i class="fa fa-code square"></i> HTML-code
-          <div class="code">
-            &lt;iframe width="800" height="600" frameborder="0" src="http://placeview.in/pano/1392"&gt
 
-            &lt;/iframe&gt
-          </div>
-        </div>
-        <div class="check_size">
-          <div class="title">
-            Размер фрейма панорамы
-          </div>
-          <div class="select">
-            <div class="title">
-              <div class="txt">800 x 600</div>
-              <div class="down">
-                <i class="fa fa-angle-down"></i>
-              </div>
-            </div>
-            <div style="clear: both;"></div>
-            <div class="options">
-              <div class="option">
-                640 x 480
-              </div>
-              <div class="option">
-                800 x 600
-              </div>
-              <div class="option">
-                1024 x 768
-              </div>
-              <div class="option">
-                1280 x 720
-              </div>
-              <div class="option">
-                1366 x 768
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="back_button">
-        Свернуть <i class="fa fa-angle-right"></i>
-      </div>
     </div>
+
     <div id="warning" class="panel">
-      <div class="control">
-        <i class="fa fa-exclamation-triangle active"></i>
-        <i class="fa fa-times"></i>
-      </div>
+
       <div class="descr">
         Пожалуйста, выберите о чем Вы хотите сообщить
       </div>
@@ -531,57 +562,9 @@
       </div>
       <textarea></textarea>
       <button>Отправить сообщение</button>
-      <div class="back_button">
-        Свернуть <i class="fa fa-angle-right"></i>
-      </div>
+      
     </div>
-    <div id="qr-code" class="panel">
-      <div class="control">
-        <i class="fa fa-qrcode active"></i>
-        <i class="fa fa-times"></i>
-      </div>
-      <img src="/img/qr-code.png">
-      <div class="choose">
-        <a href="#" class="var active">GPS</a>
-        <a href="#" class="var">Link</a>
-      </div>
-      <div class="back_button">
-        Свернуть <i class="fa fa-angle-right"></i>
-      </div>
-    </div>
-    <div id="meeting" class="panel">
-      <div class="control">
-        <i class="fa fa-flag active"></i>
-        <i class="fa fa-times"></i>
-      </div>
-      <input type="text" placeholder="Введите заголовок встречи">
-      <textarea placeholder="Введите описание встречи"></textarea>
-      <div class="send_mesage">
-        <div class="txt">
-          Отпрваить приглашения на встречу личным сообщением через
-        </div>
-        <div class="social links-4">
-          <a href="#" class="bg_fb_color"><i class="fa fa-facebook"></i></a>
-          <a href="#" class="bg_g_color"><i class="fa fa-google-plus"></i></a>
-          <a href="#" class="bg_tw_color"><i class="fa fa-twitter"></i></a>
-          <a href="#" class="bg_vk_color"><i class="fa fa-vk"></i></a>
-        </div>
-        <div class="txt">
-          или
-        </div>
-        <div class="meeting-link">
-          <a href="#">
-            Копировать ссылку-приглашение
-          </a>
-        </div>
-        <div class="txt">
-          Эту информацию увидят те пользователи, у которых есть ссылка-приглашение
-        </div>
-      </div>
-      <div class="back_button">
-        Свернуть <i class="fa fa-angle-right"></i>
-      </div>
-    </div>
+
 
     <div id="inform" class="panel">
       <div class="control">
@@ -623,27 +606,6 @@
       </div>
     </div>
 
-    <div id="show_on_map" class="panel">
-      <div class="control">
-        <i class="fa fa-map-marker active"></i>
-        <i class="fa fa-times"></i>
-      </div>
-      <div class="map_container">
-        <div style="background:green;overflow:hidden;width:300px;height:300px;">
-
-        </div>
-      </div>
-      <div class="addres">
-        ул. Рогалева 16 <br />
-        г. Днепропетровск, Украина
-        <a href="#" class="coordinates">
-          58.34434, 14.23232
-        </a>
-      </div>
-      <div class="back_button">
-        Свернуть <i class="fa fa-angle-right"></i>
-      </div>
-    </div>
   </div>
   -->
   <div id="module_container" class="">
