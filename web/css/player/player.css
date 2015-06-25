@@ -336,9 +336,25 @@ body {
   font-size: 20.83333333px;
   cursor: pointer;
 }
+#multimenu > .menu .icon .fa {
+  display: inline;
+}
+#multimenu > .menu .icon .close {
+  display: none;
+}
+#multimenu > .menu .icon.active {
+  background: #e0e0e0;
+  color: #333333;
+}
+#multimenu > .menu .icon.active .fa {
+  display: none;
+}
+#multimenu > .menu .icon.active .close {
+  display: inline;
+}
 #multimenu > .menu .ask {
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
 }
 #multimenu > .menu .lang {
   cursor: pointer;
@@ -401,7 +417,6 @@ body {
   position: absolute;
   top: 0;
   height: 100%;
-  overflow: hidden;
   width: 200px;
   text-align: left;
 }
@@ -735,6 +750,10 @@ body {
 #multimenu #inform .txt {
   font-size: 13.33333333px;
   padding: 5px;
+}
+#multimenu #show_on_map .map_container {
+  width: 200px;
+  overflow: hidden;
 }
 #multimenu #show_on_map .addres {
   padding: 10px;

@@ -264,10 +264,26 @@ body {
 			width: @default_multimenu_width;
 			font-size: @icons_size/1.2;
 			cursor: pointer;
+			.fa {
+				display: inline;
+			}
+			.close {
+				display: none;
+			}
+			&.active {
+				background: @light_grey;
+				color: @dark_color;
+				.fa {
+					display: none;
+				}
+				.close {
+					display: inline;
+				}
+			}
 		}
 		.ask {
 			position: absolute;
-			bottom: 0;
+			bottom: -2px;
 		}
 		.lang {
 			cursor: pointer;
@@ -339,7 +355,6 @@ body {
 		position: absolute;
 		top: 0;
 		height: 100%;
-		overflow: hidden;
 		width: @multimenu_panel_width;
 		text-align: left;
 		&.active {
@@ -702,7 +717,8 @@ body {
 	}
 	#show_on_map {
 		.map_container {
-
+			width: @multimenu_panel_width;
+			overflow: hidden;
 		}
 		.addres {
 			padding: 2*@padding-xs-horizontal;

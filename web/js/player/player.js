@@ -1,13 +1,14 @@
 (function(){
-	var show_hide_panos, multimenu, select_lang, multimenu_controls, select_size, i, length, elems, tutorial, photo_container;
+	var show_hide_panos, multimenu, select_lang, multimenu_controls, select_size, i, length, elems, tutorial, photo_container, big_menu;
 	var multimenu_opened = false;
 	var panos_opened = false;
 	tutorial = document.getElementById("tutorial");
 	show_hide_panos = document.getElementById('show_hide_panos');
 	multimenu = document.getElementById('multimenu');
 	select_lang = multimenu.getElementsByClassName('lang')[0];
-	multimenu_controls = multimenu.getElementsByClassName("icons_minimals")[0];
+	multimenu_controls = multimenu.getElementsByClassName("icon");
 	photo_container = document.getElementsByClassName("photo_container")[0];
+	big_menu = multimenu.getElementsByClassName("panels")[0].getElementsByClassName("menu")[0].getElementsByClassName("elem");
 
 	window.onresize = function() {
 		elem_position()
@@ -40,7 +41,6 @@
 	document.getElementsByClassName('info_container')[0].getElementsByClassName('close')[0].addEventListener('click',function() {
 		var arr = document.getElementsByClassName('marker');
 		for(var i = 0; i < arr.length; i += 1) {
-			console.log(arr[i]);
 			arr[i].classList.remove('hide');
 		}
 		document.getElementsByClassName('info_container')[0].classList.remove('active');
@@ -114,24 +114,35 @@
 		});
 	}
 
-	//выбор языка в раскрытом мультименю
-/*
-	elems = document.getElementById("more_info").getElementsByClassName("lang")[0].getElementsByTagName("a");
-	length = elems.length;
-	for(i = 0; i < length; i += 1) {
-		elems[i].addEventListener("click", function() {
-			var buf = this.parentNode.getElementsByTagName("a");
-			for(var j = 0; j < buf.length; j += 1) {
-				buf[j].classList.toggle("active");
+	for(var i = 0; i < multimenu_controls.length; i += 1) {
+		multimenu_controls[i].addEventListener("click", function() {
+			if(this.classList.contains("active")) {
+				this.classList.remove("active");
+				multimenu.getElementsByClassName("panels")[0].classList.remove("active");
+				return;
+			}
+			for(var j = 0; j < multimenu_controls.length; j += 1) {
+				multimenu_controls[j].classList.remove("active");
+			}
+			for(var j = 0; j < multimenu.getElementsByClassName("panel").length; j += 1) {
+				multimenu.getElementsByClassName("panel")[j].classList.remove("active");
+			}
+			document.getElementById(this.getAttribute("data-panel")).classList.add("active");
+			multimenu.getElementsByClassName("panels")[0].classList.add("active");
+			this.classList.add("active");
+		});
+	}
+
+	for(var i = 0; i < big_menu.length; i += 1) {
+		big_menu[i].addEventListener("click", function () {
+			for(var j = 0; j < multimenu_controls.length; j += 1) {
+				if(multimenu_controls[j].classList.contains(this.getAttribute("data-panel"))) {
+					multimenu_controls[j].click();
+				}
 			}
 		});
 	}
-*/
-//	elems = multimenu_controls.getElementsByClassName("icon");
-//	multimenu_show(elems);
 
-//	elems = document.getElementById("more_info").getElementsByClassName("menu")[0].getElementsByClassName("elem");
-//	multimenu_show(elems);
 	close_all_panels(document.getElementById("close_all").getElementsByTagName("span")[0]);
 	elems = multimenu.getElementsByClassName("back_button");
 	multimenu_close(elems);
@@ -155,30 +166,6 @@
 		close_all_check();
 	}
 
-	//показать влкадку с подписями к иконкам
-/*
-	document.getElementById("default").getElementsByClassName("info")[0].addEventListener("click", function(){
-		multimenu_show_block("more_info");
-	});
-*/
-//	select_size = multimenu.getElementsByClassName("check_size")[0].getElementsByClassName("select")[0];
-
-/*
-	select_size.getElementsByClassName("title")[0].addEventListener("click", function() {
-		select_size.classList.toggle("active");
-	});
-*/
-
-//	elems = select_size.getElementsByClassName("option");
-	length = elems.length;
-
-	for(i = 0; i < length; i += 1) {
-		elems[i].addEventListener("click", function(){
-			select_size.getElementsByClassName("title")[0].getElementsByClassName("txt")[0].innerHTML = this.innerHTML;
-			multimenu.getElementsByClassName("html-code")[0].getElementsByClassName("code")[0].innerHTML = '&lt;iframe width="'+this.innerHTML.split("x")[0]/1+'" height="'+this.innerHTML.split("x")[1]/1+'" frameborder="0" src="http://placeview.in/pano/1392"&gt &lt;/iframe&gt';
-			select_size.classList.toggle("active");
-		});
-	}
 
 	function close_all_check() {
 		if((multimenu_opened) && (panos_opened)) {

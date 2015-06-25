@@ -74,29 +74,6 @@
           <div class="amount">Изображение 3 из 9</div>
         </div>
         <div class="photos">
-<!--
-          <div class="photo">
-            <img src="/img/photo1.jpg">
-            <div class="descr">
-              dfs dfsd f dasd asd asdло в аплыворап лыоврап лыоврап лы ораплывап
-              ыв апыва пылвао рпыдлвоа рпылвоа рпылвоарпыл воарплы ворапл ывраплывоар пылвоапы
-              вап ывап оылврап лыоврап лыовар лыовра плывоарп лыворап лоыварпл ыоапыва
-              п ыва пыапыва пыв апы вапывап ывапыа пывлад поыжвдлап оыдалп ывдалп оывджал поыдвал пывладвы апы
-              выа пылвда опыждвла оыждло ыдвалопыждвла опыдвлаоп ыдвлао пдывлао пыдвлаоп ыджвлао пыждвлоаы
-              вап ыдвлаоп жыдлаоп ыдвлаопж ыдлвоап ждывлаоп ыдвлао пжыдвлаопыдвлаопджывлаопжыдвалопжыдва
-              ыва плдоыв жадплоывждалп оыждвлапожывлап  оыдвалоп ыдлаоп длыаопдлыо авджпыовадлыва длпыова ыдвлпо
-              влд повдалп о рвда лпврдапровдапл орв даплорвд аплорвждаплрвжап лрважд плрвад плровадп лорвдапровдап
-              dfs dfsd f dasd asd asdло в аплыворап лыоврап лыоврап лы ораплывап
-              ыв апыва пылвао рпыдлвоа рпылвоа рпылвоарпыл воарплы ворапл ывраплывоар пылвоапы
-              вап ывап оылврап лыоврап лыовар лыовра плывоарп лыворап лоыварпл ыоапыва
-              п ыва пыапыва пыв апы вапывап ывапыа пывлад поыжвдлап оыдалп ывдалп оывджал поыдвал пывладвы апы
-              выа пылвда опыждвла оыждло ыдвалопыждвла опыдвлаоп ыдвлао пдывлао пыдвлаоп ыджвлао пыждвлоаы
-              вап ыдвлаоп жыдлаоп ыдвлаопж ыдлвоап ждывлаоп ыдвлао пжыдвлаопыдвлаопджывлаопжыдвалопжыдва
-              ыва плдоыв жадплоывждалп оыждвлапожывлап  оыдвалоп ыдлаоп длыаопдлыо авджпыовадлыва длпыова ыдвлпо
-              влд повдалп о рвда лпврдапровдапл орв даплорвд аплорвждаплрвжап лрважд плрвад плровадп лорвдапровдап
-            </div>
-          </div>
- -->
           <div class="photo horizontal">
             <div class="im_cont">
               <img src="/img/photo3.jpg" height="1000">
@@ -251,26 +228,33 @@
 
     <div class="menu">
       <div class="spacer"></div>
-      <div class="icon inform">
+      <div class="icon inform" data-panel="inform">
         <i class="fa fa-info"></i>
+        <i class="fa fa-times close"></i>
       </div>
-      <div class="icon show_on_map">
+      <div class="icon show_on_map" data-panel="show_on_map">
         <i class="fa fa-map-marker"></i>
+        <i class="fa fa-times close"></i>
       </div>
-      <div class="icon contact">
+      <div class="icon contact" data-panel="contact">
         <i class="fa fa-phone"></i>
+        <i class="fa fa-times close"></i>
       </div>
-      <div class="icon qr-code">
+      <div class="icon qr-code" data-panel="qr-code">
         <i class="fa fa-qrcode"></i>
+        <i class="fa fa-times close"></i>
       </div>
-      <div class="icon share">
+      <div class="icon share" data-panel="share">
         <i class="fa fa-share-alt"></i>
+        <i class="fa fa-times close"></i>
       </div>
-      <div class="icon meeting">
+      <div class="icon meeting" data-panel="meeting">
         <i class="fa fa-flag"></i>
+        <i class="fa fa-times close"></i>
       </div>
-      <div class="icon warning">
+      <div class="icon warning" data-panel="warning">
         <i class="fa fa-exclamation-triangle"></i>
+        <i class="fa fa-times close"></i>
       </div>
       <div class="lang">
         <div class="cur">
@@ -288,12 +272,13 @@
           </div>
         </div>
       </div>
-      <div class="icon ask">
+      <div class="icon ask" data-panel="more_info">
         <i class="fa fa-question"></i>
+        <i class="fa fa-times close"></i>
       </div>
     </div>
 
-    <div class="panels active">
+    <div class="panels">
 
       <div class="photo_preview">
         <div class="pano">
@@ -308,25 +293,25 @@
 
       <div id="more_info" class="panel">
         <div class="menu">
-          <a href="#" class="elem inform">
+          <a href="#" class="elem inform" data-panel="inform">
             Информация
           </a>
-          <a href="#" class="elem show_on_map">
+          <a href="#" class="elem show_on_map" data-panel="show_on_map">
             Показать на карте
           </a>
-          <a href="#" class="elem contact">
+          <a href="#" class="elem contact" data-panel="contact">
             Контакты
           </a>
-          <a href="#" class="elem qr-code">
+          <a href="#" class="elem qr-code" data-panel="qr-code">
             QR код
           </a>
-          <a href="#" class="elem share">
+          <a href="#" class="elem share" data-panel="share">
             Поделиться
           </a>
-          <a href="#" class="elem meeting">
+          <a href="#" class="elem meeting" data-panel="meeting">
             Назначить встречу
           </a>
-          <a href="#" class="elem warning">
+          <a href="#" class="elem warning" data-panel="warning">
             Сообщить о ошибке
           </a>
         </div>
@@ -394,6 +379,7 @@
           <a href="#" class="bg_vk_color"><i class="fa fa-vk"></i></a>
         </div>
       </div>
+
       <div id="qr-code" class="panel">
         <img src="/img/qr-code.png">
         <div class="choose">
@@ -484,7 +470,7 @@
         </div>
       </div>
 
-      <div id="warning" class="panel active">
+      <div id="warning" class="panel">
         <div class="descr">
           Пожалуйста, выберите о чем Вы хотите сообщить
         </div>
@@ -503,111 +489,8 @@
         <button>Отправить сообщение</button>
       </div>
 
-
     </div>
   </div>
-  <!--
-  <div id="multimenu" class="inform">
-
-    <div id="contact" class="panel">
-
-      <div class="contact-date">
-        <i class="fa fa-phone"></i> (0562) 31 85 36
-      </div>
-
-      <div class="contact-date">
-        <i class="fa fa-phone"></i> (056) 731 87 88
-      </div>
-
-      <div class="contact-date">
-        <i class="fa fa-at"></i> hotel@hotel
-      </div>
-
-      <div class="contact-date">
-        <a href="#">
-          <i class="fa fa-globe"></i> www.abri-hotel.com
-        </a>
-      </div>
-
-      <div class="contact-date">
-        <a href="#">
-          <i class="fa fa-skype"></i> abri-hotel
-        </a>
-      </div>
-
-      <div class="social links-4">
-        <a href="#" class="bg_fb_color"><i class="fa fa-facebook"></i></a>
-        <a href="#" class="bg_g_color"><i class="fa fa-google-plus"></i></a>
-        <a href="#" class="bg_tw_color"><i class="fa fa-twitter"></i></a>
-        <a href="#" class="bg_vk_color"><i class="fa fa-vk"></i></a>
-      </div>
-
-    </div>
-
-    <div id="warning" class="panel">
-
-      <div class="descr">
-        Пожалуйста, выберите о чем Вы хотите сообщить
-      </div>
-      <div class="choose">
-        <a href="#">
-          <input type="radio" name="theme_warning" value="Сообщить о ошибке"> Сообщить о ошибке
-        </a>
-        <a href="#">
-          <input type="radio" name="theme_warning" value="Отправить жалобу"> Отправить жалобу
-        </a>
-        <a href="#">
-          <input type="radio" name="theme_warning" value="Отметить как спам"> Отметить как спам
-        </a>
-      </div>
-      <textarea></textarea>
-      <button>Отправить сообщение</button>
-      
-    </div>
-
-
-    <div id="inform" class="panel">
-      <div class="control">
-        <i class="fa fa-info active"></i>
-        <i class="fa fa-times"></i>
-      </div>
-      <div class="container">
-        <div class="photo_cont">
-          <img src="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano['id']?>/mobile_f.jpg">
-          <div class="name">
-			<?=$tour_lang['name']?>
-          </div>
-        </div>
-        <div class="txt">
-          <?=$tour_lang['description']?>
-        </div>
-        <div class="spacer"></div>
-      </div>
-      <div class="back_button">
-        Свернуть <i class="fa fa-angle-right"></i>
-      </div>
-    </div>
-
-    <div id="show_on_map" class="panel">
-      <div class="control">
-        <i class="fa fa-map-marker active"></i>
-        <i class="fa fa-times"></i>
-      </div>
-      <div class="map_container">
-        <div style="background:green;overflow:hidden;width:300px;height:300px;">
-
-        </div>
-      </div>
-      <div class="addres">
-        <?=$tour_lang['contacts']?>
-      </div>
-      <div class="back_button">
-        Свернуть <i class="fa fa-angle-right"></i>
-      </div>
-    </div>
-
-  </div>
-  -->
   <div id="module_container" class="">
 
     <div class="control">
