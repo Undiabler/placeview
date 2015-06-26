@@ -15,7 +15,20 @@
 		multimenu_controls = multimenu.getElementsByClassName("icon");
 		photo_container = document.getElementsByClassName("photo_container")[0];
 		big_menu = multimenu.getElementsByClassName("panels")[0].getElementsByClassName("menu")[0].getElementsByClassName("elem");
-		select_size = document.getElementById("share").getElementsByClassName()
+		select_size = document.getElementById("share").getElementsByClassName("select")[0];
+
+		select_size.addEventListener("click", function(){
+			this.classList.toggle("active");
+		});
+
+		var elems = select_size.getElementsByClassName("option");
+		for(var i = 0; i < elems.length; i += 1) {
+			elems[i].addEventListener('click', function() {
+				select_size.getElementsByClassName("title")[0].getElementsByClassName("txt")[0].innerText = this.innerText;
+				var size = select_size.getElementsByClassName("title")[0].getElementsByClassName("txt")[0].innerText;
+				document.getElementById("share").getElementsByClassName("code")[0].innerText = '<iframe width="'+size.split(" x ")[0]+'" height="'+size.split(" x ")[1]+'" frameborder="0" src="http://placeview.in/pano/1392"></iframe>';
+			});
+		}
 
 		if(!localStorage.getItem('player'))
 			tutorial.classList.add("active");
