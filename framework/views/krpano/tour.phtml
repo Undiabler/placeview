@@ -26,12 +26,18 @@
 
 		<view hlookat="202.65" vlookat="8.12" fov="105.5"/>
 
-		<image type="CUBE" devices="desktop">
-			<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_key_id?>/pano_%s.jpg" />
-		</image>
+		<preview url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_key_id?>/preview.jpg" />
 
-		<image type="CUBE" devices="mobile|tablet" >
-			<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_key_id?>/mobile_%s.jpg" />
+		<image type="CUBE" multires="true" tilesize="512">
+			<level tiledimagewidth="1024" tiledimageheight="1024">
+				<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_key_id?>/tiles/l3/_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="2048" tiledimageheight="2048">
+				<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_key_id?>/tiles/l2/_%s_%v_%h.jpg" />
+			</level>
+			<level tiledimagewidth="4096" tiledimageheight="4096">
+				<cube url="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano_key_id?>/tiles/l1/_%s_%v_%h.jpg" />
+			</level>
 		</image>
 
 		<?php foreach ($pano['hotspots'] as $key => $hotspot): 
