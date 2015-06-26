@@ -305,10 +305,10 @@ body {
 		&.active {
 			right: @default_multimenu_width + 4;
 		}
-		-webkit-transition: right 1s ease-out 0s;
-		-moz-transition: right 1s ease-out 0s;
-		-o-transition: right 1s ease-out 0s;
-		transition: right 1s ease-out 0s;
+		-webkit-transition: right .25s ease-out 0s;
+		-moz-transition: right .25s ease-out 0s;
+		-o-transition: right .25s ease-out 0s;
+		transition: right .25s ease-out 0s;
 		position: absolute;
 		right: -@multimenu_panel_width;
 		top: 0;
@@ -389,42 +389,45 @@ body {
 		}
 		.social {
 			width: 100%;
-			overflow: hidden;
-			a {
-				font-size: @icons_size;
-				float: left;
-				text-align: center;
-			}
-			&.links-4 {
-				overflow: hidden;
-				width: @multimenu_panel_width;
+			text-align: center;
+			.container {
+				display: inline-block;
 				a {
-					width: @multimenu_panel_width/4;
-					height: @multimenu_panel_width/4;
-					line-height:@multimenu_panel_width/4;
+					float: left;
+					font-size: @icons_size;
+					text-align: center;
 				}
-			}
-			&.links-3 {
-				overflow: hidden;
-				width: @multimenu_panel_width;
-				a {
-					width: @multimenu_panel_width/3;
-					height: @multimenu_panel_width/4;
-					line-height: @multimenu_panel_width/4;
-				}
-			}
-			&.links-2 {
-				a {
-					width: @multimenu_panel_width/2;
-					height: @multimenu_panel_width/4;
-					line-height: @multimenu_panel_width/4;
-				}
-			}
-			&.links-1 {
-				a {
+				&.links-4 {
+					overflow: hidden;
 					width: @multimenu_panel_width;
-					height: @multimenu_panel_width/4;
-					line-height: @multimenu_panel_width/4;
+					a {
+						width: @multimenu_panel_width/4;
+						height: @multimenu_panel_width/4;
+						line-height:@multimenu_panel_width/4;
+					}
+				}
+				&.links-3 {
+					overflow: hidden;
+					width: @multimenu_panel_width;
+					a {
+						width: @multimenu_panel_width/3;
+						height: @multimenu_panel_width/4;
+						line-height: @multimenu_panel_width/4;
+					}
+				}
+				&.links-2 {
+					a {
+						width: @multimenu_panel_width/2;
+						height: @multimenu_panel_width/4;
+						line-height: @multimenu_panel_width/4;
+					}
+				}
+				&.links-1 {
+					a {
+						width: @multimenu_panel_width;
+						height: @multimenu_panel_width/4;
+						line-height: @multimenu_panel_width/4;
+					}
 				}
 			}
 		}
@@ -532,14 +535,14 @@ body {
 				padding: @padding-xs-horizontal;
 			}
 			.social {
-				padding: 3*@padding-xs-horizontal;
+				padding-left: 0;
+				padding-right: 0;
 				overflow: hidden;
 				a {
+					display: inline-block;
 					font-size: @icons_size;
 					width: @icons_size + 10;
 					height: @icons_size + 10;
-					float: left;
-
 				}
 			}
 			.html-code {
