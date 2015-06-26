@@ -1016,8 +1016,8 @@ body {
 }
 .photo_container .cont {
   color: #e0e0e0;
-  width: 1000px;
-  height: 500px;
+  max-height: 100%;
+  overflow: auto;
   margin: 0 auto;
 }
 .photo_container .cont .album_info {
@@ -1027,16 +1027,21 @@ body {
 .photo_container .cont .album_info .amount {
   font-size: 13.33333333px;
 }
+.photo_container .cont .photos {
+  max-height: 100%;
+}
 .photo_container .cont .photos .photo {
   text-align: center;
-}
-.photo_container .cont .photos .photo img {
-  max-width: 1000px;
-  height: 500px;
 }
 .photo_container .cont .photos .photo .descr {
   color: #e0e0e0;
   text-align: left;
+}
+.photo_container .cont .photos .photo.horizontal .im_cont {
+  float: left;
+}
+.photo_container .cont .photos .photo.horizontal .descr {
+  float: left;
 }
 #tutorial {
   display: none;
