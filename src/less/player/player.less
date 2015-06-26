@@ -992,8 +992,8 @@ body {
 	}
 	.cont {
 		color: @light_grey;
-		width: 1000px;
-		height: 500px;
+		max-height: 100%;
+		overflow: auto;
 		margin: 0 auto;
 		.album_info {
 			text-align: center;
@@ -1005,15 +1005,23 @@ body {
 			}
 		}
 		.photos {
+			max-height: 100%;
 			.photo {
 				text-align: center;
 				img {
-						max-width: 1000px;
-						height: 500px;
+					
 				}
 				.descr {
 					color: @light_grey;
 					text-align: left;
+				}
+				&.horizontal {
+					.im_cont {
+						float: left;
+					}
+					.descr {
+						float: left;
+					}
 				}
 			}
 		}
