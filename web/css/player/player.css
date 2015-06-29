@@ -1037,11 +1037,21 @@ body {
   color: #e0e0e0;
   text-align: left;
 }
+.photo_container .cont .photos .photo .descr .txt {
+  padding: 5px;
+}
 .photo_container .cont .photos .photo.horizontal .im_cont {
+  height: 300px;
   float: left;
+  width: 50%;
+  overflow: auto;
+}
+.photo_container .cont .photos .photo.horizontal .im_cont img {
+  width: 100%;
 }
 .photo_container .cont .photos .photo.horizontal .descr {
   float: left;
+  width: 50%;
 }
 #tutorial {
   display: none;

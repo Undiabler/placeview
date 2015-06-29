@@ -1009,18 +1009,27 @@ body {
 			.photo {
 				text-align: center;
 				img {
-					
 				}
 				.descr {
 					color: @light_grey;
 					text-align: left;
+					.txt {
+						padding: @padding-xs-horizontal;
+					}
 				}
 				&.horizontal {
 					.im_cont {
+						height: 300px;
 						float: left;
+						width: 50%;
+						overflow: auto;
+						img {
+							width: 100%;
+						}
 					}
 					.descr {
 						float: left;
+						width: 50%;
 					}
 				}
 			}
