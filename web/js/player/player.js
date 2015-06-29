@@ -20,6 +20,7 @@
 		select_size.addEventListener("click", function(){
 			this.classList.toggle("active");
 		});
+
 		window.Slider = {
 			cur: 0,
 			len: 0,
@@ -47,8 +48,15 @@
 				this.len = photo_container.getElementsByClassName("photo").length;
 				photo_container.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("cur")[0].innerText = this.cur + 1;
 				photo_container.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("len")[0].innerText = this.len;
+				var albums = document.getElementsByClassName("photo_container")[0].getElementsByClassName("cont");
+				//тут продолжить инициализацию слайдера. выбор всего из текущего активного альбома
+				for (var i = 0; i < albums.length; i += 1) {
+					albums[i].getElementsByClassName("len")[0].innerText = albums[i].getElementsByTagName("img").length;
+				}
 			}
 		};
+
+
 		Slider.init();
 
 		var photos = photo_container.getElementsByClassName("photos")[0].getElementsByClassName("photo");
