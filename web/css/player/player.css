@@ -1031,7 +1031,14 @@ body {
   max-height: 100%;
 }
 .photo_container .cont .photos .photo {
+  display: none;
   text-align: center;
+}
+.photo_container .cont .photos .photo.active {
+  display: block;
+}
+.photo_container .cont .photos .photo img {
+  max-width: 100%;
 }
 .photo_container .cont .photos .photo .descr {
   color: #e0e0e0;

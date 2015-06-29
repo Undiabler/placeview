@@ -20,12 +20,45 @@
 		select_size.addEventListener("click", function(){
 			this.classList.toggle("active");
 		});
-		var photos = document.getElementsByClassName("photos")[0].getElementsByClassName("photo");
+		window.Slider = {
+			cur: 0,
+			len: 0,
+			nextSlide: function() {
+				this.hideSlide();
+				this.cur += 1;
+				if (this.cur > this.len-1) this.cur = 0;
+				this.showSlide();
+			},
+			prevSlide: function() {
+				this.hideSlide();
+				this.cur -= 1;
+				if (this.cur < 0) this.cur = this.len - 1;
+				this.showSlide();
+			},
+			showSlide: function() {
+				photo_container.getElementsByClassName("photo")[this.cur].classList.add("active");
+			},
+			hideSlide: function() {
+				photo_container.getElementsByClassName("photo")[this.cur].classList.remove("active");
+			},
+			init: function() {
+				this.showSlide();
+				this.len = photo_container.getElementsByClassName("photo").length;
+			}
+		};
+		Slider.init();
+
+		var photos = photo_container.getElementsByClassName("photos")[0].getElementsByClassName("photo");
+		//инициализация фотоплеера
 		for(var i = 0; i < photos.length; i += 1) {
+			photos[i].getElementsByTagName("img")[0].addEventListener("click", function() {
+				Slider.nextSlide();
+			});
 			if(photos[i].getElementsByTagName("img")[0].height > photos[i].getElementsByTagName("img")[0].width*1.5) {
 				photos[i].classList.add("horizontal");
 			}
 		}
+
 		var elems = select_size.getElementsByClassName("option");
 		for(var i = 0; i < elems.length; i += 1) {
 			elems[i].addEventListener('click', function() {
@@ -42,6 +75,12 @@
 		photo_container.getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function(){
 			photo_container.classList.remove("active")
 		});
+
+		photo_container.getElementsByClassName("control")[0].getElementsByClassName("back")[0].addEventListener('click',function(){
+			//prev slide
+			Slider.prevSlide();
+		});
+
 		//показать модуль
 		document.getElementById("module_container").getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function() {
 			var arr = document.getElementById("module_container").classList;
