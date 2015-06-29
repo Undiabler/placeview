@@ -36,6 +36,7 @@
 				this.showSlide();
 			},
 			showSlide: function() {
+				photo_container.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("cur")[0].innerText = this.cur + 1;
 				photo_container.getElementsByClassName("photo")[this.cur].classList.add("active");
 			},
 			hideSlide: function() {
@@ -44,6 +45,8 @@
 			init: function() {
 				this.showSlide();
 				this.len = photo_container.getElementsByClassName("photo").length;
+				photo_container.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("cur")[0].innerText = this.cur + 1;
+				photo_container.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("len")[0].innerText = this.len;
 			}
 		};
 		Slider.init();
