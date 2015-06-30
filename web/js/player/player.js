@@ -22,41 +22,69 @@
 		});
 
 		window.Slider = {
-			cur: 0,
-			len: 0,
-			album: null,
-			marker: null,
+			cur: 0, //текущий слайд
+			len: 0, // всего слайда
+			album: null, //ссылка на альбом слайдов
+			marker: null, //ссылка на маркер нажатием на который был вызван салйдер
+			/**
+			 * [nextSlide переход на следующий слайд]
+			 * @return {[type]} [description]
+			 */
 			nextSlide: function() {
 				this.hideSlide();
 				this.cur += 1;
 				if (this.cur > this.len-1) this.cur = 0;
 				this.showSlide();
 			},
+			/**
+			 * [prevSlide переход на предыдуший слайд]
+			 * @return {[type]} [description]
+			 */
 			prevSlide: function() {
 				this.hideSlide();
 				this.cur -= 1;
 				if (this.cur < 0) this.cur = this.len - 1;
 				this.showSlide();
 			},
+			/**
+			 * [showSlide показывает текущий слайд]
+			 * @return {[type]} [description]
+			 */
 			showSlide: function() {
 				photo_container.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("cur")[0].innerText = this.cur + 1;
 				photo_container.getElementsByClassName("photo")[this.cur].classList.add("active");
 			},
+			/**
+			 * [hideSlide прячет текущий слайд(картинку)]
+			 * @return {[type]} [description]
+			 */
 			hideSlide: function() {
 				photo_container.getElementsByClassName("photo")[this.cur].classList.remove("active");
 			},
+			/**
+			 * [close функция для закрытия альбома и всего слайдер]
+			 * @return {[type]} [description]
+			 */
 			close: function() {
+				this.hideSlide();
 				this.album.classList.remove("active");
 				document.getElementsByClassName("photo_container")[0].classList.remove("active");
 				this.marker.classList.remove("hide");
 			},
+			/**
+			 * [init функия инициализации слайдера]
+			 * @param  {[html елемент]} album  [в нем находятся фото]
+			 * @param  {[html елемент]} marker [маркер нажатием на который был вызван альбом]
+			 * @return {[type]}        [не ретюрнит ничего плохо но как есть]
+			 */
 			init: function(album, marker) {
 				this.marker = marker;
 				this.album = album;
 				this.cur = 0;
+				//показываем полотно на котором будут отображаны слайды
 				document.getElementsByClassName("photo_container")[0].classList.add("active");
-				this.album.classList.add("active")
-				console.log(this.album);
+				//показываем контейнер всех слайдов
+				this.album.classList.add("active");
 				var elem = document.getElementsByClassName("photo_container")[0].getElementsByClassName("cont");
 				for (var i = 0; i < elem.length; i += 1) {
 					if(elem[i].classList.contains("active")) {
