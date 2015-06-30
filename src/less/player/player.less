@@ -1007,8 +1007,13 @@ body {
 		.photos {
 			max-height: 100%;
 			.photo {
+				&.active {
+					display: block;
+				}
+				display: none;
 				text-align: center;
 				img {
+					max-width: 100%;
 				}
 				.descr {
 					color: @light_grey;
