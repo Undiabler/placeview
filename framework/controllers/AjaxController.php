@@ -28,4 +28,12 @@ class AjaxController extends JsonController
 		$this->returnjson();
 	}
 
+	public function levelAction(){
+		$id = $this->request->getQuery('id');
+		$level = $this->request->getQuery('level');
+
+		$this->db->execute("UPDATE pano_main SET level = ? WHERE id = ?",[$level,$id]);
+
+	}
+
 }
