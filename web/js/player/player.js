@@ -153,7 +153,12 @@
 			for(var i = 0; i < arr.length; i += 1) {
 				arr[i].classList.remove('hide');
 			}
-			document.getElementsByClassName('info_container')[0].classList.remove('active');
+			document.getElementsByClassName('info_container')[0].classList.remove("active");
+			var elems = document.getElementsByClassName('info_container')[0].getElementsByClassName("cont");
+			for(var i = 0; elems.length > i; i += 1) {
+				console.log(elems[i]);
+				elems[i].classList.remove("active");
+			}
 		});
 		var arr = document.getElementsByClassName("marker");
 		for (var i = 0; i < arr.length; i += 1) {
@@ -169,14 +174,23 @@
 				if(this.classList.contains("info_marker")){
 					document.getElementsByClassName('info_container')[0].classList.add('active');
 					document.getElementsByClassName("info_container")[0].getElementsByClassName(this.getAttribute('data-info'))[0].classList.add("active");
-					if(this.offsetLeft > document.getElementById("player").clientWidth/2)
+					if(this.offsetLeft > document.getElementById("player").clientWidth/2){
 						document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft - document.getElementsByClassName("info_container")[0].clientWidth + "px";
-					else
+					}
+					else{
 						document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft + "px";
-					if(this.offsetTop > document.getElementById("player").clientHeight/2)
-						document.getElementsByClassName("info_container")[0].style.top = this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight + "px";
-					else
+					}
+					if(this.offsetTop > document.getElementById("player").clientHeight/2){
+						if(this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight<0) {
+							document.getElementsByClassName("info_container")[0].style.top = "0px";
+						}else{
+							document.getElementsByClassName("info_container")[0].style.top = this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight + "px";
+						}
+					}
+					else{
 						document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
+						console.log(this.offsetTop + "px");
+					}
 
 				}else if(this.classList.contains("photo_marker")){
 					var elems = document.getElementsByClassName("photo_container")[0].getElementsByClassName("cont");
