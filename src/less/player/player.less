@@ -978,16 +978,64 @@ body {
 		}
 	}
 }
+.album_info {
+	text-align: center;
+	line-height: @default_font_size*2;
+	.name {
+	}
+	.amount {
+		font-size:  @default_font_size/1.2;
+	}
+}
 .video_container {
 	.dark_modal;
 	.close {
 		font-size: @default_font_size*2;
 		position: fixed;
 		right: 50px;
-		top: 20px;
+		top: 60px;
 	}
-	.prev {
-		height: 600px;
+	.album_info {
+		.album_info;
+		background: @dark_color;
+	}
+	.videos {
+		.video {
+			display: none;
+			&.active {
+				display: block;
+			}
+			.vid_cont {
+				position: relative;
+				width: 620px;
+				margin: 0 auto;
+				iframe {
+					width: 560px;
+				}
+				div, iframe {
+					float: left;
+					height: 315px;
+				}
+				div {
+					background: grey;
+					line-height: 315px;
+					cursor: pointer;
+				}
+				.prev, .next {
+					text-align: center;
+					width: 30px;
+					overflow: hidden;
+					font-size: 50px;
+				}
+			}
+			.descr {
+				width: 800px;
+				margin: 0 auto;
+				.heading {
+					text-align: center;
+				}
+			}
+		}
 	}
 }
 .photo_container {
@@ -1013,15 +1061,7 @@ body {
 		max-height: 100%;
 		overflow: auto;
 		margin: 0 auto;
-		.album_info {
-			text-align: center;
-			line-height: @default_font_size*2;
-			.name {
-			}
-			.amount {
-				font-size:  @default_font_size/1.2;
-			}
-		}
+		.album_info;
 		.photos {
 			max-height: 100%;
 			.photo {
