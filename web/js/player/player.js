@@ -24,6 +24,8 @@
 		window.Slider = {
 			cur: 0,
 			len: 0,
+			album: null,
+			marker: null,
 			nextSlide: function() {
 				this.hideSlide();
 				this.cur += 1;
@@ -43,21 +45,33 @@
 			hideSlide: function() {
 				photo_container.getElementsByClassName("photo")[this.cur].classList.remove("active");
 			},
-			init: function() {
-				this.showSlide();
-				this.len = photo_container.getElementsByClassName("photo").length;
+			close: function() {
+				this.album.classList.remove("active");
+				document.getElementsByClassName("photo_container")[0].classList.remove("active");
+				this.marker.classList.remove("hide");
+			},
+			init: function(album, marker) {
+				this.marker = marker;
+				this.album = album;
+				this.cur = 0;
+				document.getElementsByClassName("photo_container")[0].classList.add("active");
+				this.album.classList.add("active")
+				console.log(this.album);
+				var elem = document.getElementsByClassName("photo_container")[0].getElementsByClassName("cont");
+				for (var i = 0; i < elem.length; i += 1) {
+					if(elem[i].classList.contains("active")) {
+						this.len = elem[i].getElementsByClassName("photo").length;
+					}
+				}
 				photo_container.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("cur")[0].innerText = this.cur + 1;
 				photo_container.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("len")[0].innerText = this.len;
 				var albums = document.getElementsByClassName("photo_container")[0].getElementsByClassName("cont");
-				//тут продолжить инициализацию слайдера. выбор всего из текущего активного альбома
 				for (var i = 0; i < albums.length; i += 1) {
 					albums[i].getElementsByClassName("len")[0].innerText = albums[i].getElementsByTagName("img").length;
 				}
+				this.showSlide();
 			}
 		};
-
-
-		Slider.init();
 
 		var photos = photo_container.getElementsByClassName("photos")[0].getElementsByClassName("photo");
 		//инициализация фотоплеера
@@ -84,7 +98,7 @@
 		elem_position();
 		close_all_check();
 		photo_container.getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function(){
-			photo_container.classList.remove("active")
+			Slider.close();
 		});
 
 		photo_container.getElementsByClassName("control")[0].getElementsByClassName("back")[0].addEventListener('click',function(){
@@ -137,7 +151,13 @@
 						document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
 
 				}else if(this.classList.contains("photo_marker")){
-
+					var elems = document.getElementsByClassName("photo_container")[0].getElementsByClassName("cont");
+					for (var i = 0; i < elems.length; i += 1) {
+						if(elems[i].classList.contains(this.getAttribute("data-info"))) {
+							break;
+						}
+					}
+					Slider.init(elems[i], this);
 				}
 				this.classList.add('hide')
 			});
