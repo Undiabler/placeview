@@ -990,6 +990,7 @@ body {
 .video_container {
 	.dark_modal;
 	.close {
+		cursor: pointer;
 		font-size: @default_font_size*2;
 		position: fixed;
 		right: 50px;
@@ -1002,6 +1003,7 @@ body {
 	.videos {
 		.video {
 			display: none;
+			overflow: hidden;
 			&.active {
 				display: block;
 			}
@@ -1009,6 +1011,11 @@ body {
 				position: relative;
 				width: 620px;
 				margin: 0 auto;
+				overflow: hidden;
+				.ifram_cont {
+					width: 560px;
+					height: 315px;
+				}
 				iframe {
 					width: 560px;
 				}
@@ -1022,6 +1029,7 @@ body {
 					cursor: pointer;
 				}
 				.prev, .next {
+					cursor: pointer;
 					text-align: center;
 					width: 30px;
 					overflow: hidden;

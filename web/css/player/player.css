@@ -1017,6 +1017,7 @@ body {
   color: #e0e0e0;
 }
 .video_container .close {
+  cursor: pointer;
   font-size: 32px;
   position: fixed;
   right: 50px;
@@ -1032,6 +1033,7 @@ body {
 }
 .video_container .videos .video {
   display: none;
+  overflow: hidden;
 }
 .video_container .videos .video.active {
   display: block;
@@ -1040,6 +1042,11 @@ body {
   position: relative;
   width: 620px;
   margin: 0 auto;
+  overflow: hidden;
+}
+.video_container .videos .video .vid_cont .ifram_cont {
+  width: 560px;
+  height: 315px;
 }
 .video_container .videos .video .vid_cont iframe {
   width: 560px;
@@ -1056,6 +1063,7 @@ body {
 }
 .video_container .videos .video .vid_cont .prev,
 .video_container .videos .video .vid_cont .next {
+  cursor: pointer;
   text-align: center;
   width: 30px;
   overflow: hidden;

@@ -248,23 +248,26 @@
 
     </div>
 
-    <div class="block_container video_container active">
+    <div class="block_container video_container"> <!--active-->
       <div class="close">
         <i class="fa fa-times"></i>
       </div>
-      <div class="cont active">
+      <div class="cont first"> <!--active-->
         <div class="album_info">
           <div class="name">Видео first - до 70 символов</div>
           <div class="amount">Изображение <span class="cur">3</span> из <span class="len">9</span></div>
         </div>
 
         <div class="videos">
-          <div class="video active">
-            <div class="vid_cont">
+
+          <div class="video"><!--active-->
+            <div class="vid_cont first">
               <div class="prev">
                 <i class="fa fa-angle-left"></i>
               </div>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/LXEOVRH7cSU" frameborder="0" allowfullscreen></iframe>
+              <div class="ifram_cont" data-src="https://www.youtube.com/embed/LXEOVRH7cSU">
+                отут видео
+              </div>
               <div class="next">
                 <i class="fa fa-angle-right"></i>
               </div>
@@ -279,12 +282,15 @@
               </div>
             </div>
           </div>
-          <div class="video">
-            <div class="vid_cont">
+
+          <div class="video"><!--active-->
+            <div class="vid_cont first">
               <div class="prev">
                 <i class="fa fa-angle-left"></i>
               </div>
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/LXEOVRH7cSU" frameborder="0" allowfullscreen></iframe>
+              <div class="ifram_cont" data-src="https://www.youtube.com/embed/LXEOVRH7cSU">
+                отут видео
+              </div>
               <div class="next">
                 <i class="fa fa-angle-right"></i>
               </div>
@@ -299,6 +305,7 @@
               </div>
             </div>
           </div>
+
         </div>
 
       </div>
@@ -373,7 +380,7 @@
       </div>
       <i class="fa fa-camera"></i>
     </div>
-    <div class="marker" style="top: 300px; left: 500px;">
+    <div class="marker video_marker" data-info="first" style="top: 300px; left: 500px;">
       <div class="preview">
         Текст для превью Текст для превью
       </div>

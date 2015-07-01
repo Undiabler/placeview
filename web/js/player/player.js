@@ -101,6 +101,83 @@
 			}
 		};
 
+		window.Video = {
+			vidCont: document.getElementsByClassName("video_container")[0],
+			cur: 0,
+			len: 0,
+			album: null,
+			marker: null,
+			hide: function() {
+				var cur_video = this.vidCont.getElementsByClassName("video")[this.cur];
+				cur_video.classList.remove("active")
+				cur_video.getElementsByClassName("ifram_cont")[0].innerHTML = '';
+			},
+			show: function() {
+				this.vidCont.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("cur")[0].innerText = this.cur + 1;
+				var cur_video = this.vidCont.getElementsByClassName("video")[this.cur];
+				cur_video.classList.add("active")
+				cur_video.getElementsByClassName("ifram_cont")[0].innerHTML = '<iframe width="560" height="315" src="'+cur_video.getElementsByClassName("ifram_cont")[0].getAttribute("data-src")+'" frameborder="0" allowfullscreen></iframe>';
+			},
+			next: function() {
+				this.hide();
+				this.cur += 1;
+				if (this.cur > this.len-1) this.cur = 0;
+				this.show();
+			},
+			prev: function() {
+				this.hide();
+				this.cur -= 1;
+				if (this.cur < 0) this.cur = this.len - 1;
+				this.show();
+			},
+			close: function() {
+				this.hide();
+				document.getElementsByClassName("video_container")[0].classList.remove("active");
+				//показываем контейнер всех слайдов
+				this.album.classList.remove("active");
+				this.marker.classList.remove("hide");
+			},
+			init: function(album, marker) {
+				this.marker = marker;
+				this.album = album;
+				this.cur = 0;
+				//показываем полотно на котором будут отображаны слайды
+				document.getElementsByClassName("video_container")[0].classList.add("active");
+				//показываем контейнер всех слайдов
+				this.album.classList.add("active");
+				var elem = this.vidCont.getElementsByClassName("cont");
+				for (var i = 0; i < elem.length; i += 1) {
+					if(elem[i].classList.contains("active")) {
+						this.len = elem[i].getElementsByClassName("video").length;
+					}
+				}
+				this.vidCont.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("cur")[0].innerText = 1;
+				this.vidCont.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("len")[0].innerText = this.len;
+				var albums = document.getElementsByClassName("photo_container")[0].getElementsByClassName("cont");
+				for (var i = 0; i < albums.length; i += 1) {
+					albums[i].getElementsByClassName("len")[0].innerText = this.len;
+				}
+				this.show();
+			},
+		};
+
+		document.getElementsByClassName("video_container")[0].getElementsByClassName("close")[0].addEventListener("click",function(){
+			Video.close();
+		});
+
+		var elems = document.getElementsByClassName("video_container")[0].getElementsByClassName("prev");
+		for (var i = 0; i < elems.length; i += 1) {
+			elems[i].addEventListener("click", function() {
+				Video.prev();
+			});
+		}
+		elems = document.getElementsByClassName("video_container")[0].getElementsByClassName("next");
+		for (var i = 0; i < elems.length; i += 1) {
+			elems[i].addEventListener("click", function() {
+				Video.next();
+			});
+		}
+
 		var photos = photo_container.getElementsByClassName("photos")[0].getElementsByClassName("photo");
 		//инициализация фотоплеера
 		for(var i = 0; i < photos.length; i += 1) {
@@ -200,6 +277,14 @@
 						}
 					}
 					Slider.init(elems[i], this);
+				}else if(this.classList.contains("video_marker")){
+					var elems = document.getElementsByClassName("video_container")[0].getElementsByClassName("cont");
+					for (var i = 0; i < elems.length; i += 1) {
+						if (elems[i].classList.contains(this.getAttribute("data-info"))) {
+							break;
+						}
+					}
+					Video.init(elems[i], this);
 				}
 				this.classList.add('hide')
 			});
