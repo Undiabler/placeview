@@ -35,9 +35,16 @@ class KrpanoController extends Controller
 		foreach ($hotspots as $key => $hotspot) {
 			$pano_all[$hotspot['pano_id']]['hotspots'][]=$hotspot;
 		}
+		$mpano = null;
+		foreach ($panos as $one) {
+			if ($one['id']==$pano_id) $mpano=$one;
+		}
+		// var_dump($mpano);
+		// exit();
 
 		// $this->view->setVar('hotspots',$hotspots);
 
+		$this->view->setVar('pano',$mpano);
 		$this->view->setVar('panos',$pano_all);
 
 		$this->view->setVar('tour_id',$tour_id);
