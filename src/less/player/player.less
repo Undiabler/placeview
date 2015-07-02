@@ -781,11 +781,12 @@ body {
 }
 .modules {
 	position: absolute;
-	bottom: 20px;
+	bottom: 25px;
 	width: 100%;
 	text-align: center;
 	font-size: @icons_size;
 	a{
+		border-radius: 50%;
 		cursor: pointer;
 		color: @light_grey;
 		display: inline-block;
@@ -795,7 +796,8 @@ body {
 		text-align: center;
 		&.active {
 			border: 2px solid @accent-base;
-			border-radius: 50%;
+			background: @dark_back;
+			margin-bottom: -2px;
 		}
 	}
 }
@@ -824,6 +826,8 @@ body {
 		padding: @panel_padding;
 		background: @dark_back;
 		overflow: hidden;
+		height: 400px;
+		overflow: auto;
 	}
 	&.subcribe_module {
 		#subcribe_module {
@@ -832,44 +836,63 @@ body {
 	}
 	#subcribe_module {
 		display: none;
-		.arend_pokupka {
-			float: left;
-			width: 50%;
-			text-align: center;
-			font-size: @default_font_size*1.2;
-			padding-top: @panel_padding;
-			padding-bottom: @panel_padding;
-		}
-		.interested_in {
-			padding: @padding-xs-horizontal;
-		}
-		.subscribe {
-			line-height: @default_font_size*2;
-			font-size: @default_font_size/1.2;
-			text-align: center;
-			button{
-				cursor: pointer;
-				font-size: @default_font_size*1.2;
-				border: none;
-				background: @button_color;
-				color: white;
-				padding: @padding-xs-horizontal*2;
-			}
-		}
-		ul{
-			font-size: @default_font_size/1.3;
-			padding-left: 20px;
-		}
-		.elem {
-			float: left;
-			width: 50%;
-			td {
-				input, textarea {
+		.heading {
+			line-height: 60px;
+			font-size: @default_font_size*1.5;
+			.logo {
+				width: 50px;
+				height: 50px;
+				padding: 5px;
+				overflow: hidden;
+				float: left;
+				img {
 					width: 100%;
 				}
 			}
-			h4 {
-				margin: 0;
+		}
+		.content {
+			text-align: center;
+			.elem {
+				.header {
+					color: @accent-base;
+				}
+				.question {
+					padding: @padding-xs-horizontal;
+					border-bottom: 1px solid white;
+				}
+				.objects {
+					width: 300px;
+					margin: 0 auto;
+					text-align: left;
+					textarea {
+						width: 100%;
+						max-width: 100%;
+						margin: 5px;
+						padding: 5px;
+						border: none;
+					}
+					input[type="text"] {
+						width: 100%;
+						margin: 5px;
+						height: 20px;
+						line-height: 20px;
+						padding: 5px;
+						border: none;
+					}
+					button {
+						margin: 5px;
+						width: 100%;
+						height: 30px;
+						border: none;
+						background: green;
+						cursor: pointer;
+						color: @light_grey;
+						background: @button_color;
+					}
+				}
+				.small {
+					font-size: @default_font_size/1.2;
+				}
 			}
 		}
 	}

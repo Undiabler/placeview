@@ -811,12 +811,13 @@ body {
 }
 .modules {
   position: absolute;
-  bottom: 20px;
+  bottom: 25px;
   width: 100%;
   text-align: center;
   font-size: 25px;
 }
 .modules a {
+  border-radius: 50%;
   cursor: pointer;
   color: #e0e0e0;
   display: inline-block;
@@ -827,7 +828,8 @@ body {
 }
 .modules a.active {
   border: 2px solid #ff5722;
-  border-radius: 50%;
+  background: rgba(51, 51, 51, 0.8);
+  margin-bottom: -2px;
 }
 #module_container {
   display: none;
@@ -853,6 +855,8 @@ body {
   padding: 20px;
   background: rgba(51, 51, 51, 0.8);
   overflow: hidden;
+  height: 400px;
+  overflow: auto;
 }
 #module_container.subcribe_module #subcribe_module {
   display: block;
@@ -860,44 +864,62 @@ body {
 #module_container #subcribe_module {
   display: none;
 }
-#module_container #subcribe_module .arend_pokupka {
-  float: left;
-  width: 50%;
-  text-align: center;
-  font-size: 19.2px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+#module_container #subcribe_module .heading {
+  line-height: 60px;
+  font-size: 24px;
 }
-#module_container #subcribe_module .interested_in {
+#module_container #subcribe_module .heading .logo {
+  width: 50px;
+  height: 50px;
   padding: 5px;
-}
-#module_container #subcribe_module .subscribe {
-  line-height: 32px;
-  font-size: 13.33333333px;
-  text-align: center;
-}
-#module_container #subcribe_module .subscribe button {
-  cursor: pointer;
-  font-size: 19.2px;
-  border: none;
-  background: #597eaa;
-  color: white;
-  padding: 10px;
-}
-#module_container #subcribe_module ul {
-  font-size: 12.30769231px;
-  padding-left: 20px;
-}
-#module_container #subcribe_module .elem {
+  overflow: hidden;
   float: left;
-  width: 50%;
 }
-#module_container #subcribe_module .elem td input,
-#module_container #subcribe_module .elem td textarea {
+#module_container #subcribe_module .heading .logo img {
   width: 100%;
 }
-#module_container #subcribe_module .elem h4 {
-  margin: 0;
+#module_container #subcribe_module .content {
+  text-align: center;
+}
+#module_container #subcribe_module .content .elem .header {
+  color: #ff5722;
+}
+#module_container #subcribe_module .content .elem .question {
+  padding: 5px;
+  border-bottom: 1px solid white;
+}
+#module_container #subcribe_module .content .elem .objects {
+  width: 300px;
+  margin: 0 auto;
+  text-align: left;
+}
+#module_container #subcribe_module .content .elem .objects textarea {
+  width: 100%;
+  max-width: 100%;
+  margin: 5px;
+  padding: 5px;
+  border: none;
+}
+#module_container #subcribe_module .content .elem .objects input[type="text"] {
+  width: 100%;
+  margin: 5px;
+  height: 20px;
+  line-height: 20px;
+  padding: 5px;
+  border: none;
+}
+#module_container #subcribe_module .content .elem .objects button {
+  margin: 5px;
+  width: 100%;
+  height: 30px;
+  border: none;
+  background: green;
+  cursor: pointer;
+  color: #e0e0e0;
+  background: #597eaa;
+}
+#module_container #subcribe_module .content .elem .small {
+  font-size: 13.33333333px;
 }
 #close_all {
   position: absolute;

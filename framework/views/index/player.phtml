@@ -721,58 +721,53 @@
     </div>
 
     <div class="module" id="subcribe_module">
-      <div class="elem">
-        <h4>
-          Подпишись на обновления агенства, чтобы не упустить интересный объект
-        </h4>
-        <table cellpadding="5px">
-          <tr>
-            <td>
-              <input type="text" placeholder="Имя">
-            </td>
-            <td>
-              <input type="text" placeholder="Фамилия">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <input type="text" placeholder="e-mail">
-            </td>
-            <td>
-              <input type="text" placeholder="телефон">
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <textarea rows="10"></textarea>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <div class="elem">
-        <h4>
-          Ищу недвижимость для:
-        </h4>
-        <div>
-          <div class="arend_pokupka"><input type="radio">Аренда</div>
-          <div class="arend_pokupka"><input type="radio">Покупка</div>
+      <div class="heading">
+        <div class="logo">
+          <img src="/img/logo.jpg" alt="">
         </div>
-        <div class="interested_in">
-          Мне интересно получать свежую информацию о:
-          <ul>
-            <li><input type="checkbox">о похожих по типу объектах в Украине</li>
-            <li><input type="checkbox">о новостях рынка недвижимости</li>
-            <li><input type="checkbox">свой вариант агентства</li>
-            <li><input type="checkbox">свой вариант агентства</li>
-            <li><input type="checkbox">свой вариант агентства</li>
-            <li><input type="checkbox">свой вариант агентства</li>
-          </ul>
-        </div>
+        Агенство недвижимости АГНУ
       </div>
-      <div style="clear:both"></div>
-      <div class="subscribe">
-        <input type="checkbox"> я даю согласие на получение корреспонденции по данной рассылке<br>
-        <button>Подписаться</button>
+      <div class="content">
+        <div class="elem">
+          <div class="header">
+            Подпишитесь на обновления агенства,<br/>
+            чтобы не упустить выгодное предложение
+          </div>
+          <div class="question">
+            Вы ищете недвижимость для:<br/>
+            <input type="radio"> Аренда
+            <input type="radio"> Покупка
+          </div>
+          <div class="objects">
+            <h4>Получать свежую информацию: </h4>
+            <input type="checkbox"> о похожих объектах в Украине<br/>
+            <input type="checkbox"> о похожих объектах зарубежом<br/>
+            <input type="checkbox"> о новостях рынка недвижимости<br/>
+            <input type="checkbox"> свой вариант агенства<br/>
+            <input type="checkbox"> свой вариант агенства<br/>
+            <button class="sub">Подписаться</button>
+          </div>
+          <div class="small">
+            <input type="checkbox"> даю на согласие на получение корреспонденции по данной рассылке
+          </div>
+        </div>
+        <div class="elem" style="display: none">
+          <div class="header">
+            Завершение подписки
+          </div>
+          <div class="objects">
+            <input type="text" placeholder="E-mail">
+            <input type="text" placeholder="Имя">
+          </div>
+          Дополнительные данные улучшат качество услуг для Вас.
+          <div class="objects">
+            <input type="text" placeholder="E-mail">
+            <input type="text" placeholder="Имя">
+            <input type="text" placeholder="Имя">
+            <textarea cols="30" rows="10"></textarea>
+            <button>Готово</button>
+          </div>
+        </div>
       </div>
     </div>
 

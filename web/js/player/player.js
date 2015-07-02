@@ -215,14 +215,21 @@
 		document.getElementById("module_container").getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function() {
 			var arr = document.getElementById("module_container").classList;
 			document.getElementById("module_container").classList.remove(document.getElementById("module_container").classList[0],document.getElementById("module_container").classList[1]);
+			var elems = document.getElementsByClassName("modules")[0].getElementsByClassName("elem");
+			for (var i = 0; i < elems.length; i += 1) {
+				elems[i].classList.remove("active");
+			}
 		});
 		var arr = document.getElementsByClassName("modules")[0].getElementsByClassName("elem");
 		for(var i = 0; i< arr.length; i += 1) {
 			arr[i].addEventListener('click', function() {
-				if(!document.getElementById("module_container").classList.contains("active"))
+				this.classList.add("active");
+				if(!document.getElementById("module_container").classList.contains("active")){
 					document.getElementById("module_container").classList.add('active');
-				if(!document.getElementById("module_container").classList.contains(this.getAttribute('data-module')))
-				document.getElementById("module_container").classList.add(this.getAttribute('data-module'));
+				}
+				if(!document.getElementById("module_container").classList.contains(this.getAttribute('data-module'))){
+					document.getElementById("module_container").classList.toggle(this.getAttribute('data-module'));
+				}
 			});
 		}
 		document.getElementsByClassName('info_container')[0].getElementsByClassName('close')[0].addEventListener('click',function() {
@@ -237,6 +244,13 @@
 				elems[i].classList.remove("active");
 			}
 		});
+
+		document.getElementById("subcribe_module").getElementsByClassName("elem")[0].getElementsByClassName("sub")[0].addEventListener("click", function() {
+			document.getElementById("subcribe_module").getElementsByClassName("elem")[0].style.display="none";
+			document.getElementById("subcribe_module").getElementsByClassName("elem")[1].style.display="block";
+		});
+
+
 		var arr = document.getElementsByClassName("marker");
 		for (var i = 0; i < arr.length; i += 1) {
 			arr[i].addEventListener('click', function(){
