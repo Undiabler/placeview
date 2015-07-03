@@ -64,7 +64,11 @@ class PlaceController extends CController
 		$this->view->setVar('tour_lang',$tour_lang);
 		$this->view->setVar('tour_id',$tour['id']);
 		$this->view->setVar('pano_id',$pano['id']);
-		$this->view->pick("index/player");
+
+		if ($this->request->getQuery("empty")=='true')
+			$this->view->pick("index/empty_player");
+		else
+			$this->view->pick("index/player");
 		// $this->dispatcher->getParam("url1");
 	}
 

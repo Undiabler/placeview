@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Empty_player</title>
+	<script src="/krpano/embedpano.js"></script>
+</head>
+<body>
+
+	<div id="container" style='position:fixed;z-index:0;width:100%;height:100%; top: 0px;left: 0px;'></div>
+
+<script type="text/javascript">
+
+  function hash_upd(hlookat,vlookat){
+  	var c = hlookat/360;
+  	if (Math.abs(c)>1) hlookat=hlookat-Math.ceil(c)*360;
+  	if (hlookat<-180) hlookat+=360;
+  	if (hlookat>180) hlookat-=360;	
+
+  	var newurl=location.pathname+'#h:'+Math.round(hlookat)+'v:'+Math.round(vlookat);
+  
+    if (window.history && window.history.replaceState)
+        window.history.replaceState( null , document.title, newurl );
+    else 
+    	console.warn("History: "+newurl);
+  }
+
+          // PVLoader({tid:<?=$tour_id?>,pid:<?=$pano_id?>,manualLoad:false});
+          // 
+          // <script>
+		embedpano({swf:"/krpano/krpano.swf",
+		 id:"krpanoViewer", 
+		 xml:"/tour-xml/tour_<?=$tour_id?>_<?=$pano_id?>.xml?noblock=true", 
+		 target:"container", 
+		 html5:"auto", 
+		 passQueryParameters:false
+		});   
+
+		function onload(){
+			var krpano = document.getElementById("krpanoViewer");  
+			console.log(krpano);
+			
+			temp=location.hash.match(/h:(-?\d+)/);
+	        var h=parseInt(temp&&temp.length>0?temp[1]:0)||0;
+	        temp=location.hash.match(/v:(-?\d+)/);
+	        var v=parseInt(temp&&temp.length>0?temp[1]:0)||0;
+
+			krpano.call("set(view.hlookat,"+h+");set(view.vlookat,"+v+");");
+			// if (!krpano || !krpano.get)
+		}
+</script>
+
+
+</body>
+</html>
