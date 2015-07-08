@@ -156,7 +156,8 @@
         </div>
 
       </div>
-      <div class="cont second">
+
+       <div class="cont second">
         <div class="album_info">
           <div class="name">фотоальбома first - до 70 символов</div>
           <div class="amount">Изображение <span class="cur">3</span> из <span class="len">9</span></div>
@@ -244,8 +245,6 @@
         </div>
 
       </div>
-
-
     </div>
 
     <div class="block_container video_container"> <!--active-->
@@ -361,12 +360,14 @@
       </div>
       <i class="fa fa-info-circle"></i>
     </div>
+
     <div class="marker info_marker" data-info="second" style="top: 300px; left: 700px;">
       <div class="preview">
         Текст для превью Текст для превью
       </div>
       <i class="fa fa-info-circle"></i>
     </div>
+
     <div class="marker info_marker" data-info="third" style="top: 300px; left: 800px;">
       <div class="preview">
         Текст для превью Текст для превью
@@ -428,11 +429,12 @@
 	    </div>
   	</div>
 
-  <div id="logo">
-    <a href="#">
-      <img src="/img/logo.jpg">
-    </a>
-  </div>
+	<div id="logo">
+		<a href="#">
+		  <img src="/img/logo.jpg">
+		</a>
+	</div>
+
   <div id="multimenu">
 
     <div class="menu">
@@ -492,37 +494,21 @@
       <div class="photo_preview">
         <div class="pano">
           <div class="im_cont">
-            <img src="/img/livadia.jpg">
+            <img src="http://img.placeview.in/preview/<?=$tour_id?>">
           </div>
         </div>
-        <a href="#" class="name">
-          Ливадия
-        </a>
+        <a href="#" class="name"><?=$tour_lang['name']?></a>
       </div>
 
       <div id="more_info" class="panel">
         <div class="menu">
-          <a href="#" class="elem inform" data-panel="inform">
-            Информация
-          </a>
-          <a href="#" class="elem show_on_map" data-panel="show_on_map">
-            Показать на карте
-          </a>
-          <a href="#" class="elem contact" data-panel="contact">
-            Контакты
-          </a>
-          <a href="#" class="elem qr-code" data-panel="qr-code">
-            QR код
-          </a>
-          <a href="#" class="elem share" data-panel="share">
-            Поделиться
-          </a>
-          <a href="#" class="elem meeting" data-panel="meeting">
-            Назначить встречу
-          </a>
-          <a href="#" class="elem warning" data-panel="warning">
-            Сообщить о ошибке
-          </a>
+          <a href="#" class="elem inform" data-panel="inform">Информация</a>
+          <a href="#" class="elem show_on_map" data-panel="show_on_map">Показать на карте </a>
+          <a href="#" class="elem contact" data-panel="contact">Контакты </a>
+          <a href="#" class="elem qr-code" data-panel="qr-code">QR код </a>
+          <a href="#" class="elem share" data-panel="share">Поделиться </a>
+          <a href="#" class="elem meeting" data-panel="meeting">Назначить встречу </a>
+          <a href="#" class="elem warning" data-panel="warning">Сообщить о ошибке </a>
         </div>
         <div class="back_button">
           <div class="wider">
@@ -536,9 +522,7 @@
 
       <div id="inform" class="panel active">
         <div class="container">
-          <div class="txt">
-            Lorem ipsum Sed nisi in nostrud commodo quis dolore ad id aliqua ex proident anim nulla Duis commodo ut est proident velit et ex reprehenderit deserunt magna occaecat occaecat id sed minim aute mollit cillum non labore dolore ea cillum esse ullamco in consectetur elit amet dolore Duis cillum do velit aliquip commodo ad esse do deserunt nulla cillum in elit enim ex amet sit cillum pariatur enim proident culpa laborum nulla cupidatat irure Duis cupidatat in commodo laboris Duis anim reprehenderit cillum aliqua reprehenderit elit amet ea id officia qui dolore ullamco sit dolore qui consequat nulla aliqua sit adipisicing officia voluptate ullamco voluptate sed fugiat commodo labore ullamco magna laborum sint ut est irure Duis sed sunt incididunt fugiat aliqua nisi labore in consectetur in qui irure Excepteur in dolore anim aliquip ex ullamco in esse enim labore voluptate nisi do ex magna laboris labore culpa sed et qui aute adipisicing tempor minim et enim id Ut mollit pariatur quis eiusmod consequat est pariatur aliqua in eu labore ut in minim sint quis culpa aliquip in ex deserunt dolore est minim dolore dolor proident in non sed laborum nulla commodo non magna esse adipisicing velit sed nostrud incididunt quis sed.
-          </div>
+          <div class="txt"><?=$tour_lang['description']?></div>
           <div class="spacer"></div>
         </div>
       </div>
@@ -784,49 +768,15 @@
     </span>
   </div>
 
-  <script src="/js/player/player.js"></script>
-  <script type="text/javascript">
+	<script src="/js/player/player.js"></script>
+	<script src="/js/player/interface.js"></script>
+	<script type="text/javascript">
+		window.itour = new ITour({
+			tour_id:<?=$tour_id?>,
+			pano_id:<?=$pano_id?>
+			<?=($js_url_update?',newurl:\''.$pano['url'].'\'':'')?>
+		});
+	</script>
 
-  function hash_upd(hlookat,vlookat){
-  	var c = hlookat/360;
-  	if (Math.abs(c)>1) hlookat=hlookat-Math.ceil(c)*360;
-  	if (hlookat<-180) hlookat+=360;
-  	if (hlookat>180) hlookat-=360;	
-
-  	var newurl=location.pathname+'#h:'+Math.round(hlookat)+'v:'+Math.round(vlookat);
-  
-    if (window.history && window.history.replaceState)
-        window.history.replaceState( null , document.title, newurl );
-    else 
-    	console.warn("History: "+newurl);
-  }
-
-          // PVLoader({tid:<?=$tour_id?>,pid:<?=$pano_id?>,manualLoad:false});
-          // 
-          // <script>
-		embedpano({swf:"/krpano/krpano.swf",
-		 id:"krpanoViewer", 
-		 xml:"/tour-xml/tour_<?=$tour_id?>_<?=$pano_id?>.xml", 
-		 target:"pano", 
-		 html5:"auto", 
-		 passQueryParameters:false
-		});   
-
-		function onload(){
-			var krpano = document.getElementById("krpanoViewer");  
-			console.log(krpano);
-			
-			temp=location.hash.match(/h:(-?\d+)/);
-	        var h=parseInt(temp&&temp.length>0?temp[1]:0)||0;
-	        temp=location.hash.match(/v:(-?\d+)/);
-	        var v=parseInt(temp&&temp.length>0?temp[1]:0)||0;
-
-			krpano.call("set(view.hlookat,"+h+");set(view.vlookat,"+v+");");
-			// if (!krpano || !krpano.get)
-		}
-
-		
-
-  </script>
 </body>
 </html>

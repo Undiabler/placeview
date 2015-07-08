@@ -16,6 +16,13 @@ class KrpanoController extends Controller
 	public function tourAction(){
 		header("Content-type: text/xml");
 
+		$blocks = true;
+
+		if ($this->request->getQuery('noblock')=='true') 
+			$blocks = false;
+
+
+
 		$tour_id = $this->dispatcher->getParam('tour_id');
 		$pano_id = $this->dispatcher->getParam('pano_id');
 
@@ -28,16 +35,22 @@ class KrpanoController extends Controller
 			$pano_ids[]=$pano['id'];
 		}
 
-		$ids = implode(',',$pano_ids);
-		$hotspots = $this->extra->getSql("SELECT * from pano_hotspots WHERE pano_id IN ($ids)");
+		if ($blocks) {
 
-		$hotspots_all=[];
-		foreach ($hotspots as $key => $hotspot) {
-			$pano_all[$hotspot['pano_id']]['hotspots'][]=$hotspot;
-		}
-		$mpano = null;
-		foreach ($panos as $one) {
-			if ($one['id']==$pano_id) $mpano=$one;
+			$ids = implode(',',$pano_ids);
+			$hotspots = $this->extra->getSql("SELECT * from pano_hotspots WHERE pano_id IN ($ids)");
+
+			$hotspots_all=[];
+			foreach ($hotspots as $key => $hotspot) {
+				$pano_all[$hotspot['pano_id']]['hotspots'][]=$hotspot;
+			}
+			
+			$mpano = null;
+			
+			foreach ($panos as $one) {
+				if ($one['id']==$pano_id) $mpano=$one;
+			}
+
 		}
 		// var_dump($mpano);
 		// exit();
