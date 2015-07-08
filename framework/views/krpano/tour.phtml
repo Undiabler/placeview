@@ -11,14 +11,14 @@
 	</security>
 
     <events name="loadingbar" keep="true" onxmlcomplete="js(loader.show_loader());" onloadcomplete="js(loader.hide_loader());" />
-	<events onmouseup="js( hash_upd( get(view.hlookat), get(view.vlookat) ) );" />
+	<events onmouseup="js( window.itour.hash_upd( get(view.hlookat), get(view.vlookat) ) );" />
 
 	<plugin name="gyro" devices="html5" url="%SWFPATH%/plugins/gyro.js" enabled="true" camroll="true" friction="0" velastic="0" />
 
 	<action name="init">
 		set(view.fovtype,HFOV); 
 		loadscene(pano_<?=$pano_id?>, null, MERGE);
-		js(onload());
+		js(window.itour.onload());
 	</action>
 
 	<?php foreach ($panos as $pano_key_id => $pano): ?>

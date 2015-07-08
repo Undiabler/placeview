@@ -17,12 +17,6 @@ class PlaceController extends CController
 		$tour_url = $this->dispatcher->getParam("url1");
 		$pano_url = $this->dispatcher->getParam("url2");
 
-		if ($tour_url)
-			var_dump($tour_url);
-
-		if ($pano_url)
-			var_dump($pano_url);
-
 		$tour = $this->extra->getSql("SELECT * FROM tours_main WHERE url = ?",[$tour_url],true);
 		// var_dump($tour);
 
@@ -60,7 +54,11 @@ class PlaceController extends CController
 
 
 		$this->view->setVar('all_panos',$all_panos);
+
+		$this->view->setVar('js_url_update',!$pano_url);
+
 		$this->view->setVar('tour',$tour);
+		$this->view->setVar('pano',$pano);
 		$this->view->setVar('tour_lang',$tour_lang);
 		$this->view->setVar('tour_id',$tour['id']);
 		$this->view->setVar('pano_id',$pano['id']);
