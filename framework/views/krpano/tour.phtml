@@ -44,13 +44,37 @@
 		</image>
 
 		<?php foreach ($pano['hotspots'] as $key => $hotspot): 
-		// var_dump($hotspot);
+		// var_dump($pano['hotspots']); exit();
 		$data=json_decode($hotspot['data'],true);
 		// var_dump($data
-		if ($hotspot['type']!=0) continue;
-		$to_go = 'pano_'.$data['url'];
+		switch ($hotspot['type']) {
+			case 0: ?>
+
+			<hotspot name="spot_<?=$hotspot['id']?>" url="/img/pano/mv.png" rotate="<?=$hotspot['rotate']?>" scale="0.8" zoom="false" ath="<?=$hotspot['ath']?>" atv="<?=$hotspot['atv']?>" ondown="loadscene(<?='pano_'.$data['url']?>,null,MERGE,BLEND(1));js(window.itour.move(<?=$data['url']?>));"/>
+
+			<?php break;
+
+			case 1: ?>
+			
+			<hotspot name="spot_<?=$hotspot['id']?>" url="/img/pano/info.png" scale="1" zoom="false" ath="<?=$hotspot['ath']?>" atv="<?=$hotspot['atv']?>" ondown="js(window.itour.block(<?=$hotspot['id']?>));"/>
+			
+			<?php break;
+
+			case 2: ?>
+			
+			<hotspot name="spot_<?=$hotspot['id']?>" url="/img/pano/photo.png" scale="1" zoom="false" ath="<?=$hotspot['ath']?>" atv="<?=$hotspot['atv']?>" ondown="js(window.itour.block(<?=$hotspot['id']?>));"/>
+			
+			<?php break;
+
+			case 3: ?>
+			
+			<hotspot name="spot_<?=$hotspot['id']?>" url="/img/pano/video.png" scale="1" zoom="false" ath="<?=$hotspot['ath']?>" atv="<?=$hotspot['atv']?>" ondown="js(window.itour.block(<?=$hotspot['id']?>));"/>
+			
+			<?php break;
+
+		}
 		?>
-		<hotspot name="spot_<?=$hotspot['id']?>" url="/img/pano/mv.png" scale="0.8" zoom="false" ath="<?=$hotspot['ath']?>" atv="<?=$hotspot['atv']?>" ondown="loadscene(<?=$to_go?>,null,MERGE,BLEND(1));js(console.log(<?=$to_go?>));"/>
+		
 		<?php endforeach ?>
 
 	</scene>
@@ -64,8 +88,8 @@
          touchtype="drag2d"
          zoomtocursor="false"
          zoomoutcursor="true"
-         mouseaccelerate="1.0"
-         mousespeed="10.0"
+         mouseaccelerate="1.5"
+         mousespeed="20.0"
          mousefriction="0.9"
          mousefovchange="1.0"
          fovspeed="3.0"
