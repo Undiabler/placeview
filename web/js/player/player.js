@@ -240,7 +240,6 @@
 			document.getElementsByClassName('info_container')[0].classList.remove("active");
 			var elems = document.getElementsByClassName('info_container')[0].getElementsByClassName("cont");
 			for(var i = 0; elems.length > i; i += 1) {
-				console.log(elems[i]);
 				elems[i].classList.remove("active");
 			}
 		});
@@ -280,7 +279,6 @@
 					}
 					else{
 						document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
-						console.log(this.offsetTop + "px");
 					}
 
 				}else if(this.classList.contains("photo_marker")){
