@@ -24,7 +24,7 @@
 	<?php foreach ($panos as $pano_key_id => $pano): ?>
 	<scene name="pano_<?=$pano_key_id?>" onstart="">
 
-		<events name="pano_<?=$pano_key_id?>_loaded" onloadcomplete="js(console.log('loaded <?=$pano['url']?>'))"/>
+		<events name="pano_<?=$pano_key_id?>_loaded" onloadcomplete="js(window.itour.scene('<?=$pano['url']?>'))"/>
 
 		<view hlookat="202.65" vlookat="8.12" fov="105.5"/>
 

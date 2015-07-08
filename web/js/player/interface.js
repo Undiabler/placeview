@@ -47,6 +47,11 @@ function ITour(options){
 	this.block = function(id){
 		alert('Открывается блок : '+id);
 	}
+
+	this.scene = function(url){
+        var newurl = location.href.replace(/(place\/[a-zA-Z0-9-]+)\/([a-zA-Z0-9-]+)/, '$1/'+url);
+    	self.history(newurl);
+	}
 		 
 	this.onload = function(){
 		temp=location.hash.match(/h:(-?\d+)/);
