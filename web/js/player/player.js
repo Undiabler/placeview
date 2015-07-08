@@ -406,7 +406,7 @@
 	function elem_position() {
 		document.getElementsByClassName("slides")[0].style.height = window.innerHeight- document.getElementById("top_menu").clientHeight + "px";
 		document.getElementById("multimenu").style.height = window.innerHeight - document.getElementById("top_menu").clientHeight + "px";
-		document.getElementById("multimenu").getElementsByClassName("menu")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 4 + "px";
+		document.getElementById("multimenu").getElementsByClassName("menu")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - "px";
 		var photos = document.getElementsByClassName("photos")[0].getElementsByClassName("horizontal");
 		for(var i = 0; i < photos.length; i += 1) {
 			photos[i].getElementsByClassName("im_cont")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
