@@ -330,7 +330,6 @@ body {
 #multimenu > .menu {
   position: relative;
   height: 100%;
-  border: 2px solid grey;
   width: 45px;
   overflow: hidden;
 }
@@ -389,7 +388,7 @@ body {
   background: rgba(51, 51, 51, 0.8);
 }
 #multimenu .panels.active {
-  right: 49px;
+  right: 45px;
 }
 #multimenu .panels > .photo_preview {
   position: relative;

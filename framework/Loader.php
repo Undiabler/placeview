@@ -176,7 +176,7 @@ class Loader {
 				return include __DIR__ . '/config/routing.php';
 			});
 
-		    
+
 		    $application = new Application($di);
 
 		    echo $application->handle()->getContent();
