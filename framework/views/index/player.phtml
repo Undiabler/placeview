@@ -776,6 +776,14 @@
 			pano_id:<?=$pano_id?>
 			<?=($js_url_update?',newurl:\''.$pano['url'].'\'':'')?>
 		});
+
+		window.onblur = function() {
+			window.itour.call("set(autorotate.enabled, false);");
+		}		
+		window.onfocus = function() {
+			window.itour.call("set(autorotate.enabled, true);");
+		}
+
 	</script>
 
 </body>

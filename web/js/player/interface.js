@@ -43,6 +43,15 @@ function ITour(options){
 		var krpano = self.get_krpano();
 		if (krpano) krpano.call(_eval); else console.warn("Failed to execute:",_eval);
 	}
+
+	this.block = function(id){
+		alert('Открывается блок : '+id);
+	}
+
+	this.scene = function(url){
+        var newurl = location.href.replace(/(place\/[a-zA-Z0-9-]+)\/([a-zA-Z0-9-]+)/, '$1/'+url);
+    	self.history(newurl);
+	}
 		 
 	this.onload = function(){
 		temp=location.hash.match(/h:(-?\d+)/);
