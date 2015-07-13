@@ -416,7 +416,9 @@
 
 			  <div class="slide">
           <div class="pano">
-            <img src="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano['id']?>/mobile_f.jpg">
+          <a href="/<?=$this->config->lang.'/place/'.$tour['url'].'/'.$pano['url']?>">
+              <img src="http://img.placeview.in/tours/<?=$tour_id?>/<?=$pano['id']?>/mobile_f.jpg">
+          </a>
           </div>
           <a href="/<?=$this->config->lang.'/place/'.$tour['url'].'/'.$pano['url']?>" class="name">
             <?=$pano['name']?>
