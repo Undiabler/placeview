@@ -408,6 +408,7 @@
 		var photos = document.getElementsByClassName("photos")[0].getElementsByClassName("horizontal");
 		for(var i = 0; i < photos.length; i += 1) {
 			photos[i].getElementsByClassName("im_cont")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
+			
 			photos[i].getElementsByClassName("descr")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
 		}
 	}

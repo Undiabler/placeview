@@ -1146,6 +1146,7 @@ body {
 .photo_container .cont .photos .photo .descr {
   color: #e0e0e0;
   text-align: left;
+  overflow: auto;
 }
 .photo_container .cont .photos .photo .descr .txt {
   padding: 5px;
