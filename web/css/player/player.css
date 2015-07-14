@@ -1059,25 +1059,25 @@ body {
 }
 .video_container .videos .video .vid_cont {
   position: relative;
-  width: 620px;
+  width: 820px;
   margin: 0 auto;
   overflow: hidden;
 }
 .video_container .videos .video .vid_cont .ifram_cont {
-  width: 560px;
-  height: 315px;
+  width: 760px;
+  height: 415px;
 }
 .video_container .videos .video .vid_cont iframe {
-  width: 560px;
+  width: 760px;
 }
 .video_container .videos .video .vid_cont div,
 .video_container .videos .video .vid_cont iframe {
   float: left;
-  height: 315px;
+  height: 415px;
 }
 .video_container .videos .video .vid_cont div {
   background: grey;
-  line-height: 315px;
+  line-height: 415px;
   cursor: pointer;
 }
 .video_container .videos .video .vid_cont .prev,

@@ -16,6 +16,9 @@
 @multimenu_panel_width: 200px;
 @menu_spacer_height: 150px;
 @photo_preview_height: 150px;
+@video_with: 760px;
+@video_height: 415px;
+@video_control_width: 30px;
 
 body {
 	margin: 0;
@@ -1028,23 +1031,23 @@ body {
 			}
 			.vid_cont {
 				position: relative;
-				width: 620px;
+				width: @video_with + 2*@video_control_width;
 				margin: 0 auto;
 				overflow: hidden;
 				.ifram_cont {
-					width: 560px;
-					height: 315px;
+					width: @video_with;
+					height: @video_height;
 				}
 				iframe {
-					width: 560px;
+					width: @video_with;
 				}
 				div, iframe {
 					float: left;
-					height: 315px;
+					height: @video_height;
 				}
 				div {
 					background: grey;
-					line-height: 315px;
+					line-height: @video_height;
 					cursor: pointer;
 				}
 				.prev, .next {
