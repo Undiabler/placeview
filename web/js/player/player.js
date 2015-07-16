@@ -69,7 +69,7 @@
 				this.hideSlide();
 				this.album.classList.remove("active");
 				document.getElementsByClassName("photo_container")[0].classList.remove("active");
-				this.marker.classList.remove("hide");
+				//this.marker.classList.remove("hide");
 			},
 			/**
 			 * [init функия инициализации слайдера]
@@ -77,8 +77,8 @@
 			 * @param  {[html елемент]} marker [маркер нажатием на который был вызван альбом]
 			 * @return {[type]}        [не ретюрнит ничего плохо но как есть]
 			 */
-			init: function(album, marker) {
-				this.marker = marker;
+			init: function(album) {
+				//this.marker = marker;
 				this.album = album;
 				this.cur = 0;
 				//показываем полотно на котором будут отображаны слайды
@@ -135,10 +135,10 @@
 				document.getElementsByClassName("video_container")[0].classList.remove("active");
 				//показываем контейнер всех слайдов
 				this.album.classList.remove("active");
-				this.marker.classList.remove("hide");
+				//this.marker.classList.remove("hide");
 			},
-			init: function(album, marker) {
-				this.marker = marker;
+			init: function(album) {
+				//this.marker = marker;
 				this.album = album;
 				this.cur = 0;
 				//показываем полотно на котором будут отображаны слайды
@@ -249,10 +249,44 @@
 			document.getElementById("subcribe_module").getElementsByClassName("elem")[1].style.display="block";
 		});
 
+		show = function show_info_block(id) {
+			var el = document.getElementById(id);
+			if(!el) return "no such elem";
+			console.log(el);
+			if(el.classList.contains("information_block")){
+				document.getElementsByClassName('info_container')[0].classList.add('active');
+				el.classList.add("active");
+				document.getElementsByClassName("info_container")[0].style.left = "50px";
+				document.getElementsByClassName("info_container")[0].style.top = "50px";
+/*
+				if(this.offsetLeft > document.getElementById("player").clientWidth/2){
+					document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft - document.getElementsByClassName("info_container")[0].clientWidth + "px";
+				}
+				else{
+					document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft + "px";
+				}
+				if(this.offsetTop > document.getElementById("player").clientHeight/2){
+					if(this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight<0) {
+						document.getElementsByClassName("info_container")[0].style.top = "0px";
+					}else{
+						document.getElementsByClassName("info_container")[0].style.top = this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight + "px";
+					}
+				}
+				else{
+					document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
+				}
+*/
+			}else if(el.classList.contains("photo_album")){
+				Slider.init(el);
+			}else if(el.classList.contains("video_album")){
+				Video.init(el);
+			}
+		}
 
 		var arr = document.getElementsByClassName("marker");
 		for (var i = 0; i < arr.length; i += 1) {
 			arr[i].addEventListener('click', function(){
+
 				var arr2 = document.getElementsByClassName('marker');
 				for(var i = 0; i < arr2.length; i += 1) {
 					arr2[i].classList.remove('hide');
@@ -408,7 +442,6 @@
 		var photos = document.getElementsByClassName("photos")[0].getElementsByClassName("horizontal");
 		for(var i = 0; i < photos.length; i += 1) {
 			photos[i].getElementsByClassName("im_cont")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
-			
 			photos[i].getElementsByClassName("descr")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
 		}
 	}
