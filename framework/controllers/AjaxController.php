@@ -36,4 +36,14 @@ class AjaxController extends JsonController
 
 	}
 
+	public function hotspotsAction(){
+		$id = $this->request->getQuery('id');
+		$lang = $this->request->getQuery('lang',null,'en');
+		
+		$hotspots = $this->action->get_hotspots($id,$lang);
+		
+		$this->addjson('data',['hotspots'=>$hotspots]);
+		$this->returnjson();
+	}
+
 }

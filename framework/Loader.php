@@ -156,6 +156,10 @@ class Loader {
 			    return new Extra();
 			};
 
+			$di['action']= function(){
+			    return new Actions();
+			};
+
 		    // Setup the tag helpers
 		    $di['tag'] = function() {
 		        return new Tag();
