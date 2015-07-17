@@ -1,0 +1,132 @@
+<?php 
+
+
+	$hotspot_by_types = [];
+
+	foreach ($hotspots as $hotspot) {
+   	// 	var_dump($hotspot['data']);
+   	// 	 switch (json_last_error()) {
+    //     case JSON_ERROR_NONE:
+    //         echo ' - Ошибок нет';
+    //     break;
+    //     case JSON_ERROR_DEPTH:
+    //         echo ' - Достигнута максимальная глубина стека';
+    //     break;
+    //     case JSON_ERROR_STATE_MISMATCH:
+    //         echo ' - Некорректные разряды или не совпадение режимов';
+    //     break;
+    //     case JSON_ERROR_CTRL_CHAR:
+    //         echo ' - Некорректный управляющий символ';
+    //     break;
+    //     case JSON_ERROR_SYNTAX:
+    //         echo ' - Синтаксическая ошибка, не корректный JSON';
+    //     break;
+    //     case JSON_ERROR_UTF8:
+    //         echo ' - Некорректные символы UTF-8, возможно неверная кодировка';
+    //     break;
+    //     default:
+    //         echo ' - Неизвестная ошибка';
+    //     break;
+    // }
+   	// 	var_dump(json_decode($hotspot['data']));
+		if (!array_key_exists($hotspot['type'],$hotspot_by_types)) $hotspot_by_types[$hotspot['type']]=[];
+   		$hotspot_by_types[$hotspot['type']][$hotspot['hostpot_id']]=json_decode($hotspot['data'],true);
+   	}
+	// exit();
+
+?>
+
+   <!-- <div class="grand_block_container"> -->
+
+   	<?php 
+   	foreach ($hotspot_by_types as $type => $t_hotspots) {
+   		if ($type == 1) { #infoblock
+   	 ?>
+		<div class="block_container info_container" style="top: 60px;left:60px;">
+
+	        <div class="control">
+	          <div class="elem close">
+	            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10.693px" height="10.693px" viewBox="-0.346 -0.346 10.693 10.693" enable-background="new -0.346 -0.346 10.693 10.693" xml:space="preserve">
+	              <g>
+	                <g>
+	                  <line fill="none" stroke="#FFF" stroke-width="1.4" stroke-miterlimit="10" x1="0.149" y1="0.149" x2="9.852" y2="9.852"></line>
+	                </g>
+	                <g>
+	                  <line fill="none" stroke="#FFF" stroke-width="1.4" stroke-miterlimit="10" x1="9.852" y1="0.149" x2="0.149" y2="9.852"></line>
+	                </g>
+	              </g>
+	            </svg>
+	          </div>
+	        </div>
+
+	        <div style="clear: both;"></div>
+
+   		<?php 	foreach ($t_hotspots as $id => $hotspot) {
+
+   			// var_dump($hotspot); exit();
+				$this->partial("widgets/block/info",[
+														"hotspot_id"=>$id,
+														"data_header"=>$hotspot['title'],
+														"data_text"=>$hotspot['description'],
+													]
+							); 
+		?>
+
+		</div>
+   	<?php }
+   	} else 
+	   	if ($type == 2) { #fotoblock
+
+	   		?>
+
+	   		<div class="block_container photo_container">
+
+		        <div class="control">
+		          <div class="elem back">
+		            <i class="fa fa-chevron-left"></i>
+		          </div>
+		          <div class="elem close">
+		            <i class="fa fa-times"></i>
+		          </div>
+		        </div>
+
+		    <?php 	foreach ($t_hotspots as $id => $hotspot) {
+				$this->partial("widgets/block/photo",[
+														"hotspot_id"=>$id,
+														// "data_header"=>$hotspot['title'],
+														// "data_text"=>$hotspot['description'],
+													]
+							); 
+			?>
+
+
+		    </div>
+
+	   		<?php 	}
+
+   	} else 
+	   	if ($type == 3) { #videoblock
+   			?>
+
+   			<div class="block_container video_container"> <!--active-->
+		        <div class="close">
+		          <i class="fa fa-times"></i>
+		        </div>
+
+		    <?php 	foreach ($t_hotspots as $id => $hotspot) {
+				$this->partial("widgets/block/video",[
+														"hotspot_id"=>$id,
+														// "data_header"=>$hotspot['title'],
+														// "data_text"=>$hotspot['description'],
+													]
+							); 
+			?>
+
+			</div>
+
+			<?php 	}
+
+   	}
+
+   	} ?>
+     

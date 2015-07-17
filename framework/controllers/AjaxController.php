@@ -43,7 +43,7 @@ class AjaxController extends JsonController
 		
 		$hotspots = $this->action->get_hotspots($id,$lang);
 		
-		$this->addjson('data',['hotspots'=>$hotspots]);
+		$this->addjson('data',['hotspots'=>$this->html->render_hotspots($hotspots)]);
 		$this->returnjson();
 	}
 

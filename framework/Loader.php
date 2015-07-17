@@ -160,6 +160,10 @@ class Loader {
 			    return new Actions();
 			};
 
+			$di['html']= function(){
+			    return new Html();
+			};
+
 		    // Setup the tag helpers
 		    $di['tag'] = function() {
 		        return new Tag();

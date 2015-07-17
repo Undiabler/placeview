@@ -56,53 +56,9 @@
         </div>
       </div>
     </div>
+
     <div class="grand_block_container">
-      <div class="block_container photo_container">
-
-        <div class="control">
-          <div class="elem back">
-            <i class="fa fa-chevron-left"></i>
-          </div>
-          <div class="elem close">
-            <i class="fa fa-times"></i>
-          </div>
-        </div>
-        <?php $this->partial("widgets/block/photo",["hotspot_id"=>33]); ?>
-
-
-      </div>
-
-      <div class="block_container video_container"> <!--active-->
-        <div class="close">
-          <i class="fa fa-times"></i>
-        </div>
-        <?php $this->partial("widgets/block/video",["hotspot_id"=>1]); ?>
-        <?php $this->partial("widgets/block/video",["hotspot_id"=>2]); ?>
-      </div>
-
-      <div class="block_container info_container" style="top: 60px;left:60px;">
-
-        <div class="control">
-          <div class="elem close">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10.693px" height="10.693px" viewBox="-0.346 -0.346 10.693 10.693" enable-background="new -0.346 -0.346 10.693 10.693" xml:space="preserve">
-              <g>
-                <g>
-                  <line fill="none" stroke="#FFF" stroke-width="1.4" stroke-miterlimit="10" x1="0.149" y1="0.149" x2="9.852" y2="9.852"></line>
-                </g>
-                <g>
-                  <line fill="none" stroke="#FFF" stroke-width="1.4" stroke-miterlimit="10" x1="9.852" y1="0.149" x2="0.149" y2="9.852"></line>
-                </g>
-              </g>
-            </svg>
-          </div>
-        </div>
-
-        <div style="clear: both;"></div>
-
-        <?php $this->partial("widgets/block/info",["hotspot_id"=>"122"]); ?>
-        <?php $this->partial("widgets/block/info",["hotspot_id"=>"222"]); ?>
-
-      </div>
+      <?php echo $this->html->render_hotspots($hotspots); ?>
     </div>
 
     <div id="pano">

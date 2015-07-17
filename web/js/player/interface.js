@@ -45,7 +45,8 @@ function ITour(options){
 	}
 
 	this.block = function(id){
-		alert('Открывается блок : '+id);
+		console.log('Открывается блок : '+id);
+		window.ui.show_info_block(id)
 	}
 
 	this.scene = function(url){

@@ -51,12 +51,17 @@ class PlaceController extends CController
 		// echo('<pre>');
 		// var_dump($all_panos);
 		// exit();
-
+		// 
+		// 
+		
+		$hotspots = $this->action->get_hotspots($pano['id'],$this->config->lang);
 
 		$this->view->setVar('all_panos',$all_panos);
 
 		$this->view->setVar('js_url_update',!$pano_url);
 
+		$this->view->setVar('hotspots',$hotspots);
+		
 		$this->view->setVar('tour',$tour);
 		$this->view->setVar('pano',$pano);
 		$this->view->setVar('tour_lang',$tour_lang);
