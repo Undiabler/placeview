@@ -29,6 +29,7 @@ class AjaxController extends JsonController
 	}
 
 	public function levelAction(){
+		
 		$id = $this->request->getQuery('id');
 		$level = $this->request->getQuery('level');
 
