@@ -1,4 +1,6 @@
 var ui = {};
+var mmenu = {};
+var pano_menu = {};
 (function(){
 	var show_hide_panos, multimenu, select_lang, multimenu_controls, select_size, i, length, elems, tutorial, photo_container, big_menu;
 	var multimenu_opened = true;
@@ -278,6 +280,13 @@ var ui = {};
 		show_hide_panos.getElementsByClassName('show')[0].addEventListener('click', function(){
 			show_panos();
 		});
+		pano_menu.show_panos = function() {
+			show_panos();
+		}
+		pano_menu.hide_panos = function() {
+			hide_panos();
+		}
+
 		//выбор языка в нераскрытом мультименю
 		select_lang.getElementsByClassName('cur')[0].addEventListener('click', function(){
 			this.parentNode.classList.toggle('active');
@@ -340,9 +349,14 @@ var ui = {};
 		panos_opened = true;
 		close_all_check();
 	}
-
-	function multimenu_show(panel) {
-		if(elem) {
+	/**
+	 * [show показать блок мультименю]
+	 * @param  {[имя]} panel [передать название панели]
+	 * @return {[type]}       [description]
+	 */
+	mmenu.show = function multimenu_show(panel) {
+		console.log(panel);
+		if(panel) {
 			var elems = multimenu.getElementsByClassName("icon");
 			for(var i = 0; i < elems.length; i += 1) {
 				if(elems[i].getAttribute("data-panel") == panel) {
@@ -353,7 +367,6 @@ var ui = {};
 		}
 		return 0;
 	}
-
 	function close_all_check() {
 		if((multimenu_opened) && (panos_opened)) {
 			document.getElementById("close_all").classList.add("active");
