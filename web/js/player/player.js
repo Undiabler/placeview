@@ -1,3 +1,4 @@
+var ui = {};
 (function(){
 	var show_hide_panos, multimenu, select_lang, multimenu_controls, select_size, i, length, elems, tutorial, photo_container, big_menu;
 	var multimenu_opened = true;
@@ -248,7 +249,7 @@
 			document.getElementById("subcribe_module").getElementsByClassName("elem")[1].style.display="block";
 		});
 
-		show = function show_info_block(id) {
+		ui.show_info_block = function show_info_block(id) {
 			var el = document.getElementById('hotspot_'+id);
 			if(!el) return "no such elem";
 			console.log(el);
@@ -262,59 +263,6 @@
 			}else if(el.classList.contains("video_album")){
 				Video.init(el);
 			}
-		}
-
-		var arr = document.getElementsByClassName("marker");
-		for (var i = 0; i < arr.length; i += 1) {
-			arr[i].addEventListener('click', function(){
-
-				var arr2 = document.getElementsByClassName('marker');
-				for(var i = 0; i < arr2.length; i += 1) {
-					arr2[i].classList.remove('hide');
-				}
-				var arr2 = document.getElementsByClassName("block_container")[0].getElementsByClassName("cont");
-				for(var j = 0; j < arr2.length; j += 1) {
-					arr2[j].classList.remove("active");
-				}
-				if(this.classList.contains("info_marker")){
-					document.getElementsByClassName('info_container')[0].classList.add('active');
-					document.getElementsByClassName("info_container")[0].getElementsByClassName(this.getAttribute('data-info'))[0].classList.add("active");
-					if(this.offsetLeft > document.getElementById("player").clientWidth/2){
-						document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft - document.getElementsByClassName("info_container")[0].clientWidth + "px";
-					}
-					else{
-						document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft + "px";
-					}
-					if(this.offsetTop > document.getElementById("player").clientHeight/2){
-						if(this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight<0) {
-							document.getElementsByClassName("info_container")[0].style.top = "0px";
-						}else{
-							document.getElementsByClassName("info_container")[0].style.top = this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight + "px";
-						}
-					}
-					else{
-						document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
-					}
-
-				}else if(this.classList.contains("photo_marker")){
-					var elems = document.getElementsByClassName("photo_container")[0].getElementsByClassName("cont");
-					for (var i = 0; i < elems.length; i += 1) {
-						if(elems[i].classList.contains(this.getAttribute("data-info"))) {
-							break;
-						}
-					}
-					Slider.init(elems[i], this);
-				}else if(this.classList.contains("video_marker")){
-					var elems = document.getElementsByClassName("video_container")[0].getElementsByClassName("cont");
-					for (var i = 0; i < elems.length; i += 1) {
-						if (elems[i].classList.contains(this.getAttribute("data-info"))) {
-							break;
-						}
-					}
-					Video.init(elems[i], this);
-				}
-				this.classList.add('hide')
-			});
 		}
 		window.loader = new (function () {
 			this.show_loader = function () {
@@ -387,7 +335,6 @@
 		panos_opened = false;
 		close_all_check();
 	}
-
 	function show_panos() {
 		show_hide_panos.classList.add('active');
 		panos_opened = true;
