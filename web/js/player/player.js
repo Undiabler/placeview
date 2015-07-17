@@ -249,7 +249,7 @@
 		});
 
 		show = function show_info_block(id) {
-			var el = document.getElementById(id);
+			var el = document.getElementById('hotspot_'+id);
 			if(!el) return "no such elem";
 			console.log(el);
 			if(el.classList.contains("information_block")){
