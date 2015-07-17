@@ -163,6 +163,7 @@ var pano_menu = {};
 			},
 		};
 
+		//pзакрыть видео инфоблок
 		document.getElementsByClassName("video_container")[0].getElementsByClassName("close")[0].addEventListener("click",function(){
 			Video.close();
 		});
@@ -204,10 +205,13 @@ var pano_menu = {};
 			tutorial.classList.add("active");
 		elem_position();
 		close_all_check();
+
+		//закрыть фото слайдер
 		photo_container.getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function(){
 			Slider.close();
 		});
 
+		//предыдущее фото
 		photo_container.getElementsByClassName("control")[0].getElementsByClassName("back")[0].addEventListener('click',function(){
 			//prev slide
 			Slider.prevSlide();
