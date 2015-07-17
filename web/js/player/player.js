@@ -3,7 +3,6 @@
 	var multimenu_opened = true;
 	var panos_opened = true;
 
-
 	window.onresize = function() {
 		elem_position();
 	}
@@ -258,24 +257,6 @@
 				el.classList.add("active");
 				document.getElementsByClassName("info_container")[0].style.left = "50px";
 				document.getElementsByClassName("info_container")[0].style.top = "50px";
-/*
-				if(this.offsetLeft > document.getElementById("player").clientWidth/2){
-					document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft - document.getElementsByClassName("info_container")[0].clientWidth + "px";
-				}
-				else{
-					document.getElementsByClassName("info_container")[0].style.left = this.offsetLeft + "px";
-				}
-				if(this.offsetTop > document.getElementById("player").clientHeight/2){
-					if(this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight<0) {
-						document.getElementsByClassName("info_container")[0].style.top = "0px";
-					}else{
-						document.getElementsByClassName("info_container")[0].style.top = this.offsetTop - document.getElementsByClassName("info_container")[0].clientHeight + "px";
-					}
-				}
-				else{
-					document.getElementsByClassName("info_container")[0].style.top = this.offsetTop + "px";
-				}
-*/
 			}else if(el.classList.contains("photo_album")){
 				Slider.init(el);
 			}else if(el.classList.contains("video_album")){
