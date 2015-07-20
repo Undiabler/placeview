@@ -15,7 +15,6 @@ var pano_menu = {};
 		multimenu = document.getElementById('multimenu');
 		select_lang = multimenu.getElementsByClassName('lang')[0];
 		multimenu_controls = multimenu.getElementsByClassName("icon");
-		photo_container = document.getElementsByClassName("photo_container")[0];
 		big_menu = multimenu.getElementsByClassName("panels")[0].getElementsByClassName("menu")[0].getElementsByClassName("elem");
 		select_size = document.getElementById("share").getElementsByClassName("select")[0];
 
@@ -164,31 +163,42 @@ var pano_menu = {};
 		};
 
 		//pзакрыть видео инфоблок
-		document.getElementsByClassName("video_container")[0].getElementsByClassName("close")[0].addEventListener("click",function(){
-			Video.close();
-		});
+		if(document.getElementsByClassName("video_container")[0]) {
+			if(document.getElementsByClassName("video_container")[0].getElementsByClassName("close")[0]) {
+				document.getElementsByClassName("video_container")[0].getElementsByClassName("close")[0].addEventListener("click",function(){
+					Video.close();
+				});
+				var elems = document.getElementsByClassName("video_container")[0].getElementsByClassName("prev");
+				for (var i = 0; i < elems.length; i += 1) {
+					elems[i].addEventListener("click", function() {
+						Video.prev();
+					});
+				}
+				elems = document.getElementsByClassName("video_container")[0].getElementsByClassName("next");
+				for (var i = 0; i < elems.length; i += 1) {
+					elems[i].addEventListener("click", function() {
+						Video.next();
+					});
+				}
 
-		var elems = document.getElementsByClassName("video_container")[0].getElementsByClassName("prev");
-		for (var i = 0; i < elems.length; i += 1) {
-			elems[i].addEventListener("click", function() {
-				Video.prev();
-			});
+			}
 		}
-		elems = document.getElementsByClassName("video_container")[0].getElementsByClassName("next");
-		for (var i = 0; i < elems.length; i += 1) {
-			elems[i].addEventListener("click", function() {
-				Video.next();
-			});
-		}
+		if(document.getElementsByClassName("photo_container")[0]) {
+			photo_container = document.getElementsByClassName("photo_container")[0];
+			if(photo_container.getElementsByClassName("photos")[0]) {
+				if(photo_container.getElementsByClassName("photos")[0].getElementsByClassName("photo")) {
+					var photos = photo_container.getElementsByClassName("photos")[0].getElementsByClassName("photo");
+					//инициализация фотоплеера
+					for(var i = 0; i < photos.length; i += 1) {
+						photos[i].getElementsByTagName("img")[0].addEventListener("click", function() {
+							Slider.nextSlide();
+						});
+						if(photos[i].getElementsByTagName("img")[0].height > photos[i].getElementsByTagName("img")[0].width*1.5) {
+							photos[i].classList.add("horizontal");
+						}
+					}
 
-		var photos = photo_container.getElementsByClassName("photos")[0].getElementsByClassName("photo");
-		//инициализация фотоплеера
-		for(var i = 0; i < photos.length; i += 1) {
-			photos[i].getElementsByTagName("img")[0].addEventListener("click", function() {
-				Slider.nextSlide();
-			});
-			if(photos[i].getElementsByTagName("img")[0].height > photos[i].getElementsByTagName("img")[0].width*1.5) {
-				photos[i].classList.add("horizontal");
+				}
 			}
 		}
 
@@ -207,15 +217,17 @@ var pano_menu = {};
 		close_all_check();
 
 		//закрыть фото слайдер
-		photo_container.getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function(){
-			Slider.close();
-		});
+		if(photo_container) {
+			photo_container.getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function(){
+				Slider.close();
+			});
 
-		//предыдущее фото
-		photo_container.getElementsByClassName("control")[0].getElementsByClassName("back")[0].addEventListener('click',function(){
-			//prev slide
-			Slider.prevSlide();
-		});
+			//предыдущее фото
+			photo_container.getElementsByClassName("control")[0].getElementsByClassName("back")[0].addEventListener('click',function(){
+				//prev slide
+				Slider.prevSlide();
+			});
+		}
 
 		//показать модуль
 		document.getElementById("module_container").getElementsByClassName("control")[0].getElementsByClassName("close")[0].addEventListener('click',function() {
@@ -238,17 +250,19 @@ var pano_menu = {};
 				}
 			});
 		}
-		document.getElementsByClassName('info_container')[0].getElementsByClassName('close')[0].addEventListener('click',function() {
-			var arr = document.getElementsByClassName('marker');
-			for(var i = 0; i < arr.length; i += 1) {
-				arr[i].classList.remove('hide');
-			}
-			document.getElementsByClassName('info_container')[0].classList.remove("active");
-			var elems = document.getElementsByClassName('info_container')[0].getElementsByClassName("cont");
-			for(var i = 0; elems.length > i; i += 1) {
-				elems[i].classList.remove("active");
-			}
-		});
+		if(document.getElementsByClassName('info_container')[0]) {
+			document.getElementsByClassName('info_container')[0].getElementsByClassName('close')[0].addEventListener('click',function() {
+				var arr = document.getElementsByClassName('marker');
+				for(var i = 0; i < arr.length; i += 1) {
+					arr[i].classList.remove('hide');
+				}
+				document.getElementsByClassName('info_container')[0].classList.remove("active");
+				var elems = document.getElementsByClassName('info_container')[0].getElementsByClassName("cont");
+				for(var i = 0; elems.length > i; i += 1) {
+					elems[i].classList.remove("active");
+				}
+			});
+		}
 
 		document.getElementById("subcribe_module").getElementsByClassName("elem")[0].getElementsByClassName("sub")[0].addEventListener("click", function() {
 			document.getElementById("subcribe_module").getElementsByClassName("elem")[0].style.display="none";
@@ -384,10 +398,14 @@ var pano_menu = {};
 		document.getElementsByClassName("slides")[0].style.height = window.innerHeight- document.getElementById("top_menu").clientHeight + "px";
 		document.getElementById("multimenu").style.height = window.innerHeight - document.getElementById("top_menu").clientHeight + "px";
 		document.getElementById("multimenu").getElementsByClassName("menu")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - "px";
-		var photos = document.getElementsByClassName("photos")[0].getElementsByClassName("horizontal");
-		for(var i = 0; i < photos.length; i += 1) {
-			photos[i].getElementsByClassName("im_cont")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
-			photos[i].getElementsByClassName("descr")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
+		if(document.getElementsByClassName("photos")[0]) {
+			if(document.getElementsByClassName("photos")[0].getElementsByClassName("horizontal")) {
+				var photos = document.getElementsByClassName("photos")[0].getElementsByClassName("horizontal");
+						for(var i = 0; i < photos.length; i += 1) {
+					photos[i].getElementsByClassName("im_cont")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
+					photos[i].getElementsByClassName("descr")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
+				}
+			}
 		}
 	}
 
