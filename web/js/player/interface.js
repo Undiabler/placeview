@@ -41,7 +41,7 @@ function ITour(options){
 	}
 	this.call = function(_eval){
 		var krpano = self.get_krpano();
-		if (krpano) krpano.call(_eval); else console.warn("Failed to execute:",_eval);
+		if (krpano && typeof(krpano.call) == "function") krpano.call(_eval); else console.warn("Failed to execute:",_eval);
 	}
 
 	this.block = function(id){
