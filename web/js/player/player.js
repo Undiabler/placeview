@@ -2,6 +2,7 @@ var ui = {};
 var mmenu = {};
 var pano_menu = {};
 (function(){
+	console.log(document.getElementById("krpanoViewer") );
 	var show_hide_panos, multimenu, select_lang, multimenu_controls, select_size, i, length, elems, tutorial, photo_container, big_menu;
 	var multimenu_opened = true;
 	var panos_opened = true;
