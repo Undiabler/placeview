@@ -54,14 +54,15 @@ var pano_menu = {};
 			 */
 			showSlide: function() {
 				photo_container.getElementsByClassName("album_info")[0].getElementsByClassName("amount")[0].getElementsByClassName("cur")[0].innerText = this.cur + 1;
-				photo_container.getElementsByClassName("photo")[this.cur].classList.add("active");
+
+				this.album.getElementsByClassName("photo")[this.cur].classList.add("active");
 			},
 			/**
 			 * [hideSlide прячет текущий слайд(картинку)]
 			 * @return {[type]} [description]
 			 */
 			hideSlide: function() {
-				photo_container.getElementsByClassName("photo")[this.cur].classList.remove("active");
+				this.album.getElementsByClassName("photo")[this.cur].classList.remove("active");
 			},
 			/**
 			 * [close функция для закрытия альбома и всего слайдер]
@@ -99,6 +100,9 @@ var pano_menu = {};
 				for (var i = 0; i < albums.length; i += 1) {
 					albums[i].getElementsByClassName("len")[0].innerText = albums[i].getElementsByTagName("img").length;
 				}
+
+				this.album.getElementsByClassName("photos")[0].getElementsByClassName("photo")[0].classList.add("active");
+
 				this.showSlide();
 			}
 		};
