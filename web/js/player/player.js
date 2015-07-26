@@ -163,6 +163,7 @@ var pano_menu = {};
 				for (var i = 0; i < albums.length; i += 1) {
 					albums[i].getElementsByClassName("len")[0].innerText = this.len;
 				}
+
 				this.show();
 			},
 		};
@@ -188,21 +189,19 @@ var pano_menu = {};
 
 			}
 		}
+
 		if(document.getElementsByClassName("photo_container")[0]) {
 			photo_container = document.getElementsByClassName("photo_container")[0];
-			if(photo_container.getElementsByClassName("photos")[0]) {
-				if(photo_container.getElementsByClassName("photos")[0].getElementsByClassName("photo")) {
-					var photos = photo_container.getElementsByClassName("photos")[0].getElementsByClassName("photo");
-					//инициализация фотоплеера
-					for(var i = 0; i < photos.length; i += 1) {
-						photos[i].getElementsByTagName("img")[0].addEventListener("click", function() {
-							Slider.nextSlide();
-						});
-						if(photos[i].getElementsByTagName("img")[0].height > photos[i].getElementsByTagName("img")[0].width*1.5) {
-							photos[i].classList.add("horizontal");
-						}
+			for(var j = 0; j < photo_container.getElementsByClassName("photos").length; j +=1 ) {
+				var photos = photo_container.getElementsByClassName("photos")[j].getElementsByClassName("photo");
+				//инициализация фотоплеера
+				for(var i = 0; i < photos.length; i += 1) {
+					photos[i].getElementsByTagName("img")[0].addEventListener("click", function() {
+						Slider.nextSlide();
+					});
+					if(photos[i].getElementsByTagName("img")[0].height > photos[i].getElementsByTagName("img")[0].width*1.5) {
+						photos[i].classList.add("horizontal");
 					}
-
 				}
 			}
 		}
@@ -403,13 +402,13 @@ var pano_menu = {};
 		document.getElementsByClassName("slides")[0].style.height = window.innerHeight- document.getElementById("top_menu").clientHeight + "px";
 		document.getElementById("multimenu").style.height = window.innerHeight - document.getElementById("top_menu").clientHeight + "px";
 		document.getElementById("multimenu").getElementsByClassName("menu")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - "px";
-		if(document.getElementsByClassName("photos")[0]) {
-			if(document.getElementsByClassName("photos")[0].getElementsByClassName("horizontal")) {
-				var photos = document.getElementsByClassName("photos")[0].getElementsByClassName("horizontal");
+		for(var j = 0; j < document.getElementsByClassName("photos").length; j += 1){
+			if(document.getElementsByClassName("photos")[j].getElementsByClassName("horizontal")) {
+				var photos = document.getElementsByClassName("photos")[j].getElementsByClassName("horizontal");
 						for(var i = 0; i < photos.length; i += 1) {
-					photos[i].getElementsByClassName("im_cont")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
-					photos[i].getElementsByClassName("descr")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
-				}
+							photos[i].getElementsByClassName("im_cont")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
+							photos[i].getElementsByClassName("descr")[0].style.height = window.innerHeight - document.getElementById("top_menu").clientHeight - 14 + "px";
+						}
 			}
 		}
 	}
